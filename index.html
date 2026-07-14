@@ -3,1816 +3,2110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TubeLulu 인플루언서 제안서</title>
-<meta property="og:title" content="TubeLulu Influencer Proposal">
-<meta property="og:description" content="인플루언서를 위한 TubeLulu 서비스 제안">
+<title>TubeLuLu 서비스 소개서</title>
+<meta name="description" content="TubeLuLu — 큐레이터의 해석을 먼저 읽는 서비스. 유튜브 큐레이션과 유료 질문으로 팬과 더 깊이 연결되는 프리미엄 큐레이션 플랫폼 소개서.">
+<meta property="og:title" content="TubeLuLu 서비스 소개서">
+<meta property="og:description" content="큐레이터의 해석을 먼저 읽고, 원문 영상과 질문·답변 흐름을 이어가는 큐레이션 서비스 TubeLuLu를 소개합니다.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://momo-lulu.github.io/tubelulu/main.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Noto+Serif+KR:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-/* ===== Design System v6 — Brand accent + black text ===== */
+/* ============================================================
+   TubeLuLu Service Introduction — Design System (Boise, Light)
+   Brand: navy #09347A · sky #3399CC · warm point #F1632A
+   ============================================================ */
 :root {
-  --brand: oklch(51.4% .228 250);
-  --accent: oklch(51.4% .228 250);
-  --accent-dark: oklch(26% .18 250);
-  --accent-light: oklch(51.4% .228 250 / 0.10);
-  --accent-border: oklch(51.4% .228 250 / 0.18);
-  --text-primary: #111111;
-  --text-secondary: #5A5A5A;
-  --text-muted: #9CA3AF;
+  --navy: #09347A;
+  --navy-deep: #062654;
+  --navy-hover: #13478F;
+  --blue: #007DC3;
+  --blue-d: #0169A4;
+  --sky: #3399CC;
+  --sky-mid: #2284B8;
+  --sky-wash: #E6F4FB;
+  --orange: #F1632A;
+  --orange-soft: #FDE6DC;
   --bg: #FFFFFF;
-  --bg-subtle: #F8F8FA;
-  --card: #FFFFFF;
-  --border: #EBEBEB;
-  --shadow: rgba(0, 0, 0, 0.06);
-  /* Phone mockup sub-system */
-  --pm-frame: oklch(20% .16 250);
-  --pm-screen: #f8fafc;
-  --pm-app-accent: oklch(51.4% .228 250);
-  --pm-ui-panel: oklch(95% .04 250);
-  --pm-ui-border: oklch(80% .09 250);
-  --pm-ui-divider: #f1f5f9;
-  --pm-avatar-warm: #f59e0b;
+  --bg-subtle: #F6F6F5;
+  --canvas: #FAFAFA;
+  --text: #111827;
+  --text-strong: #0F172A;
+  --text-muted: #6B7280;
+  --text-faint: #9CA3AF;
+  --border: #E5E7EB;
+  --border-soft: #F0F1F3;
+  --shadow: rgba(9, 52, 122, 0.08);
+  --radius: 16px;
+  --radius-sm: 12px;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
-  width: 100%; height: 100%; overflow: hidden;
-  font-family: 'Noto Sans KR', sans-serif;
-  background: #000; /* 축소 시 여백 색상 */
-}
-
-.presentation {
-  width: 1280px;  /* 기준 너비 */
-  height: 720px;  /* 기준 높이 */
-  transform-origin: top left;
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  background: var(--bg);
+  background: #0A0F1A; /* letterbox behind scaled stage */
 }
 
-/* Slide base */
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  font-feature-settings: "tnum";
+  -webkit-font-smoothing: antialiased;
+}
+
+.wm-font { font-family: "Poppins", "Pretendard Variable", sans-serif; }
+
+/* ---------- Stage & slides ---------- */
+.presentation {
+  width: 1280px;
+  height: 720px;
+  position: absolute;
+  transform-origin: top left;
+  background: var(--bg);
+  overflow: hidden;
+}
+
 .slide {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  display: none; background: var(--bg);
-  padding: 52px 100px 80px;
-  opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  position: absolute;
+  inset: 0;
+  padding: 52px 96px 92px;
+  display: none;
+  flex-direction: column;
+  background: var(--bg);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+.slide.active { display: flex; }
+.slide.anim-stage { display: flex; }
+
+/* ---------- Shared typography ---------- */
+.slide-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sky-mid);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.slide-title {
+  font-size: 41px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  color: var(--text-strong);
+}
+.slide-title .hl {
+  color: var(--navy);
+  position: relative;
+  display: inline-block;
+}
+.slide-title .hl::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: 4px;
+  height: 12px;
+  background: var(--sky-wash);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.slide-subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.slide-header { margin-bottom: 36px; }
+.slide-header.center { text-align: center; }
+.slide-header.center .slide-eyebrow { justify-content: center; }
+
+.slide-body {
+  flex: 1;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.slide.active { display: flex; opacity: 1; }
-.slide.slide-out-left { transform: translateX(-100%); opacity: 0; }
-.slide.slide-out-right { transform: translateX(100%); opacity: 0; }
-.slide.slide-in-left { transform: translateX(-100%); opacity: 0; }
-.slide.slide-in-right { transform: translateX(100%); opacity: 0; }
-.slide.transitioning { display: flex; transition: transform 0.5s ease-out, opacity 0.5s ease-out; }
-
-/* Typography */
-.slide-title {
-  font-size: 44px; font-weight: 800; color: var(--text-primary);
-  line-height: 1.25; margin-bottom: 14px; letter-spacing: -0.03em; word-break: keep-all;
-}
-.slide-title .highlight {
-  color: var(--accent); position: relative;
-}
-.slide-title .highlight::after {
-  content: ''; position: absolute; bottom: 2px; left: 0;
-  width: 100%; height: 8px; background: oklch(51.4% .228 277.018 / 0.12); z-index: -1;
-}
-.title-accent {
-  width: 80px; height: 3px; background: var(--accent);
-  margin: 0 auto; border-radius: 2px;
-}
-.slide-subtitle {
-  font-size: 19px; font-weight: 300; color: var(--text-secondary);
-  line-height: 1.5; word-break: keep-all;
-}
-.slide-header { text-align: center; margin-bottom: 24px; }
-.slide-content {
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  position: relative; z-index: 1;
+  min-height: 0;
 }
 
-/* Cards */
+/* ---------- Shared components ---------- */
 .card {
-  background: var(--card); border-radius: 12px; padding: 28px;
-  box-shadow: 0 1px 6px var(--shadow); border: 1px solid var(--border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 14px var(--shadow);
 }
-.card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px oklch(51.4% .228 277.018 / 0.10); }
-.card.border-top-red    { border-top: 3px solid var(--accent); }
-.card.border-top-orange { border-top: 3px solid var(--accent); }
-.card.border-top-purple { border-top: 3px solid var(--accent); }
-.card.border-top-green  { border-top: 3px solid var(--accent); }
-.card.border-top-teal   { border-top: 3px solid var(--accent); }
-.card.border-top-navy   { border-top: 3px solid var(--accent); }
-.card.border-left-purple { border-left: 3px solid var(--accent); }
-.card.border-left-red    { border-left: 3px solid var(--accent); }
 
-/* Icon boxes — unified single accent */
 .icon-box {
-  width: 56px; height: 56px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  background: var(--accent-light); color: var(--accent);
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--sky-wash);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  flex-shrink: 0;
 }
-.icon-box i { font-size: 24px; }
-.icon-box.purple { background: var(--accent-light); color: var(--accent); }
-.icon-box.navy   { background: var(--accent-light); color: var(--accent); }
-.icon-box.teal   { background: var(--accent-light); color: var(--accent); }
-.icon-box.green  { background: var(--accent-light); color: var(--accent); }
-.icon-box.red    { background: var(--accent-light); color: var(--accent); }
-.icon-box.orange { background: var(--accent-light); color: var(--accent); }
-.icon-box.small  { width: 40px; height: 40px; }
-.icon-box.small i { font-size: 16px; }
 
-/* Footer bar — flex 흐름 참여 (절대 위치 제거) */
-.footer-bar {
-  text-align: center; padding: 16px 32px;
-  background: var(--accent-light); border-radius: 10px;
-  border: 1px solid var(--accent-border);
-  margin-top: 20px;
+.slide-insight {
+  margin: 34px auto 0;
+  max-width: 980px;
+  background: var(--sky-wash);
+  border: 1px solid rgba(51, 153, 204, 0.35);
+  border-radius: 999px;
+  padding: 15px 34px;
+  text-align: center;
+  font-size: 16.5px;
+  font-weight: 500;
+  color: var(--navy-deep);
+  line-height: 1.55;
 }
-.footer-bar p { font-size: 15px; font-weight: 500; color: var(--text-primary); line-height: 1.5; word-break: keep-all; }
-
-/* Emphasis box */
-.emphasis-box {
-  background: var(--accent); border-radius: 12px;
-  padding: 22px 44px; text-align: center;
-  box-shadow: 0 4px 16px oklch(51.4% .228 277.018 / 0.25);
-  position: relative; overflow: hidden; margin: 0 auto;
+.slide-insight strong { color: var(--navy); font-weight: 800; }
+.slide-insight.with-sub { border-radius: 20px; }
+.slide-insight .insight-sub {
+  display: block;
+  margin-top: 6px;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: rgba(6, 38, 84, 0.72);
 }
-.emphasis-box p { font-size: 20px; font-weight: 700; color: white; position: relative; z-index: 1; word-break: keep-all; }
 
-/* 3-col grid */
-.cards-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; max-width: 1100px; width: 100%; }
-.cards-grid-3 .card { opacity: 0; }
-
-/* Accent dots */
-.accent-dot { position: absolute; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; opacity: 0.2; pointer-events: none; }
-.dot-1 { top: 100px; left: 120px; }
-.dot-2 { top: 140px; right: 150px; }
-.dot-3 { bottom: 140px; left: 180px; }
-.dot-4 { bottom: 140px; right: 180px; }
-
-/* Animations */
-@keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-@keyframes fadeInLeft { from { opacity:0; transform:translateX(-30px); } to { opacity:1; transform:translateX(0); } }
-@keyframes fadeInRight { from { opacity:0; transform:translateX(30px); } to { opacity:1; transform:translateX(0); } }
-@keyframes scaleIn { from { opacity:0; transform:scale(0.8); } to { opacity:1; transform:scale(1); } }
-@keyframes bounceIn {
-  0% { opacity:0; transform:scale(0.3); }
-  50% { transform:scale(1.05); }
-  70% { transform:scale(0.95); }
-  100% { opacity:1; transform:scale(1); }
+.heart-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFF4EF;
+  border: 1px solid #F8C4AC;
+  color: #C74A17;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
 }
-@keyframes rotate { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
-@keyframes drawLine { from { height: 0; } to { height: 400px; } }
+.heart-pill i { font-size: 11px; color: var(--orange); }
 
-/* ===== SLIDE 1 — Cover ===== */
-.slide-cover { padding: 0; overflow: hidden; }
-.cover-inner {
-  display: flex; width: 100%; height: 100%; align-items: stretch;
-}
+/* ---------- Animations ---------- */
+@keyframes fadeInUp   { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInLeft { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeInRight{ from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes scaleIn    { from { opacity: 0; transform: scale(0.86); } to { opacity: 1; transform: scale(1); } }
+@keyframes drawLine   { from { height: 0; } to { height: 380px; } }
+@keyframes spinSlow   { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.a-up, .a-left, .a-right, .a-scale { opacity: 0; }
+.slide.active .a-up    { animation: fadeInUp 0.7s ease forwards; }
+.slide.active .a-left  { animation: fadeInLeft 0.7s ease forwards; }
+.slide.active .a-right { animation: fadeInRight 0.7s ease forwards; }
+.slide.active .a-scale { animation: scaleIn 0.6s ease forwards; }
+.d1 { animation-delay: 0.10s !important; }
+.d2 { animation-delay: 0.20s !important; }
+.d3 { animation-delay: 0.30s !important; }
+.d4 { animation-delay: 0.40s !important; }
+.d5 { animation-delay: 0.50s !important; }
+.d6 { animation-delay: 0.60s !important; }
+.d7 { animation-delay: 0.70s !important; }
+
+/* ============================================================
+   Slide 1 — Cover
+   ============================================================ */
+.slide-cover { padding: 0; flex-direction: row; }
+
 .cover-left {
-  width: 35%; display: flex; flex-direction: row;
-  align-items: center; justify-content: flex-end;
-  padding-right: 48px;
-  background: var(--bg-subtle); gap: 16px;
-  position: relative; z-index: 2;
+  width: 38%;
+  height: 100%;
+  background: var(--bg-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 56px;
+  position: relative;
+  z-index: 2;
 }
-.brand-icon {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: transparent; border: 5px solid var(--accent);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 6px;
+.cover-brand { text-align: right; }
+.cover-symbol { width: 104px; height: 104px; margin-bottom: 26px; }
+.cover-wordmark {
+  font-family: "Poppins", sans-serif;
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
-.brand-name {
-  font-size: 72px; font-weight: 900; color: var(--accent);
-  letter-spacing: -0.03em; line-height: 1;
+.cover-wordmark .t { color: var(--navy); }
+.cover-wordmark .l { color: var(--sky); }
+.cover-brand-sub {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
 }
+
 .cover-divider {
-  width: 2px; background: var(--border); position: relative;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  overflow: hidden;
+  position: absolute;
+  left: 38%;
+  top: 170px;
+  width: 2px;
+  z-index: 3;
 }
 .cover-divider-line {
-  width: 2px; background: linear-gradient(to bottom, oklch(51.4% .228 277.018 / 0.5), var(--accent));
+  width: 2px;
   height: 0;
+  background: linear-gradient(to bottom, var(--sky), var(--navy));
+  border-radius: 2px;
 }
-.slide.active .cover-divider-line {
-  animation: drawLine 0.8s ease 0.3s forwards;
-}
-.divider-dot { display: none; }
+.slide.active .cover-divider-line { animation: drawLine 0.9s ease-out 0.15s forwards; }
+
 .cover-right {
-  flex: 1; display: flex; flex-direction: column;
-  align-items: flex-start; justify-content: center;
-  padding: 80px 80px 80px 60px;
-  background: var(--bg); position: relative; overflow: hidden;
-}
-.cover-copy {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 72px;
   position: relative;
-  z-index: 1;
-}
-.main-message-wrap {
-  position: relative;
-  margin-bottom: 20px;
+  overflow: hidden;
 }
 .cover-bg-circle {
   position: absolute;
-  width: 600px;
-  height: 600px;
-  border: 2px dashed oklch(51.4% .228 250 / 0.15);
+  width: 620px;
+  height: 620px;
+  border: 2px dashed rgba(51, 153, 204, 0.28);
   border-radius: 50%;
-  top: -200%;
-  left: -10%;
-  transform: translate(-50%, -50%);
-  animation: rotate 60s linear infinite;
+  right: -180px;
+  top: 50%;
+  margin-top: -310px;
+  animation: spinSlow 70s linear infinite;
   pointer-events: none;
 }
-.main-message {
-  font-size: 42px; font-weight: 800; color: var(--text-primary);
-  line-height: 1.3; margin-bottom: 0; word-break: keep-all;
-  position: relative; z-index: 2; letter-spacing: -0.03em;
+.cover-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--sky-mid);
+  margin-bottom: 26px;
 }
-.sub-message {
-  font-size: 20px; font-weight: 300; color: var(--text-secondary); line-height: 1.7;
-  margin-bottom: 28px; word-break: keep-all; position: relative; z-index: 2;
+.cover-message {
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.32;
+  color: var(--text-strong);
+  position: relative;
+  z-index: 2;
 }
-.beta-tag {
-  display: inline-block; padding: 8px 20px;
-  background: var(--accent); color: white;
-  border-radius: 50px; font-size: 14px; font-weight: 600;
-  letter-spacing: 0.02em; position: relative; z-index: 2;
+.cover-message .hl { color: var(--navy); }
+.cover-tagline {
+  margin-top: 24px;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+.cover-link {
+  margin-top: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  padding: 11px 24px;
+  width: fit-content;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.cover-link i { font-size: 11px; color: var(--sky-mid); transition: color 0.2s ease; }
+.cover-link:hover { background: var(--navy); color: #FFFFFF; }
+.cover-link:hover i { color: #9FD4EE; }
+
+/* ============================================================
+   Slide 2 — Pain (3 cards)
+   ============================================================ */
+.cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+}
+.pain-card {
+  border-top: 3px solid var(--sky);
+  padding: 30px 26px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.pain-card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px var(--shadow); }
+.pain-card .icon-box { margin: 0 auto 18px; border-radius: 50%; }
+.pain-card h3 {
+  font-size: 18.5px;
+  font-weight: 700;
+  color: var(--text-strong);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.pain-card p {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.65;
 }
 
-/* ===== SLIDE 2 — 고통 ===== */
-.slide.active .cards-grid-3 .card {
-  animation: fadeInUp 0.5s ease forwards;
+/* ============================================================
+   Slide 3 — Paradigm shift (message list)
+   ============================================================ */
+.message-list {
+  max-width: 820px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-.slide.active .cards-grid-3 .card:nth-child(1) { animation-delay: 0.1s; }
-.slide.active .cards-grid-3 .card:nth-child(2) { animation-delay: 0.2s; }
-.slide.active .cards-grid-3 .card:nth-child(3) { animation-delay: 0.3s; }
+.message-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-left: 3px solid var(--sky);
+  padding: 20px 26px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.message-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px var(--shadow); }
+.message-card .icon-box { width: 46px; height: 46px; font-size: 18px; border-radius: 50%; }
+.message-card p { font-size: 17px; font-weight: 500; line-height: 1.55; color: var(--text); }
+.message-card p strong { color: var(--navy); font-weight: 800; }
+.message-card.key { border-left-color: var(--navy); background: linear-gradient(90deg, var(--sky-wash), var(--bg) 55%); }
 
-.pain-card-icon { margin-bottom: 16px; }
-.pain-card h4 { font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; line-height: 1.4; word-break: keep-all; }
-.pain-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; word-break: keep-all; }
+/* ============================================================
+   Slide 4 — Market
+   ============================================================ */
+.market-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1000px;
+  margin: 0 auto 22px;
+  width: 100%;
+}
+.stat-tile {
+  border-bottom: 3px solid var(--sky);
+  padding: 20px 20px 16px;
+  text-align: center;
+}
+.stat-num {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  line-height: 1;
+}
+.stat-num small { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; }
+.stat-label { margin-top: 10px; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+.stat-source {
+  margin: 10px auto 0;
+  max-width: 1000px;
+  width: 100%;
+  text-align: right;
+  font-size: 10.5px;
+  color: var(--text-faint);
+}
 
-/* ===== SLIDE 3 — 선언 ===== */
-.problem-list { display: flex; flex-direction: column; gap: 16px; max-width: 860px; width: 100%; }
-.problem-item {
-  display: flex; align-items: center; gap: 20px;
-  padding: 20px 24px; opacity: 0;
+.market-table {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 14px var(--shadow);
 }
-.slide.active .problem-item:nth-child(1) { animation: fadeInLeft 0.5s ease 0.1s forwards; }
-.slide.active .problem-item:nth-child(2) { animation: fadeInLeft 0.5s ease 0.2s forwards; }
-.slide.active .problem-item:nth-child(3) { animation: fadeInLeft 0.5s ease 0.3s forwards; }
-.problem-number {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--accent); color: white;
-  font-size: 18px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+.market-table th {
+  background: var(--navy);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  padding: 13px 24px;
 }
-.problem-item p { font-size: 16px; color: var(--text-primary); line-height: 1.6; word-break: keep-all; flex: 1; }
-.warning-icon { margin-left: auto; font-size: 22px; color: var(--accent); flex-shrink: 0; }
+.market-table td {
+  padding: 15px 24px;
+  font-size: 15px;
+  border-top: 1px solid var(--border-soft);
+  background: var(--bg);
+}
+.market-table tr:hover td { background: var(--sky-wash); }
+.market-table .svc { font-weight: 700; color: var(--text-strong); white-space: nowrap; }
+.market-table .svc small { display: block; font-weight: 500; color: var(--text-faint); font-size: 12px; margin-top: 2px; }
+.market-table .desc { color: var(--text-muted); line-height: 1.5; }
 
-/* ===== Slide 3 — Paradigm Shift ===== */
-.consume-section { display: flex; flex-direction: column; align-items: flex-start; width: 100%; gap: 10px; }
-.consume-label { font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.07em; text-transform: uppercase; }
-.consume-cards { display: flex; gap: 20px; width: 100%; }
-.consume-card { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 22px 20px; opacity: 0; }
-.slide.active .consume-card:nth-child(1) { animation: fadeInUp 0.5s ease 0.1s forwards; }
-.slide.active .consume-card:nth-child(2) { animation: fadeInUp 0.5s ease 0.2s forwards; }
-.slide.active .consume-card:nth-child(3) { animation: fadeInUp 0.5s ease 0.3s forwards; }
-.consume-card h4 { font-size: 17px; font-weight: 700; color: var(--text-primary); }
-.consume-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; word-break: keep-all; }
-.consume-arrow { display: flex; align-items: center; justify-content: center; width: 100%; margin: 14px 0; color: var(--accent); font-size: 24px; opacity: 0; }
-.slide.active .consume-arrow { animation: fadeInUp 0.4s ease 0.45s forwards; }
-.conversion-box {
-  background: var(--accent-dark); border-radius: 14px; padding: 26px 36px;
-  width: 100%; display: flex; align-items: center; gap: 0; opacity: 0;
+/* ============================================================
+   Slide 5 — Gap (compare) & Slide 7 — Fan psychology
+   ============================================================ */
+.compare-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  max-width: 1060px;
+  margin: 0 auto;
+  width: 100%;
 }
-.slide.active .conversion-box { animation: scaleIn 0.5s ease 0.55s forwards; }
-.conversion-brand { font-size: 20px; font-weight: 900; color: var(--accent); letter-spacing: -0.02em; flex-shrink: 0; padding-right: 36px; border-right: 2px solid rgba(255,255,255,0.12); margin-right: 36px; }
-.conversion-rows { display: flex; flex-direction: column; gap: 10px; flex: 1; }
-.conversion-row { display: flex; align-items: center; gap: 16px; }
-.conversion-from { font-size: 14px; color: rgba(255,255,255,0.45); text-decoration: line-through; flex: 1; }
-.conversion-arrow-icon { color: var(--accent); flex-shrink: 0; font-size: 13px; }
-.conversion-to { font-size: 14px; font-weight: 600; color: white; flex: 1; }
-.message-list { display: flex; flex-direction: column; gap: 10px; max-width: 780px; width: 100%; }
-.message-card { display: flex; align-items: center; gap: 20px; padding: 13px 20px; opacity: 0; transition: transform 0.3s ease; }
-.slide.active .message-card { animation: fadeInUp 0.5s ease forwards; }
-.slide.active .message-card:nth-child(1) { animation-delay: 0.1s; }
-.slide.active .message-card:nth-child(2) { animation-delay: 0.2s; }
-.slide.active .message-card:nth-child(3) { animation-delay: 0.3s; }
-.slide.active .message-card:nth-child(4) { animation-delay: 0.4s; }
-.message-card:hover { transform: translateY(-3px); }
-.message-card p { font-size: 16px; font-weight: 500; color: var(--text-primary); line-height: 1.6; flex: 1; word-break: keep-all; }
+.compare-col { padding: 26px 28px; }
+.compare-col.neg { border-top: 3px solid var(--text-faint); }
+.compare-col.pos { border-top: 3px solid var(--navy); background: linear-gradient(180deg, rgba(230,244,251,0.5), var(--bg) 45%); }
+.compare-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.compare-col.neg .compare-head { color: var(--text-muted); }
+.compare-col.pos .compare-head { color: var(--navy); }
+.compare-head i { font-size: 19px; }
+.compare-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+}
+.compare-item:last-child { margin-bottom: 0; }
+.compare-item i { margin-top: 3px; font-size: 14px; flex-shrink: 0; }
+.compare-col.neg .compare-item i { color: var(--text-faint); }
+.compare-col.pos .compare-item i { color: var(--sky-mid); }
+.compare-col.pos .compare-item { background: #FBFDFE; border: 1px solid var(--sky-wash); }
+.compare-item strong { color: var(--navy); font-weight: 700; }
 
-/* ===== SLIDE 4 — 시장 ===== */
-.market-stats-row {
-  display: flex; gap: 14px; margin-bottom: 18px; width: 100%; max-width: 1000px;
+.badge-note {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--text-muted);
 }
-.market-stat-item {
-  flex: 1; background: var(--card); border-radius: 12px; padding: 12px 16px;
-  text-align: center; box-shadow: 0 1px 6px var(--shadow);
-  border: 1px solid var(--border); border-bottom: 3px solid var(--accent); opacity: 0;
-}
-.market-stat-number {
-  font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.02em;
-}
-.market-stat-label {
-  font-size: 11px; color: var(--text-secondary); margin-top: 3px; word-break: keep-all; line-height: 1.4;
-}
-.comp-table {
-  width: 100%; max-width: 1000px; border-radius: 14px; overflow: hidden;
-  box-shadow: 0 1px 8px var(--shadow); border: 1px solid var(--border);
-  background: var(--card);
-}
-.comp-table-head {
-  display: grid; grid-template-columns: 1.1fr 1.8fr 2.4fr;
-  background: var(--accent-dark); padding: 10px 20px; gap: 12px;
-}
-.comp-table-head span {
-  font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.05em;
-}
-.comp-table-row {
-  display: grid; grid-template-columns: 1.1fr 1.8fr 2.4fr;
-  padding: 12px 20px; gap: 12px; border-bottom: 1px solid var(--border);
-  align-items: center; transition: background 0.2s ease;
-}
-.comp-table-row:last-child { border-bottom: none; }
-.comp-table-row:hover { background: var(--accent-light); }
-.comp-service-name { font-size: 13px; font-weight: 700; color: var(--text-primary); }
-.comp-service-name span { display: block; font-size: 11px; font-weight: 400; color: var(--text-muted); margin-top: 1px; }
-.comp-similar { font-size: 12px; color: var(--text-secondary); word-break: keep-all; line-height: 1.5; }
-.comp-barrier {
-  font-size: 12px; color: var(--text-secondary); word-break: keep-all; line-height: 1.5;
-  display: flex; align-items: flex-start; gap: 6px;
-}
-.comp-barrier i { margin-top: 2px; flex-shrink: 0; font-size: 11px; color: var(--accent); }
-.async-badge {
-  background: var(--accent-light); border: 1px solid var(--accent-border);
-  border-radius: 12px; padding: 12px 24px; max-width: 1000px; width: 100%; margin-top: 14px;
-  text-align: center; opacity: 0;
-}
-.async-badge p { font-size: 14px; font-weight: 700; color: var(--text-primary); word-break: keep-all; line-height: 1.6; }
-.async-badge span { color: var(--accent); }
 
-/* ===== SLIDE 6 — 서비스 화면 (솔루션 + 차별화) ===== */
-.bridge-notice {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 20px;
-  background: var(--accent-light); border-left: 3px solid var(--accent);
-  border-radius: 8px; margin-bottom: 20px; max-width: 900px; width: 100%; opacity: 0;
+/* ============================================================
+   Slide 6 — Experience (solution rows + diff cards + phone)
+   ============================================================ */
+.exp-wrap {
+  display: flex;
+  gap: 56px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  width: 100%;
 }
-.slide.active .bridge-notice { animation: fadeInUp 0.4s ease 0.1s forwards; }
-.bridge-notice p { font-size: 14px; color: var(--text-secondary); word-break: keep-all; }
-.solution-container { display: flex; gap: 40px; align-items: flex-start; max-width: 1100px; }
-.solution-left-col { display: flex; flex-direction: column; gap: 20px; flex: 0 0 480px; }
-.solution-list { display: flex; flex-direction: column; gap: 10px; }
+.exp-left { flex: 1; min-width: 0; }
+
 .solution-row {
-  display: flex; align-items: center; gap: 16px;
-  padding: 13px 18px; background: var(--card);
-  border-radius: 12px; box-shadow: 0 1px 5px var(--shadow);
-  border: 1px solid var(--border); opacity: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
 }
-.slide.active .solution-row:nth-child(1) { animation: fadeInLeft 0.5s ease 0.2s forwards; }
-.slide.active .solution-row:nth-child(2) { animation: fadeInLeft 0.5s ease 0.3s forwards; }
-.slide.active .solution-row:nth-child(3) { animation: fadeInLeft 0.5s ease 0.4s forwards; }
-.slide.active .solution-row:nth-child(4) { animation: fadeInLeft 0.5s ease 0.5s forwards; }
-.solution-problem { flex: 0 0 160px; display: flex; align-items: center; gap: 10px; }
-.solution-problem .icon-box { width: 36px; height: 36px; border-radius: 50%; background: var(--bg-subtle); color: var(--text-muted); }
-.solution-problem .icon-box i { font-size: 14px; }
-.solution-problem span { font-size: 14px; color: var(--text-secondary); word-break: keep-all; line-height: 1.4; }
-.solution-arrow { font-size: 18px; color: var(--accent); flex-shrink: 0; }
-.solution-answer { flex: 1; display: flex; align-items: center; gap: 10px; }
-.solution-answer .icon-box { width: 36px; height: 36px; border-radius: 50%; background: var(--accent-light); color: var(--accent); }
-.solution-answer .icon-box i { font-size: 14px; }
-.solution-answer span { font-size: 14px; font-weight: 600; color: var(--text-primary); word-break: keep-all; line-height: 1.4; }
-.highlight-box {
-  flex: 0 0 240px; background: var(--accent-dark); border-radius: 20px;
-  padding: 28px 20px; text-align: center;
-  display: flex; flex-direction: column; align-items: center; gap: 14px; opacity: 0;
+.sol-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.4;
 }
-.slide.active .highlight-box { animation: scaleIn 0.5s ease 0.6s forwards; }
-.icon-wrapper {
-  width: 72px; height: 72px; border-radius: 50%;
-  background: oklch(51.4% .228 277.018 / 0.2); display: flex; align-items: center; justify-content: center;
-}
-.icon-wrapper i { font-size: 32px; color: var(--accent); }
-.highlight-box h3 { font-size: 18px; font-weight: 700; color: white; line-height: 1.5; word-break: keep-all; }
-.highlight-box p { font-size: 14px; color: rgba(255,255,255,0.6); }
+.sol-cell i { font-size: 17px; flex-shrink: 0; }
+.sol-cell.q { color: var(--text-muted); }
+.sol-cell.q i { color: var(--text-faint); }
+.sol-cell.a { background: var(--sky-wash); color: var(--navy-deep); font-weight: 600; }
+.sol-cell.a i { color: var(--navy); }
+.sol-arrow { color: var(--sky); font-size: 15px; flex-shrink: 0; }
 
-/* Diff cards */
-.diff-cards { display: flex; gap: 20px; width: 100%; max-width: 1000px; }
-.diff-card {
-  flex: 1; background: var(--card); border-radius: 12px; padding: 20px 16px;
-  box-shadow: 0 1px 6px var(--shadow); border: 1px solid var(--border);
-  display: flex; flex-direction: column;
-  align-items: center; text-align: center; gap: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; opacity: 0;
+.diff-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+.diff-card { border-top: 3px solid var(--navy); padding: 18px 20px; }
+.diff-card .dc-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.diff-card .dc-head i { color: var(--navy); font-size: 17px; }
+.diff-card h4 { font-size: 15.5px; font-weight: 800; color: var(--text-strong); }
+.diff-card .dc-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--sky-mid);
+  background: var(--sky-wash);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 8px;
 }
-.slide.active .diff-card:nth-child(1) { animation: fadeInUp 0.5s ease 0.7s forwards; }
-.slide.active .diff-card:nth-child(2) { animation: fadeInUp 0.5s ease 0.8s forwards; }
-.slide.active .diff-card:nth-child(3) { animation: fadeInUp 0.5s ease 0.9s forwards; }
-.diff-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px oklch(51.4% .228 277.018 / 0.12); }
-.diff-card.card-1, .diff-card.card-2, .diff-card.card-3 { border-top: 3px solid var(--accent); }
-.diff-card-num {
-  width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 800; color: white; background: var(--accent);
-}
-.diff-card-icon { font-size: 28px; color: var(--accent); }
-.diff-card-title { font-size: 15px; font-weight: 700; color: var(--text-primary); word-break: keep-all; line-height: 1.3; }
-.diff-card-keyword {
-  font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px;
-  letter-spacing: 0.02em; background: var(--accent-light); color: var(--accent);
-}
-.diff-card-divider { width: 36px; height: 2px; border-radius: 1px; background: var(--accent); }
-.diff-card-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.6; word-break: keep-all; }
+.diff-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
-/* ===== SLIDE 5 — 서비스 화면 ===== */
-.phone-slide-row {
-  display: flex; align-items: center; justify-content: center;
-  gap: 40px; width: 100%; max-width: 900px; height: 100%;
-}
-.phone-ctx-col { flex: 1; display: flex; flex-direction: column; gap: 14px; }
-.phone-ctx-sub { font-size: 13px; color: var(--text-secondary); font-weight: 400; line-height: 1.6; word-break: keep-all; }
-.phone-kp-list { display: flex; flex-direction: column; gap: 10px; }
-.phone-kp {
-  display: flex; align-items: flex-start; gap: 10px;
-  background: var(--card); border-radius: 10px; padding: 10px 14px;
-  box-shadow: 0 1px 4px var(--shadow); border: 1px solid var(--border);
-}
-.phone-kp-icon {
-  width: 30px; height: 30px; background: var(--accent-light); border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; color: var(--accent); flex-shrink: 0;
-}
-.phone-kp-text { font-size: 12px; color: var(--text-primary); line-height: 1.5; font-weight: 600; word-break: keep-all; }
-.phone-kp-sub { font-size: 11px; color: var(--text-secondary); word-break: keep-all; line-height: 1.4; margin-top: 2px; }
-.phone-comm-mini {
-  background: linear-gradient(135deg, #1a0040 0%, var(--accent) 100%);
-  border-radius: 12px; padding: 12px 16px; color: white;
-}
-.phone-comm-mini-title { font-size: 10px; font-weight: 700; opacity: 0.7; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
-.phone-comm-mini-row { display: flex; gap: 8px; }
-.phone-comm-mini-item { flex: 1; background: rgba(255,255,255,0.12); border-radius: 8px; padding: 7px; text-align: center; }
-.phone-comm-mini-pct { font-size: 18px; font-weight: 700; }
-.phone-comm-mini-label { font-size: 9px; opacity: 0.75; margin-top: 1px; }
-
-/* Phone frame */
-.phone-mockup {
-  width: 290px; flex-shrink: 0; background: var(--pm-frame); border-radius: 38px; padding: 6px;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.08);
+/* ---------- Phone mockup ---------- */
+.phone {
+  width: 292px;
+  zoom: 0.85;
+  flex-shrink: 0;
+  background: var(--navy-deep);
+  border-radius: 40px;
+  padding: 7px;
+  box-shadow: 0 24px 48px rgba(6, 38, 84, 0.3), 0 4px 12px rgba(6, 38, 84, 0.18);
 }
 .phone-screen {
-  background: var(--pm-screen); border-radius: 30px; overflow: hidden;
-  display: flex; flex-direction: column; height: 520px;
+  background: #F7F9FB;
+  border-radius: 33px;
+  height: 566px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .pm-hdr {
-  background: white; padding: 9px 12px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--pm-ui-divider);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 10px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-soft);
 }
-.pm-hdr-title { font-size: 11px; font-weight: 700; color: #1e293b; }
-.pm-hdr-icon { font-size: 10px; color: #94a3b8; }
-.pm-profile {
-  background: white; padding: 10px 12px; flex-shrink: 0;
-  display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--pm-ui-divider);
+.pm-hdr i { color: var(--text-faint); font-size: 13px; }
+.pm-logo {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
+.pm-logo .t { color: var(--navy); }
+.pm-logo .l { color: var(--sky); }
+.pm-scroll { flex: 1; overflow: hidden; padding: 12px 12px 0; }
+.pm-profile { display: flex; align-items: center; gap: 9px; margin-bottom: 9px; }
 .pm-avatar {
-  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
-  background: linear-gradient(135deg, var(--pm-avatar-warm), var(--pm-app-accent));
+  width: 34px; height: 34px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--sky));
+  color: #fff; font-size: 13px; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
-  font-size: 20px; font-weight: 700; color: white;
+  flex-shrink: 0;
 }
-.pm-profile-info { flex: 1; }
-.pm-name { font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 1px; }
-.pm-handle { font-size: 10px; color: #94a3b8; margin-bottom: 5px; }
-.pm-quote {
-  font-size: 10px; color: #475569; line-height: 1.45; word-break: keep-all;
-  background: var(--pm-ui-panel); border-radius: 7px; padding: 5px 7px; border-left: 2px solid var(--pm-app-accent);
+.pm-name { font-size: 12.5px; font-weight: 700; color: var(--text-strong); }
+.pm-handle { font-size: 10.5px; color: var(--text-faint); }
+.pm-badge {
+  margin-left: auto;
+  font-size: 9px; font-weight: 700;
+  color: var(--sky-mid);
+  border: 1px solid var(--sky);
+  border-radius: 999px;
+  padding: 2px 7px;
 }
-.pm-video { margin: 10px 10px 0; flex-shrink: 0; }
-.pm-thumb {
-  border-radius: 12px; overflow: hidden; position: relative;
-  aspect-ratio: 16/9; width: 100%;
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0ea5e9 100%);
+.pm-comment {
+  background: var(--sky-wash);
+  border-left: 3px solid var(--navy);
+  border-radius: 8px;
+  padding: 9px 11px;
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--navy-deep);
+  margin-bottom: 10px;
+}
+.pm-video {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  height: 108px;
+  background: linear-gradient(135deg, #062654 0%, #0A4C8F 45%, #35A3D6 100%);
+  margin-bottom: 10px;
+}
+.pm-play {
+  position: absolute; left: 50%; top: 42%;
+  transform: translate(-50%, -50%);
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,0.95);
   display: flex; align-items: center; justify-content: center;
 }
-.pm-play-btn {
-  width: 36px; height: 36px; background: rgba(255,255,255,0.92); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
+.pm-play i { color: var(--navy); font-size: 13px; margin-left: 2px; }
+.pm-video-meta {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 18px 10px 8px;
+  background: linear-gradient(transparent, rgba(4, 20, 45, 0.85));
+  color: #fff;
 }
-.pm-play-btn i { font-size: 13px; color: var(--pm-app-accent); margin-left: 2px; }
-.pm-thumb-info {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.78)); padding: 16px 9px 8px;
+.pm-duration {
+  font-size: 8.5px; font-weight: 700;
+  background: rgba(0,0,0,0.55);
+  border-radius: 4px; padding: 2px 5px;
+  display: inline-block; margin-bottom: 3px;
 }
-.pm-duration { font-size: 8px; font-weight: 700; color: white; background: rgba(0,0,0,0.5); padding: 1px 4px; border-radius: 3px; display: inline-block; margin-bottom: 3px; }
-.pm-vid-title { font-size: 10.5px; font-weight: 700; color: white; line-height: 1.3; word-break: keep-all; }
-.pm-disc { padding: 8px 10px; flex: 1; overflow: hidden; }
-.pm-disc-hdr {
-  font-size: 9px; font-weight: 700; color: #64748b; letter-spacing: 0.05em; text-transform: uppercase;
-  margin-bottom: 7px; display: flex; align-items: center; justify-content: space-between;
-}
-.pm-disc-badge { background: var(--pm-app-accent); color: white; font-size: 8px; padding: 1px 5px; border-radius: 8px; }
-.pm-q-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 8px 9px; }
-.pm-q-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
-.pm-q-fan { display: flex; align-items: center; gap: 5px; }
-.pm-fan-ava {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: linear-gradient(135deg, #f59e0b, #ef4444);
-  display: flex; align-items: center; justify-content: center; font-size: 7px; font-weight: 700; color: white;
-}
-.pm-fan-name { font-size: 10px; font-weight: 700; color: #1e293b; }
-.pm-fan-tag { font-size: 8px; color: #94a3b8; background: #f1f5f9; padding: 1px 4px; border-radius: 4px; }
-.pm-price { font-size: 9px; font-weight: 700; color: #d97706; background: #fffbeb; border: 1px solid #fde68a; padding: 1px 6px; border-radius: 8px; }
-.pm-q-text { font-size: 10px; color: #334155; line-height: 1.45; word-break: keep-all; margin-bottom: 6px; }
-.pm-reply { background: var(--pm-screen); border-radius: 7px; padding: 6px 8px; border-left: 2px solid var(--pm-app-accent); }
-.pm-reply-lbl { font-size: 8px; font-weight: 700; color: var(--pm-app-accent); margin-bottom: 2px; }
-.pm-reply-text { font-size: 9px; color: #475569; line-height: 1.4; word-break: keep-all; font-style: italic; }
-.pm-earn {
-  margin: 0 10px 8px; flex-shrink: 0;
-  background: var(--pm-ui-panel); border: 1px solid var(--pm-ui-border); border-radius: 10px;
-  padding: 8px 10px; display: flex; align-items: center; gap: 8px;
-}
-.pm-earn-icon {
-  width: 26px; height: 26px; background: var(--pm-app-accent); border-radius: 8px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center; color: white; font-size: 11px;
-}
-.pm-earn-text { font-size: 9.5px; color: #334155; line-height: 1.4; word-break: keep-all; }
-.pm-earn-text strong { color: var(--pm-app-accent); }
-.pm-input-bar {
-  background: white; border-top: 1px solid #f1f5f9; flex-shrink: 0;
-  padding: 7px 10px; display: flex; align-items: center; gap: 6px;
-}
-.pm-input-fake {
-  flex: 1; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 15px;
-  padding: 5px 10px; font-size: 9px; color: #94a3b8;
-}
-.pm-send-icon { font-size: 11px; color: #94a3b8; }
-
-/* ===== SLIDE 7 — 수익 시나리오 ===== */
-.curator-post {
-  width: 100%; max-width: 860px;
-  background: var(--card); border-radius: 12px;
-  padding: 14px 18px; margin-bottom: 12px;
-  box-shadow: 0 1px 6px var(--shadow);
-  border: 1px solid var(--border); border-left: 3px solid var(--accent); opacity: 0;
-}
-.curator-post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.curator-post-avatar {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--accent); color: white;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; flex-shrink: 0;
-}
-.curator-post-meta { flex: 1; }
-.curator-post-name { font-size: 13px; font-weight: 700; color: var(--text-primary); }
-.curator-post-label { font-size: 11px; color: var(--text-secondary); }
-.curator-post-badge {
-  font-size: 10px; font-weight: 700; padding: 3px 9px;
-  background: var(--accent-light); color: var(--accent);
-  border-radius: 20px; border: 1px solid var(--accent-border);
-}
-.curator-post-text { font-size: 13px; color: var(--text-primary); line-height: 1.65; word-break: keep-all; }
-
-.paid-q-list { display: flex; gap: 10px; width: 100%; max-width: 860px; margin-bottom: 12px; }
-.paid-q-item {
-  flex: 1; background: var(--card); border-radius: 12px; padding: 12px 14px;
-  border: 1px solid var(--border); box-shadow: 0 1px 4px var(--shadow);
-  opacity: 0; transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.paid-q-fan-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
-.paid-q-avatar {
-  font-size: 11px; font-weight: 700; color: var(--text-secondary);
-  background: var(--bg-subtle); padding: 3px 8px; border-radius: 20px;
+.pm-video-title { font-size: 10.5px; font-weight: 600; line-height: 1.4; }
+.pm-q-card {
+  background: #FFFFFF;
   border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 11px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 6px rgba(9, 52, 122, 0.05);
 }
-.paid-q-price-tag {
-  display: flex; align-items: center; gap: 3px;
-  background: var(--accent); color: white;
-  font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+.pm-q-head { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; }
+.pm-q-avatar {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), #F59E0B);
+  color: #fff; font-size: 9.5px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
 }
-.paid-q-text { font-size: 12px; color: var(--text-primary); line-height: 1.6; word-break: keep-all; }
-
-
-/* ===== 슬라이드 하단 요약 바 — 통합 가이드 =====
-   공통 테마: background: var(--accent-light) + border: 1px solid var(--accent-border)
-   사용처: .footer-bar(slide 2) · .async-badge(slide 5) · .slide-insight(slide 7, 8)
-   새 하단 요약 바 추가 시 .slide-insight 클래스를 사용하세요.
-   ================================================ */
-.slide-insight {
-  text-align: center; padding: 14px 28px;
-  background: var(--accent-light); border-radius: 12px;
-  border: 1px solid var(--accent-border);
-  max-width: 860px; width: 100%; opacity: 0;
-  font-size: 14px; font-weight: 500; color: var(--text-primary);
-  line-height: 1.6; word-break: keep-all;
+.pm-q-name { font-size: 10.5px; font-weight: 700; color: var(--text-strong); }
+.pm-fan-tag {
+  font-size: 8.5px; color: var(--text-faint);
+  border: 1px solid var(--border); border-radius: 999px; padding: 1px 6px;
 }
-.slide-insight strong { color: var(--accent); }
+.pm-price {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 3px;
+  background: #FFF4EF; border: 1px solid #F8C4AC;
+  color: #C74A17;
+  border-radius: 999px; padding: 2px 8px;
+  font-size: 9.5px; font-weight: 800;
+}
+.pm-price i { font-size: 8px; color: var(--orange); }
+.pm-q-text { font-size: 11px; line-height: 1.55; color: var(--text); margin-bottom: 8px; }
+.pm-answer {
+  border-left: 3px solid var(--sky);
+  background: #FBFDFE;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.pm-answer-label {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 9.5px; font-weight: 700; color: var(--sky-mid);
+  margin-bottom: 4px;
+}
+.pm-answer-text { font-size: 10.5px; line-height: 1.55; color: var(--text-muted); font-style: italic; }
+.pm-earn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--sky-wash);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 10px; font-weight: 600;
+  color: var(--navy-deep);
+  line-height: 1.45;
+}
+.pm-earn i {
+  width: 24px; height: 24px; border-radius: 7px;
+  background: var(--navy); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; flex-shrink: 0;
+}
+.pm-earn strong { color: var(--blue-d); }
+.pm-input {
+  display: flex; align-items: center; gap: 8px;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-soft);
+  padding: 10px 14px 14px;
+}
+.pm-input span {
+  flex: 1;
+  background: var(--bg-subtle);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 10px; color: var(--text-faint);
+}
+.pm-input i { color: var(--navy); font-size: 14px; }
 
-/* Earn summary box (slide 9 — revenue proof) */
-.earn-summary-box {
-  display: flex; align-items: center; gap: 16px;
+/* ============================================================
+   Slide 8 — System (studio inbox + explains)
+   ============================================================ */
+.sys-wrap {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
   width: 100%;
-  background: linear-gradient(135deg, #1a0040 0%, var(--accent) 100%);
-  border-radius: 12px; padding: 16px 22px; color: white; opacity: 0;
+  align-items: center;
 }
-.earn-summary-icon { font-size: 26px; opacity: 0.9; flex-shrink: 0; }
-.earn-summary-body { flex: 1; }
-.earn-summary-main { font-size: 14px; font-weight: 700; line-height: 1.5; word-break: keep-all; }
-.earn-summary-main strong { color: white; }
-
-/* Queue board (slide 8 — competition mechanism) */
-.queue-layout {
-  display: flex; gap: 32px; align-items: stretch;
-  max-width: 1060px; width: 100%;
-}
-.queue-board-card { padding: 20px; flex-shrink: 0; }
-.queue-board-card:hover { transform: none; box-shadow: 0 1px 6px var(--shadow); }
-.queue-explain-card {
-  flex: 1; display: flex; flex-direction: column;
-  justify-content: center; padding: 28px;
-}
-.queue-explain-card:hover { transform: none; box-shadow: 0 1px 6px var(--shadow); }
-.queue-explain-card .queue-explain { gap: 16px; }
-.queue-explain-title {
+.inbox-card { padding: 22px 22px 16px; }
+.inbox-head {
   display: flex; align-items: center; gap: 10px;
-  font-size: 15px; font-weight: 800; color: var(--accent);
-  padding: 10px 16px; background: var(--accent-light);
-  border-radius: 10px; border: 1px solid var(--accent-border);
+  font-size: 15px; font-weight: 800; color: var(--text-strong);
+  margin-bottom: 14px;
 }
-.queue-explain-title i { font-size: 16px; }
-.queue-explain-card .slide-insight { margin-top: auto; }
-.queue-explain-card .slide-insight strong { color: var(--text-primary); }
-.queue-board {
-  max-width: 520px; width: 100%;
-  display: flex; flex-direction: column; gap: 10px;
+.inbox-head i { color: var(--navy); }
+.inbox-filters { display: flex; gap: 8px; margin-bottom: 16px; }
+.chip {
+  font-size: 11.5px; font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 13px;
+  background: var(--bg);
 }
-.queue-item {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px 18px; border-radius: 12px;
-  background: var(--card); border: 2px solid var(--border);
-  box-shadow: 0 1px 6px var(--shadow); opacity: 0;
+.chip.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.inbox-item {
+  display: flex; align-items: center; gap: 12px;
+  border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--sky);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  margin-bottom: 9px;
+  background: var(--bg);
 }
-.queue-item--gold { border-color: #D4A017; background: linear-gradient(135deg, #FFFDF4, #FFF9E6); }
-.queue-item--gold .queue-rank { background: #D4A017; }
-.queue-item--silver { border-color: #9CA3AF; background: linear-gradient(135deg, #FAFAFA, #F3F4F6); }
-.queue-item--silver .queue-rank { background: #9CA3AF; }
-.queue-item--normal .queue-rank { background: var(--accent); }
-/* waiting style removed — all items sorted by price, no cutoff */
-.queue-rank {
-  width: 28px; height: 28px; border-radius: 50%; color: white;
-  font-size: 12px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.queue-price { font-size: 15px; font-weight: 800; color: var(--text-primary); min-width: 70px; }
-.queue-text { font-size: 13px; color: var(--text-secondary); flex: 1; line-height: 1.4; word-break: keep-all; }
-.queue-tag {
-  font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px;
+.inbox-item.urgent { border-left-color: var(--navy); border-left-width: 4px; background: #F8FBFE; }
+.due-tag {
+  font-size: 10.5px; font-weight: 700;
+  border-radius: 6px; padding: 3px 8px;
   white-space: nowrap; flex-shrink: 0;
 }
-.queue-tag--gold { background: #FEF3C7; color: #92400E; }
-.queue-tag--silver { background: #F3F4F6; color: #4B5563; }
-/* queue-tag--waiting removed — no waiting concept */
-/* cutline removed — no slot deadline concept */
-.queue-explain {
-  display: flex; flex-direction: column; gap: 16px; max-width: 400px;
+.inbox-item.urgent .due-tag { background: var(--sky-wash); color: var(--navy); font-weight: 800; }
+.inbox-item .due-tag { background: var(--bg-subtle); color: var(--text-muted); }
+.inbox-q { flex: 1; font-size: 13px; color: var(--text); line-height: 1.45; min-width: 0; }
+.type-tag {
+  font-size: 9.5px; font-weight: 700;
+  color: var(--sky-mid); background: var(--sky-wash);
+  border-radius: 999px; padding: 2px 8px;
+  white-space: nowrap; flex-shrink: 0;
 }
-.queue-explain-item {
-  display: flex; align-items: flex-start; gap: 10px; opacity: 0;
+.type-tag.private {
+  color: var(--navy);
+  background: var(--sky-wash);
+  border: 1px solid rgba(51, 153, 204, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
-.queue-explain-num {
-  width: 24px; height: 24px; border-radius: 50%; background: var(--accent);
-  color: white; font-size: 11px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+.type-tag.private i { font-size: 8px; }
+.inbox-foot {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 11.5px; color: var(--text-faint);
+  margin-top: 4px; padding: 6px 2px 0;
+  border-top: 1px dashed var(--border);
 }
-.queue-explain-text { font-size: 14px; color: var(--text-primary); line-height: 1.55; word-break: keep-all; }
-.slide.active .queue-item { animation: fadeInUp 0.4s ease forwards; }
-.slide.active .queue-item:nth-child(1) { animation-delay: 0.1s; }
-.slide.active .queue-item:nth-child(2) { animation-delay: 0.18s; }
-.slide.active .queue-item:nth-child(3) { animation-delay: 0.26s; }
-.slide.active .queue-item:nth-child(4) { animation-delay: 0.34s; }
-.slide.active .queue-item:nth-child(5) { animation-delay: 0.42s; }
-.slide.active .queue-item:nth-child(6) { animation-delay: 0.50s; }
-.slide.active .queue-explain-item { animation: fadeInUp 0.4s ease forwards; }
-.slide.active .queue-explain-item:nth-child(2) { animation-delay: 0.3s; }
-.slide.active .queue-explain-item:nth-child(3) { animation-delay: 0.4s; }
-.slide.active .queue-explain-item:nth-child(4) { animation-delay: 0.5s; }
-.slide.active .queue-explain-item:nth-child(5) { animation-delay: 0.55s; }
+.inbox-foot i { color: var(--sky-mid); }
 
+.sys-explains { display: flex; flex-direction: column; gap: 18px; }
+.sys-item { display: flex; gap: 16px; align-items: flex-start; }
+.sys-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  font-size: 14px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.sys-item h4 { font-size: 16.5px; font-weight: 800; color: var(--text-strong); margin-bottom: 4px; }
+.sys-item h4 strong { color: var(--navy); }
+.sys-item p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
-/* Grade & commission */
-.commission-trust-row { display: flex; gap: 14px; width: 100%; max-width: 860px; margin-top: 12px; }
-.commission-box {
-  flex: 1; background: var(--card); border-radius: 12px; padding: 14px 18px;
-  box-shadow: 0 1px 6px var(--shadow);
-  border: 1px solid var(--border); border-left: 3px solid var(--accent);
+/* ============================================================
+   Slide 9 — Revenue scenario
+   ============================================================ */
+.proof-wrap {
+  display: grid;
+  grid-template-columns: 450px 1fr;
+  gap: 36px;
+  max-width: 1060px;
+  margin: 0 auto;
+  width: 100%;
+  align-items: start;
 }
-.trust-box {
-  flex: 1; background: var(--card); border-radius: 12px; padding: 14px 18px;
-  box-shadow: 0 1px 6px var(--shadow);
-  border: 1px solid var(--border); border-left: 3px solid var(--accent);
+.curator-post { border-left: 3px solid var(--navy); padding: 20px 22px; margin-bottom: 16px; }
+.cp-head { display: flex; align-items: center; gap: 11px; margin-bottom: 12px; }
+.cp-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--sky));
+  color: #fff; font-size: 16px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
 }
-.box-label { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; color: var(--accent); }
-.commission-main { font-size: 19px; font-weight: 800; color: var(--text-primary); }
-.commission-sub { font-size: 12px; color: var(--text-secondary); margin-top: 2px; word-break: keep-all; line-height: 1.4; }
-.trust-main { font-size: 14px; font-weight: 700; color: var(--text-primary); word-break: keep-all; line-height: 1.4; }
-.trust-sub { font-size: 12px; color: var(--text-secondary); margin-top: 2px; word-break: keep-all; line-height: 1.4; }
-.grade-table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
-.grade-table th {
-  background: var(--accent-dark); color: white; font-size: 11px; font-weight: 700;
-  padding: 8px 12px; text-align: center; letter-spacing: 0.04em;
+.cp-name { font-size: 15px; font-weight: 700; color: var(--text-strong); }
+.cp-sub { font-size: 12px; color: var(--text-faint); margin-top: 1px; }
+.cp-tag {
+  margin-left: auto;
+  font-size: 10.5px; font-weight: 700;
+  color: var(--sky-mid); background: var(--sky-wash);
+  border-radius: 999px; padding: 4px 11px;
 }
-.grade-table td { padding: 9px 12px; text-align: center; font-size: 13px; border-bottom: 1px solid var(--border); }
-.grade-table tr:last-child td { border-bottom: none; }
-.grade-table tr:hover td { background: var(--accent-light); }
-.grade-pct { font-weight: 800; font-size: 15px; }
-.grade-pct.pct-60 { color: var(--text-secondary); }
-.grade-pct.pct-70 { color: var(--text-primary); }
-.grade-pct.pct-80 { color: var(--accent); }
-.grade-name { font-weight: 600; color: var(--text-primary); }
+.cp-body { font-size: 14.5px; line-height: 1.65; color: var(--text); }
+.mini-video {
+  display: flex; align-items: center; gap: 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  background: var(--bg);
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.mini-thumb {
+  width: 92px; height: 54px; border-radius: 8px;
+  background: linear-gradient(135deg, #0C7F84, #24B3A3);
+  position: relative; flex-shrink: 0;
+  overflow: hidden;
+}
+.mini-play {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 1px 5px rgba(4, 40, 45, 0.35);
+}
+.mini-play i { color: var(--navy); font-size: 8px; margin-left: 1px; }
+.mini-video-info .mv-src { font-size: 10.5px; font-weight: 700; color: #B91C1C; letter-spacing: 0.03em; }
+.mini-video-info .mv-src i { margin-right: 4px; }
+.mini-video-info .mv-title { font-size: 13px; font-weight: 600; color: var(--text-strong); margin-top: 3px; line-height: 1.4; }
 
-/* ===== SLIDE 5 — 진입 장벽 / SLIDE 11 — 마무리 (공용) ===== */
-.two-col-compare { display: flex; gap: 24px; max-width: 920px; width: 100%; margin-bottom: 20px; }
-.compare-col { flex: 1; padding: 28px; opacity: 0; }
-.compare-col-title { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
-.compare-col.negative .compare-col-title { color: var(--text-secondary); }
-.compare-col.positive .compare-col-title { color: var(--accent); }
-.compare-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
-.compare-items { display: flex; flex-direction: column; gap: 14px; }
-.compare-item { display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--bg-subtle); border-radius: 10px; }
-.compare-item span { font-size: 16px; font-weight: 600; color: var(--text-primary); }
-.slide.active .compare-col.negative { animation: fadeInLeft 0.5s ease 0.1s forwards; }
-.slide.active .compare-col.positive { animation: fadeInRight 0.5s ease 0.2s forwards; }
-.principle-section { max-width: 920px; width: 100%; }
-.principle-title { font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 14px; }
-.principle-cards { display: flex; gap: 16px; }
-.principle-card {
-  flex: 1; display: flex; align-items: flex-start; gap: 14px;
-  padding: 20px; background: var(--card); border-radius: 12px;
-  box-shadow: 0 1px 6px var(--shadow); border: 1px solid var(--border); opacity: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.qa-list { display: flex; flex-direction: column; gap: 12px; }
+.qa-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
 }
-.slide.active .principle-card:nth-child(1) { animation: fadeInUp 0.5s ease 0.3s forwards; }
-.slide.active .principle-card:nth-child(2) { animation: fadeInUp 0.5s ease 0.4s forwards; }
-.slide.active .principle-card:nth-child(3) { animation: fadeInUp 0.5s ease 0.5s forwards; }
-.principle-card h5 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
-.principle-card p { font-size: 14px; color: var(--text-secondary); word-break: keep-all; }
-
-/* Value box */
-.value-box {
-  background: var(--accent-light); border: 1px solid var(--accent-border); border-radius: 14px; padding: 24px 40px;
-  max-width: 920px; width: 100%; text-align: center; opacity: 0;
-  margin-top: 16px;
+.qa-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  font-size: 12.5px; font-weight: 700; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
-.slide.active .value-box { animation: fadeInUp 0.5s ease 0.1s forwards; }
-.value-box h4 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
-.value-box-underline { width: 80px; height: 2px; background: var(--accent); margin: 16px auto 14px; }
-.value-box p { font-size: 16px; color: var(--text-secondary); word-break: keep-all; }
-
-/* ===== SLIDE 11 — 마무리 (The Closing) ===== */
-.conclusion-brand-line {
-  margin-top: 16px; font-size: 14px; color: var(--text-secondary);
-  text-align: center; opacity: 0;
+.qa-item p { flex: 1; font-size: 13.5px; line-height: 1.55; color: var(--text); min-width: 0; }
+.qa-item .heart-pill { flex-shrink: 0; }
+.earn-box {
+  margin-top: 18px;
+  background: linear-gradient(120deg, var(--navy-deep), var(--navy) 55%, var(--blue-d));
+  color: #FFFFFF;
+  border-radius: var(--radius);
+  padding: 20px 26px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 12px 30px rgba(9, 52, 122, 0.28);
 }
-.slide.active .conclusion-brand-line { animation: fadeInUp 0.5s ease 0.6s forwards; }
-.conclusion-brand-line strong { color: var(--text-primary); font-weight: 700; }
-
-/* ===== SLIDE 7 — 수익 시나리오 레이아웃 (proof-layout) ===== */
-.proof-layout {
-  display: grid; grid-template-columns: 460px 1fr;
-  gap: 20px; width: 100%; max-width: 1040px;
-}
-.proof-left { display: flex; flex-direction: column; gap: 10px; }
-.proof-right { display: flex; flex-direction: column; gap: 10px; }
-.slide-post-img {
-  flex: 1; min-height: 0; width: 100%; border-radius: 10px; overflow: hidden;
-  box-shadow: 0 2px 10px var(--shadow); border: 1px solid var(--border); opacity: 0;
-}
-.slide-post-img img {
-  display: block; width: 100%; height: 100%; object-fit: cover;
+.earn-box .icon-box { background: rgba(255,255,255,0.14); color: #fff; }
+.earn-line1 { font-size: 14px; color: #BFDCEF; font-weight: 500; }
+.earn-line2 { font-size: 20px; font-weight: 800; margin-top: 3px; letter-spacing: -0.01em; }
+.earn-line2 strong { color: #9FD4EE; }
+.proof-note {
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-align: right;
 }
 
-/* ===== SLIDE 8 — 팬 유입 경로 / SLIDE 9 — 역할 분담 ===== */
-.role-container { display: flex; gap: 24px; max-width: 1060px; width: 100%; margin-bottom: 24px; }
-.role-card { flex: 1; padding: 28px; opacity: 0; }
-.role-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.role-card-header i { font-size: 24px; color: var(--accent); }
-.role-card-title { font-size: 18px; font-weight: 700; color: var(--text-primary); }
-.role-divider { height: 1px; background: var(--border); margin-bottom: 16px; }
-.role-items { display: flex; flex-direction: column; gap: 14px; }
-.role-item { display: flex; align-items: center; gap: 14px; padding: 14px; background: var(--bg-subtle); border-radius: 10px; }
-.role-item p { font-size: 14px; color: var(--text-primary); line-height: 1.5; word-break: keep-all; }
-.slide.active .role-card.platform { animation: fadeInLeft 0.5s ease 0.1s forwards; }
-.slide.active .role-card.influencer { animation: fadeInRight 0.5s ease 0.2s forwards; }
+/* ============================================================
+   Slide 10 — Fan journey (3 steps)
+   ============================================================ */
+.flow-wrap {
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+  max-width: 1020px;
+  margin: 0 auto;
+  width: 100%;
+}
+.flow-step {
+  flex: 1;
+  border-top: 3px solid var(--sky);
+  padding: 26px 24px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.flow-step:hover { transform: translateY(-4px); box-shadow: 0 10px 26px var(--shadow); }
+.flow-num {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  font-size: 13.5px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px;
+}
+.flow-step .icon-box { margin: 0 auto 14px; }
+.flow-step h4 { font-size: 17px; font-weight: 800; color: var(--text-strong); margin-bottom: 9px; }
+.flow-step p { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; }
+.flow-step p strong { color: var(--navy); font-weight: 700; }
+.flow-step .link-chip {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px; font-weight: 600;
+  color: var(--navy);
+  background: var(--sky-wash);
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+.flow-arrow {
+  align-self: center;
+  color: var(--sky);
+  font-size: 22px;
+  flex-shrink: 0;
+}
 
-/* Fan flow */
-.fan-section-title {
-  font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.07em;
-  text-transform: uppercase; text-align: center; margin-bottom: 10px;
+/* ============================================================
+   Slide 11 — Roles
+   ============================================================ */
+.roles-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  max-width: 1060px;
+  margin: 0 auto;
+  width: 100%;
 }
-.fan-flow { display: flex; align-items: center; width: 100%; max-width: 860px; }
-.fan-step {
-  flex: 1; background: var(--card); border-radius: 12px; padding: 14px 10px;
-  text-align: center; box-shadow: 0 1px 6px var(--shadow); border: 1px solid var(--border);
-  border-top: 3px solid var(--accent); opacity: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.role-card { border-top: 3px solid var(--navy); padding: 24px 26px; }
+.role-card.mine { border-top-color: var(--sky); }
+.role-head {
+  display: flex; align-items: center; gap: 11px;
+  font-size: 18px; font-weight: 800; color: var(--text-strong);
+  padding-bottom: 15px; margin-bottom: 17px;
+  border-bottom: 1px solid var(--border-soft);
 }
-.fan-step-num {
-  width: 22px; height: 22px; border-radius: 50%; background: var(--accent);
-  color: white; font-size: 11px; font-weight: 800;
-  display: flex; align-items: center; justify-content: center; margin: 0 auto 6px;
+.role-head i { color: var(--navy); font-size: 19px; }
+.role-card.mine .role-head i { color: var(--sky-mid); }
+.role-head .wm-inline { font-family: "Poppins", sans-serif; font-weight: 600; }
+.role-head .wm-inline .t { color: var(--navy); }
+.role-head .wm-inline .l { color: var(--sky); }
+.role-item {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  margin-bottom: 11px;
 }
-.fan-step-icon { font-size: 18px; color: var(--accent); margin-bottom: 5px; }
-.fan-step-title { font-size: 12px; font-weight: 700; color: var(--text-primary); word-break: keep-all; }
-.fan-step-desc { font-size: 11px; color: var(--text-secondary); word-break: keep-all; line-height: 1.5; margin-top: 3px; }
-.fan-arrow { padding: 0 8px; color: var(--accent); font-size: 13px; flex-shrink: 0; opacity: 0; }
+.role-item:last-child { margin-bottom: 0; }
+.role-item .icon-box { width: 40px; height: 40px; font-size: 15px; border-radius: 11px; }
+.role-item h5 { font-size: 14.5px; font-weight: 700; color: var(--text-strong); }
+.role-item p { font-size: 12.5px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
 
-/* ===== SLIDE 10 — 베타 혜택 ===== */
-.beta-cards { display: flex; gap: 24px; max-width: 1100px; width: 100%; margin-bottom: 28px; }
-.beta-card {
-  flex: 1; background: var(--card); border-radius: 14px;
-  padding: 28px 22px; display: flex; flex-direction: column;
-  align-items: center; gap: 14px; text-align: center; opacity: 0;
-  box-shadow: 0 1px 8px var(--shadow); border: 1px solid var(--border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ============================================================
+   Slide 12 — Why now (official launch)
+   ============================================================ */
+.now-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
 }
-.beta-card.card-purple,
-.beta-card.card-navy,
-.beta-card.card-teal { border-top: 3px solid var(--accent); }
-.slide.active .beta-card:nth-child(1) { animation: fadeInUp 0.5s ease 0.1s forwards; }
-.slide.active .beta-card:nth-child(2) { animation: fadeInUp 0.5s ease 0.2s forwards; }
-.slide.active .beta-card:nth-child(3) { animation: fadeInUp 0.5s ease 0.3s forwards; }
-.beta-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px oklch(51.4% .228 277.018 / 0.12); }
-.beta-card-icon { font-size: 48px; color: var(--accent); }
-.beta-card-title { font-size: 20px; font-weight: 700; color: var(--text-primary); word-break: keep-all; line-height: 1.3; }
-.beta-card-subtitle { font-size: 14px; font-weight: 400; color: var(--text-secondary); line-height: 1.5; word-break: keep-all; }
-.beta-card-desc {
-  background: var(--accent-light); border: 1px solid var(--accent-border);
-  border-radius: 10px; padding: 14px; width: 100%;
+.now-card {
+  border-top: 3px solid var(--navy);
+  padding: 26px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.beta-card-desc p { font-size: 13px; font-weight: 500; color: var(--text-primary); text-align: center; word-break: keep-all; line-height: 1.6; }
-.cta-action { display: flex; flex-direction: column; align-items: center; gap: 16px; max-width: 1100px; width: 100%; }
+.now-card .nc-desc { flex: 1; }
+.now-card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px var(--shadow); }
+.now-card .icon-box { margin: 0 auto 15px; }
+.now-card h4 { font-size: 17.5px; font-weight: 800; color: var(--text-strong); }
+.now-card .nc-tag { font-size: 12px; font-weight: 700; color: var(--sky-mid); margin: 6px 0 12px; letter-spacing: 0.02em; }
+.now-card .nc-desc {
+  background: var(--sky-wash);
+  border-radius: var(--radius-sm);
+  padding: 13px 15px;
+  font-size: 13px;
+  color: var(--navy-deep);
+  line-height: 1.65;
+}
+.cta-row { text-align: center; margin-top: 36px; }
 .cta-button {
-  display: inline-block; padding: 16px 52px;
-  background: var(--accent); color: white; border-radius: 50px;
-  font-size: 18px; font-weight: 700; cursor: pointer;
-  letter-spacing: -0.01em;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 20px oklch(51.4% .228 277.018 / 0.35); border: none;
-  font-family: 'Noto Sans KR', sans-serif; opacity: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  background: var(--navy);
+  color: #FFFFFF;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 15px 40px;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(9, 52, 122, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
-.slide.active .cta-button { animation: bounceIn 0.6s ease 0.5s forwards; }
-.cta-button:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 28px oklch(51.4% .228 277.018 / 0.45); }
-.cta-meta { display: flex; gap: 32px; align-items: center; opacity: 0; }
-.slide.active .cta-meta { animation: fadeInUp 0.5s ease 0.7s forwards; }
-.cta-meta-item { display: flex; align-items: center; gap: 8px; }
-.cta-meta-item i { font-size: 14px; color: var(--accent); }
-.cta-meta-item span { font-size: 14px; color: var(--text-secondary); }
-.cta-footer {
-  text-align: center; padding: 16px 32px;
-  background: var(--accent-light); border-radius: 12px;
-  border: 1px solid var(--accent-border);
-  max-width: 800px; width: 100%; opacity: 0;
+.cta-button:hover { transform: scale(1.04); background: var(--navy-hover); }
+.cta-button i { color: #9FD4EE; }
+.cta-meta {
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: var(--text-muted);
 }
-.slide.active .cta-footer { animation: fadeInUp 0.5s ease 0.8s forwards; }
-.cta-footer p { font-size: 15px; font-weight: 600; color: var(--text-primary); }
-.selection-criteria {
-  background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 12px;
-  padding: 12px 20px; max-width: 800px; width: 100%; margin-bottom: 12px;
+.cta-meta i { color: var(--sky-mid); margin-right: 6px; }
+.cta-meta .meta-sep { margin: 0 10px; color: var(--text-faint); }
+.cta-meta .mail-link { color: var(--navy); font-weight: 600; text-decoration: none; }
+.cta-meta .mail-link:hover { text-decoration: underline; }
+.closing-urls a { color: rgba(230, 244, 251, 0.85); font-weight: 600; text-decoration: none; }
+.closing-urls a:hover { text-decoration: underline; }
+
+/* ============================================================
+   Slide 13 — Closing
+   ============================================================ */
+.mission-box {
+  max-width: 880px;
+  margin: 0 auto 34px;
+  background: var(--sky-wash);
+  border-radius: var(--radius);
+  padding: 30px 44px;
+  text-align: center;
+  position: relative;
 }
-.selection-criteria-title { font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 10px; text-align: center; }
-.criteria-list { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-.criteria-item { display: flex; align-items: center; gap: 7px; }
-.criteria-item i { font-size: 13px; color: var(--accent); flex-shrink: 0; }
-.criteria-item span { font-size: 13px; color: var(--text-primary); font-weight: 500; word-break: keep-all; }
+.mission-box i.fa-quote-left {
+  position: absolute; left: 24px; top: 20px;
+  color: rgba(51, 153, 204, 0.45);
+  font-size: 20px;
+}
+.mission-text {
+  font-family: "Noto Serif KR", Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  line-height: 1.7;
+}
+.mission-text strong { color: var(--navy); }
+.mission-underline {
+  width: 84px; height: 3px;
+  background: var(--sky);
+  border-radius: 2px;
+  margin: 18px auto 0;
+}
+.principle-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+.principle-card {
+  padding: 22px 18px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.principle-card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px var(--shadow); }
+.principle-card i { font-size: 24px; color: var(--navy); margin-bottom: 11px; }
+.principle-card h4 {
+  font-family: "Poppins", "Pretendard Variable", sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--text-strong);
+  letter-spacing: 0.01em;
+  margin-bottom: 6px;
+}
+.principle-card p { font-size: 13.5px; color: var(--text-muted); }
+.closing-line {
+  text-align: center;
+  margin-top: 36px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.closing-line .wm-inline { font-family: "Poppins", sans-serif; font-weight: 600; font-size: 18px; }
+.closing-line .wm-inline .t { color: var(--navy); }
+.closing-line .wm-inline .l { color: var(--sky); }
 
-/* ===== v6 — 인라인 스타일 대체 클래스 ===== */
-/* .slide-content--top — 전체 슬라이드 세로 중앙 정렬로 통일하여 미사용 */
-.comp-table--2col { margin-top: 20px; }
-.comp-table--2col .comp-table-head { grid-template-columns: 1.1fr 1.8fr; }
-.comp-table--2col .comp-table-row { grid-template-columns: 1.1fr 1.8fr; }
-.paid-q-list--col { flex-direction: column; }
-.async-badge-note { font-size: 12px; font-weight: 400; color: var(--text-secondary); margin-top: 4px; }
-.value-box--closing { margin-top: 0; margin-bottom: 20px; }
-.value-box-quote { font-size: 22px; color: var(--accent); opacity: 0.8; margin-bottom: 12px; }
-.principle-card > i { font-size: 22px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
-.compare-col.negative .compare-item i { color: var(--text-muted); font-size: 18px; flex-shrink: 0; }
-.compare-col.positive .compare-item i { color: var(--accent); font-size: 18px; flex-shrink: 0; }
+/* ============================================================
+   Dark statement slides (3 · 13) + brand motifs
+   ============================================================ */
+.slide-dark {
+  background: linear-gradient(148deg, #041B3D 0%, #062654 52%, #0A3A75 125%);
+}
+.slide-dark .slide-eyebrow { color: #7EC8E3; }
+.slide-dark .slide-title { color: #FFFFFF; }
+.slide-dark .slide-title .hl { color: #8ECAE6; }
+.slide-dark .slide-title .hl::after { background: rgba(51, 153, 204, 0.26); }
+.slide-dark .slide-subtitle { color: rgba(230, 244, 251, 0.72); }
 
-/* ===== v6 — 누락 애니메이션 보완 ===== */
-/* Slide 4 — 시장 */
-.slide.active .market-stat-item:nth-child(1) { animation: fadeInUp 0.5s ease 0.1s forwards; }
-.slide.active .market-stat-item:nth-child(2) { animation: fadeInUp 0.5s ease 0.2s forwards; }
-.slide.active .market-stat-item:nth-child(3) { animation: fadeInUp 0.5s ease 0.3s forwards; }
-.slide.active .async-badge { animation: fadeInUp 0.5s ease 0.4s forwards; }
-/* Slide 9 — 수익 시나리오 */
-.slide.active .curator-post { animation: fadeInLeft 0.5s ease 0.1s forwards; }
-.slide.active .slide-post-img { animation: fadeInLeft 0.5s ease 0.2s forwards; }
-.slide.active .paid-q-item:nth-child(1) { animation: fadeInRight 0.5s ease 0.1s forwards; }
-.slide.active .paid-q-item:nth-child(2) { animation: fadeInRight 0.5s ease 0.2s forwards; }
-.slide.active .paid-q-item:nth-child(3) { animation: fadeInRight 0.5s ease 0.35s forwards; }
-.slide.active .slide-insight { animation: fadeInUp 0.5s ease 0.45s forwards; }
-.slide.active .earn-summary-box { animation: fadeInUp 0.5s ease 0.45s forwards; }
-/* Slide 8 — 팬 유입 경로 */
-.slide.active .fan-flow > .fan-step:nth-child(1) { animation: fadeInUp 0.5s ease 0.1s forwards; }
-.slide.active .fan-flow > .fan-arrow:nth-child(2) { animation: fadeInUp 0.3s ease 0.2s forwards; }
-.slide.active .fan-flow > .fan-step:nth-child(3) { animation: fadeInUp 0.5s ease 0.3s forwards; }
-.slide.active .fan-flow > .fan-arrow:nth-child(4) { animation: fadeInUp 0.3s ease 0.4s forwards; }
-.slide.active .fan-flow > .fan-step:nth-child(5) { animation: fadeInUp 0.5s ease 0.5s forwards; }
+.slide-dark .message-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.13);
+  border-left: 3px solid rgba(142, 202, 230, 0.6);
+  box-shadow: none;
+}
+.slide-dark .message-card:hover { box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); }
+.slide-dark .message-card p { color: #DCEAF5; }
+.slide-dark .message-card .icon-box { background: rgba(142, 202, 230, 0.15); color: #8ECAE6; }
+.slide-dark .message-card.key {
+  background: #FFFFFF;
+  border-left: 4px solid var(--sky);
+}
+.slide-dark .message-card.key p { color: var(--text-strong); }
+.slide-dark .message-card.key p strong { color: var(--navy); }
+.slide-dark .message-card.key .icon-box { background: var(--sky-wash); color: var(--navy); }
 
-/* ===== v6 — 누락 Hover 상태 추가 ===== */
-.principle-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px oklch(51.4% .228 277.018 / 0.10); }
-.fan-step:hover { transform: translateY(-3px); box-shadow: 0 6px 16px oklch(51.4% .228 277.018 / 0.10); }
-.paid-q-item:hover { transform: translateY(-2px); box-shadow: 0 4px 14px oklch(51.4% .228 277.018 / 0.08); }
-.solution-row:hover { transform: translateY(-2px); box-shadow: 0 4px 12px oklch(51.4% .228 277.018 / 0.08); }
+.slide-dark .mission-box { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); }
+.slide-dark .mission-box i.fa-quote-left { color: rgba(142, 202, 230, 0.5); }
+.slide-dark .mission-text { color: #F2F8FC; }
+.slide-dark .mission-text strong { color: #8ECAE6; }
+.slide-dark .principle-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-top: 3px solid rgba(142, 202, 230, 0.75);
+  box-shadow: none;
+}
+.slide-dark .principle-card i { color: #8ECAE6; }
+.slide-dark .principle-card h4 { color: #FFFFFF; }
+.slide-dark .principle-card p { color: rgba(230, 244, 251, 0.7); }
+.slide-dark .closing-line { color: rgba(230, 244, 251, 0.75); }
+.slide-dark .closing-line .wm-inline .t { color: #FFFFFF; }
+.slide-dark .closing-line .wm-inline .l { color: #8ECAE6; }
 
-/* ===== Navigation ===== */
+.cta-button.light { background: #FFFFFF; color: var(--navy); box-shadow: 0 12px 32px rgba(2, 12, 28, 0.45); }
+.cta-button.light i { color: var(--sky-mid); }
+.cta-button.light:hover { background: var(--sky-wash); }
+
+.closing-cta { text-align: center; margin-top: 26px; }
+.closing-urls { margin-top: 12px; font-size: 13px; color: rgba(230, 244, 251, 0.65); }
+
+#slide-13 .slide-header { margin-bottom: 22px; }
+#slide-13 .mission-box { margin-bottom: 24px; padding: 24px 44px 22px; }
+#slide-13 .mission-text { font-size: 20px; }
+#slide-13 .principle-card { padding: 18px 16px; }
+#slide-13 .cta-button { padding: 13px 36px; font-size: 16px; }
+#slide-13 .closing-line { margin-top: 20px; }
+
+/* Soundwave brand motif (from logo symbol) */
+.wave-watermark {
+  position: absolute;
+  right: 84px; bottom: 74px;
+  display: flex; align-items: center; gap: 12px;
+  opacity: 0.13;
+  pointer-events: none;
+}
+.wave-watermark span { width: 16px; border-radius: 8px; background: #8ECAE6; }
+.wave-watermark span:nth-child(1), .wave-watermark span:nth-child(5) { height: 38px; }
+.wave-watermark span:nth-child(2), .wave-watermark span:nth-child(4) { height: 70px; }
+.wave-watermark span:nth-child(3) { height: 102px; background: #FFFFFF; }
+
+.cover-wave {
+  position: absolute;
+  left: 48px; bottom: 48px;
+  display: flex; align-items: center; gap: 7px;
+  opacity: 0.45;
+}
+.cover-wave span { width: 9px; border-radius: 5px; background: var(--sky); }
+.cover-wave span:nth-child(1), .cover-wave span:nth-child(5) { height: 18px; }
+.cover-wave span:nth-child(2), .cover-wave span:nth-child(4) { height: 34px; }
+.cover-wave span:nth-child(3) { height: 50px; background: var(--navy); }
+
+/* Emerald sea video thumbnail (inline SVG scene) */
+.sea-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Phone status bar */
+.pm-status {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #FFFFFF;
+  padding: 10px 18px 2px;
+  font-size: 10px; font-weight: 700; color: var(--text-strong);
+}
+.pm-status-icons { display: flex; gap: 5px; font-size: 8.5px; color: var(--text-strong); }
+
+/* Chrome adaptation on dark slides */
+.presentation.dark-chrome .nav-dot { background: rgba(255, 255, 255, 0.28); }
+.presentation.dark-chrome .nav-dot:hover { background: #8ECAE6; }
+.presentation.dark-chrome .nav-dot.active { background: #8ECAE6; }
+.presentation.dark-chrome .page-number { color: rgba(255, 255, 255, 0.55); }
+.presentation.dark-chrome .page-number strong { color: #8ECAE6; }
+.presentation.dark-chrome .nav-arrow { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.28); color: #E6F4FB; box-shadow: none; }
+.presentation.dark-chrome .nav-arrow:hover { background: #8ECAE6; color: #062654; border-color: #8ECAE6; }
+
+/* ============================================================
+   Navigation chrome
+   ============================================================ */
 .progress-bar {
-  position: fixed; top: 0; left: 0; height: 4px;
-  background: var(--accent);
-  transition: width 0.3s ease; z-index: 1001; width: 0%;
+  position: absolute;
+  top: 0; left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--navy), var(--sky));
+  z-index: 60;
+  transition: width 0.4s ease;
+  border-radius: 0 2px 2px 0;
 }
 .nav-dots {
-  position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 10px; z-index: 1000;
+  position: absolute;
+  bottom: 26px; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 9px;
+  z-index: 60;
 }
 .nav-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(0,0,0,0.15); cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease; border: none;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+  padding: 0;
 }
-.nav-dot.active { background: var(--accent); transform: scale(1.4); }
+.nav-dot:hover { background: var(--sky); }
+.nav-dot.active { background: var(--navy); width: 26px; border-radius: 5px; }
 .nav-arrows {
-  position: fixed; bottom: 25px; right: 30px;
-  display: flex; gap: 10px; z-index: 1000;
+  position: absolute;
+  bottom: 20px; right: 28px;
+  display: flex;
+  gap: 10px;
+  z-index: 60;
 }
 .nav-arrow {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--card); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 14px; color: var(--text-secondary);
-  transition: all 0.3s ease; box-shadow: 0 1px 6px var(--shadow);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--navy);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px var(--shadow);
 }
-.nav-arrow:hover { background: var(--accent); color: white; border-color: var(--accent); }
+.nav-arrow:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
 .page-number {
-  position: fixed; bottom: 32px; left: 30px;
-  font-size: 13px; color: var(--text-muted); z-index: 1000;
-  font-family: 'Noto Sans KR', sans-serif;
+  position: absolute;
+  bottom: 30px; left: 32px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-faint);
+  z-index: 60;
+  font-variant-numeric: tabular-nums;
 }
+.page-number strong { color: var(--navy); }
 .keyboard-hint {
-  position: fixed; bottom: 68px; right: 30px;
-  display: flex; gap: 12px; z-index: 1000;
-  opacity: 1; transition: opacity 0.5s ease;
-}
-.keyboard-hint span { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
-kbd {
-  display: inline-block; padding: 2px 6px;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 4px; font-size: 11px; font-family: monospace;
-  box-shadow: 0 1px 2px var(--shadow);
+  position: absolute;
+  bottom: 68px; right: 28px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  padding: 5px 11px;
+  z-index: 60;
+  transition: opacity 1s ease;
 }
 
-/* ===== VIEWPORT SCALING — Transform Scale Approach ===== */
-/* 기준 해상도: 1280x720 — 모든 해상도에서 동일한 레이아웃 유지 */
+/* ============================================================
+   Print — one slide per page
+   ============================================================ */
+@media print {
+  html, body { width: auto; height: auto; overflow: visible; background: #fff; }
+  .presentation { position: static; width: 1280px; height: auto; transform: none !important; }
+  .slide {
+    display: flex !important;
+    position: relative;
+    opacity: 1 !important;
+    transform: none !important;
+    width: 1280px;
+    height: 720px;
+    page-break-after: always;
+    break-after: page;
+  }
+  .slide:last-of-type { page-break-after: avoid; break-after: avoid; }
+  .progress-bar, .nav-dots, .nav-arrows, .nav-arrow, .page-number, .keyboard-hint { display: none !important; }
+  .a-up, .a-left, .a-right, .a-scale { opacity: 1 !important; }
+  .cover-divider-line { opacity: 1 !important; height: 380px; }
+  * { animation: none !important; transition: none !important; }
+  .slide-dark, .slide-dark * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+@page { size: 1280px 720px; margin: 0; }
 </style>
 </head>
 <body>
 
 <div class="presentation" id="presentation">
 
-  <!-- Progress Bar -->
-  <div class="progress-bar" id="progress-bar"></div>
-
-  <!-- ===== SLIDE 1 — 표지 (The Vision) ===== -->
-  <div class="slide slide-cover active" id="slide-1">
-    <div class="cover-inner">
-      <div class="cover-left">
-        <div class="brand-icon"><div class="brand-icon-dot"></div></div>
-        <div class="brand-name">TubeLulu</div>
+  <!-- ======================= Slide 1 · Cover ======================= -->
+  <section class="slide slide-cover active" id="slide-1">
+    <div class="cover-left">
+      <div class="cover-brand a-left">
+        <svg class="cover-symbol" role="img" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="TubeLuLu 심볼">
+          <path d="M30 18 H92 A14 14 0 0 1 106 32 V78 A14 14 0 0 1 92 92 H62 L44 108 V92 H30 A14 14 0 0 1 16 78 V32 A14 14 0 0 1 30 18 Z" fill="#3399CC"/>
+          <path d="M22 10 H78 A14 14 0 0 1 92 24 V66 A14 14 0 0 1 78 80 H54 L38 96 V80 H22 A14 14 0 0 1 8 66 V24 A14 14 0 0 1 22 10 Z" fill="#09347A"/>
+          <rect x="22.5" y="36" width="7" height="12" rx="3.5" fill="#FFFFFF"/>
+          <rect x="34.5" y="31" width="7" height="22" rx="3.5" fill="#FFFFFF"/>
+          <rect x="46.5" y="26" width="7" height="32" rx="3.5" fill="#3399CC"/>
+          <rect x="58.5" y="31" width="7" height="22" rx="3.5" fill="#FFFFFF"/>
+          <rect x="70.5" y="36" width="7" height="12" rx="3.5" fill="#FFFFFF"/>
+        </svg>
+        <div class="cover-wordmark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+        <div class="cover-brand-sub">큐레이터의 해석을 먼저 읽는 서비스</div>
       </div>
-      <div class="cover-divider">
-        <div class="cover-divider-line"></div>
-        <div class="divider-dot top"></div>
-        <div class="divider-dot bottom"></div>
-      </div>
-      <div class="cover-right">
-        <div class="cover-copy">
-          <div class="main-message-wrap">
-            <div class="cover-bg-circle"></div>
-            <div class="main-message">인플루언서의 지적 취향이 빛나는<br>프리미엄 미디어 플랫폼</div>
-          </div>
-          <span class="beta-tag">TubeLulu Closed Beta</span>
-        </div>
-      </div>
+      <div class="cover-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
     </div>
-  </div>
-
-  <!-- ===== SLIDE 2 — 고통 (The Burnout) ===== -->
-  <div class="slide" id="slide-2">
-    <div class="accent-dot dot-1"></div>
-    <div class="accent-dot dot-2"></div>
-    <div class="accent-dot dot-3"></div>
-    <div class="slide-header">
-      <div class="slide-title">이런 <span class="highlight">고민</span>해보셨나요?</div>
+    <div class="cover-divider"><div class="cover-divider-line"></div></div>
+    <div class="cover-right">
+      <div class="cover-bg-circle"></div>
+      <div class="cover-eyebrow a-up d2">Service Introduction</div>
+      <h1 class="cover-message a-up d3">당신의 <span class="hl">해석</span>이 빛나는<br>프리미엄 큐레이션 플랫폼</h1>
+      <p class="cover-tagline a-up d4">신뢰하는 해석을 구독하고, 깊이 읽고, 직접 묻는 곳</p>
+      <a class="cover-link a-up d5" href="https://tubelulu.com" target="_blank" rel="noopener">tubelulu.com<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
-    <div class="slide-content">
-      <div class="cards-grid-3">
-        <div class="card border-top-red pain-card">
-          <div class="pain-card-icon">
-            <div class="icon-box red"><i class="fas fa-chart-line"></i></div>
-          </div>
-          <h4>팔로워는 수만 명인데<br>광고 수익은 커피값도 안 나옴</h4>
-          <p>광고·협찬 의존, 수익화 구조가 없습니다</p>
+  </section>
+
+  <!-- ======================= Slide 2 · Pain ======================= -->
+  <section class="slide" id="slide-2">
+    <header class="slide-header center">
+      <div class="slide-eyebrow">The Pain</div>
+      <h2 class="slide-title">이런 <span class="hl">고민</span>, 해보셨나요?</h2>
+    </header>
+    <div class="slide-body">
+      <div class="cards-3">
+        <div class="card pain-card a-up d1">
+          <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>팔로워는 수만 명인데<br>수익은 커피값도 안 나옴</h3>
+          <p>광고·협찬에 의존할 뿐,<br>스스로 만드는 수익 구조가 없습니다</p>
         </div>
-        <div class="card border-top-orange pain-card">
-          <div class="pain-card-icon">
-            <div class="icon-box orange"><i class="fas fa-inbox"></i></div>
-          </div>
-          <h4>DM은 하루에 수백 개,<br>답하고 싶어도 지쳐서 못함</h4>
-          <p>팬들과 소통하고 싶지만<br>스팸으로 가득한 DM 지옥에서<br>진심은 묻혀버립니다</p>
+        <div class="card pain-card a-up d2">
+          <div class="icon-box"><i class="fa-solid fa-inbox"></i></div>
+          <h3>DM은 하루에 수백 개,<br>답하고 싶어도 지쳐서 못함</h3>
+          <p>팬들과 소통하고 싶지만 스팸으로 가득한<br>DM 속에서 진심은 묻혀버립니다</p>
         </div>
-        <div class="card border-top-purple pain-card">
-          <div class="pain-card-icon">
-            <div class="icon-box purple"><i class="fas fa-video"></i></div>
-          </div>
-          <h4>유튜브나 방송 시작?<br>영상 만드는 게 너무 부담</h4>
-          <p>영상 제작이나 라이브 스트리밍은<br>진입 장벽이 너무 높습니다</p>
+        <div class="card pain-card a-up d3">
+          <div class="icon-box"><i class="fa-solid fa-video"></i></div>
+          <h3>유튜브나 방송 시작?<br>영상 만드는 게 너무 부담</h3>
+          <p>영상 제작과 라이브 스트리밍은<br>진입 장벽이 높습니다</p>
         </div>
       </div>
-        <div class="async-badge">
-          <p>당신의 영향력은 충분합니다. 다만, 그 영향력을 발휘할 구조가 없었을 뿐입니다</p>
-        </div>
+      <div class="slide-insight a-up d5">당신의 영향력은 충분합니다. 다만, 그 영향력을 발휘할 <strong>구조</strong>가 없었을 뿐입니다.</div>
     </div>
+  </section>
 
-  </div>
-
-  <!-- ===== SLIDE 3 — 선언 (The Paradigm Shift) ===== -->
-  <div class="slide" id="slide-3">
-    <div class="accent-dot dot-1"></div>
-    <div class="accent-dot dot-2"></div>
-    <div class="accent-dot dot-3"></div>
-    <div class="slide-header">
-      <div class="slide-title">지금도 당신의 이미지는 계속 <span class="highlight">소비</span>되고 있습니다</div>
-    </div>
-    <div class="slide-content">
+  <!-- ======================= Slide 3 · Shift (dark statement) ======================= -->
+  <section class="slide slide-dark" id="slide-3">
+    <header class="slide-header center">
+      <div class="slide-eyebrow">The Shift</div>
+      <h2 class="slide-title">지금도 당신의 이미지는 계속 <span class="hl">소비</span>되고 있습니다</h2>
+    </header>
+    <div class="slide-body">
       <div class="message-list">
-        <div class="card message-card border-left-purple">
-          <div class="icon-box purple"><i class="fas fa-mobile-alt"></i></div>
-          <p>SNS에 올리는 모든 콘텐츠가 이미지를 소비합니다</p>
+        <div class="card message-card a-up d1">
+          <div class="icon-box"><i class="fa-solid fa-mobile-screen"></i></div>
+          <p>SNS에 올리는 모든 콘텐츠가 당신의 이미지를 소비합니다</p>
         </div>
-        <div class="card message-card border-left-purple">
-          <div class="icon-box purple"><i class="fas fa-users"></i></div>
+        <div class="card message-card a-up d2">
+          <div class="icon-box"><i class="fa-solid fa-users"></i></div>
           <p>팔로워들은 이미 당신의 취향·관점·라이프스타일을 '읽고' 있습니다</p>
         </div>
-        <div class="card message-card border-left-purple">
-          <div class="icon-box purple"><i class="fas fa-exchange-alt"></i></div>
-          <p>TubeLulu를 통해 '이미지 소비'를 '관계 기반 가치'로 바꿉니다</p>
+        <div class="card message-card key a-up d3">
+          <div class="icon-box"><i class="fa-solid fa-right-left"></i></div>
+          <p>TubeLuLu는 <strong>'이미지 소비'를 '관계 기반 가치'로</strong> 바꿉니다</p>
         </div>
-        <div class="card message-card border-left-purple">
-          <div class="icon-box purple"><i class="fas fa-recycle"></i></div>
-          <p>무료로 소모되던 관심/시간/정서 에너지를 가치로 전환하세요</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== SLIDE 4 — 시장 성장 (The Market) ===== -->
-  <div class="slide" id="slide-4">
-    <div class="slide-header">
-      <div class="slide-title">팬 후원 방식은 이미 <span class="highlight">거대한 시장</span>이 됐습니다</div>
-      <div class="slide-subtitle">팬들은 자신이 좋아하는 크리에이터에게 비용을 지불하고 있습니다</div>
-    </div>
-    <div class="slide-content">
-      <div class="market-stats-row">
-        <div class="market-stat-item">
-          <div class="market-stat-number">5.5조원</div>
-          <div class="market-stat-label">국내 크리에이터 산업 규모</div>
-        </div>
-        <div class="market-stat-item">
-          <div class="market-stat-number">56조원</div>
-          <div class="market-stat-label">글로벌 인플루언서 마케팅 시장 규모 (2026년 전망)</div>
-        </div>
-        <div class="market-stat-item">
-          <div class="market-stat-number">23.0%</div>
-          <div class="market-stat-label">국내 인플루언서 마케팅 플랫폼 연평균 성장률 (전망)</div>
+        <div class="card message-card a-up d4">
+          <div class="icon-box"><i class="fa-solid fa-recycle"></i></div>
+          <p>무료로 소모되던 관심·시간·마음이 비로소 가치가 됩니다</p>
         </div>
       </div>
-      <div class="comp-table comp-table--2col">
-        <div class="comp-table-head">
-          <span>서비스</span>
-          <span>팬 후원 방식</span>
+    </div>
+    <div class="wave-watermark" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  </section>
+
+  <!-- ======================= Slide 4 · Market ======================= -->
+  <section class="slide" id="slide-4">
+    <header class="slide-header center">
+      <div class="slide-eyebrow">The Market</div>
+      <h2 class="slide-title">팬 후원은 이미 <span class="hl">거대한 시장</span>이 되었습니다</h2>
+      <p class="slide-subtitle">팬들은 자신이 좋아하는 크리에이터에게 기꺼이 비용을 지불하고 있습니다</p>
+    </header>
+    <div class="slide-body">
+      <div class="market-stats">
+        <div class="card stat-tile a-up d1">
+          <div class="stat-num">5.5<small>조 원</small></div>
+          <div class="stat-label">국내 크리에이터 미디어 산업 규모 (2024)</div>
         </div>
-        <div class="comp-table-row">
-          <div class="comp-service-name">YouTube · SOOP<span>슈퍼챗 · 별풍선</span></div>
-          <div class="comp-similar">라이브 방송 중 팬이 크리에이터·스트리머에게 실시간 유료 후원</div>
+        <div class="card stat-tile a-up d2">
+          <div class="stat-num">56<small>조 원</small></div>
+          <div class="stat-label">글로벌 인플루언서 마케팅 시장 (2026년 전망)</div>
         </div>
-        <div class="comp-table-row">
-          <div class="comp-service-name">Patreon<span>구독형 후원</span></div>
-          <div class="comp-similar">팬이 크리에이터 구독으로 독점 콘텐츠 후원</div>
+        <div class="card stat-tile a-up d3">
+          <div class="stat-num">23.0<small>%</small></div>
+          <div class="stat-label">국내 인플루언서 마케팅 플랫폼 연평균 성장률</div>
         </div>
       </div>
-      <div style="margin-top:10px; font-size:11px; opacity:0.55; text-align:right;">출처: 방송미디어통신위원회·한국전파진흥협회 「디지털 크리에이터 미디어 산업 실태조사」(2025) · Mordor Intelligence(2026–2031) · CoherentMI 한국 인플루언서 마케팅 플랫폼 시장 전망(2025–2032)</div>
+      <table class="market-table a-up d4">
+        <thead>
+          <tr><th>서비스</th><th>팬 후원 방식</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="svc">YouTube 슈퍼챗 · SOOP 별풍선<small>SOOP = 구 아프리카TV</small></td>
+            <td class="desc">라이브 방송 중 팬이 크리에이터·스트리머에게 실시간 유료 후원</td>
+          </tr>
+          <tr>
+            <td class="svc">Patreon</td>
+            <td class="desc">팬이 크리에이터를 구독하며 독점 콘텐츠를 후원</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="badge-note a-up d5">이 수치는 전망이 아니라, <strong>이미 집계된 현실</strong>입니다.</div>
+      <p class="stat-source a-up d6">출처: 방송미디어통신위원회·한국전파진흥협회 「디지털 크리에이터 미디어 산업 실태조사」(2025) · Mordor Intelligence(2026–2031) · CoherentMI 한국 인플루언서 마케팅 플랫폼 시장 전망(2025–2032)</p>
     </div>
-  </div>
+  </section>
 
-  <!-- ===== SLIDE 5 — 진입 장벽 (The Gap) ===== -->
-  <div class="slide" id="slide-5">
-    <div class="slide-header">
-      <div class="slide-title">비방송형 인플루언서는 후원시장에 <span class="highlight">진입할 수 없었습니다</span></div>
-      <div class="slide-subtitle">TubeLulu가 이 문제를 해결합니다</div>
+  <!-- ======================= Slide 5 · Gap ======================= -->
+  <section class="slide" id="slide-5">
+    <header class="slide-header center">
+      <div class="slide-eyebrow">The Gap</div>
+      <h2 class="slide-title">비방송형 인플루언서는 <span class="hl">진입할 수 없었습니다</span></h2>
+    </header>
+    <div class="slide-body">
+      <div class="compare-wrap">
+        <div class="card compare-col neg a-left d1">
+          <div class="compare-head"><i class="fa-solid fa-circle-xmark"></i>기존 플랫폼에서는</div>
+          <div class="compare-item"><i class="fa-solid fa-xmark"></i>방송·라이브 없이는 팬에게 후원받을 방법이 없음</div>
+          <div class="compare-item"><i class="fa-solid fa-xmark"></i>영상 제작 역량이 없으면 수익 창출 불가</div>
+          <div class="compare-item"><i class="fa-solid fa-xmark"></i>전업 크리에이터로 전환해야만 참여 가능</div>
+        </div>
+        <div class="card compare-col pos a-right d2">
+          <div class="compare-head"><i class="fa-solid fa-circle-check"></i>TubeLuLu에서는</div>
+          <div class="compare-item"><i class="fa-solid fa-check"></i><span><strong>팔로워만 있으면</strong> 즉시 시작할 수 있음</span></div>
+          <div class="compare-item"><i class="fa-solid fa-check"></i><span>팬과의 <strong>소통 자체</strong>가 수익이 됨</span></div>
+          <div class="compare-item"><i class="fa-solid fa-check"></i><span>본업을 유지하며 <strong>내 리듬에 맞게</strong> 운영</span></div>
+        </div>
+      </div>
+      <div class="slide-insight with-sub a-up d4">TubeLuLu는 그 문턱을 걷어낸 <strong>비동기 큐레이션 플랫폼</strong>입니다.<span class="insight-sub">팬이 언제든 질문을 남기면, 당신의 리듬에 맞춰 답하면 됩니다.</span></div>
     </div>
-    <div class="slide-content">
-      <div class="two-col-compare">
+  </section>
 
-        <!-- 왼쪽: 문제 -->
-        <div class="compare-col negative">
-          <div class="compare-col-title">기존 플랫폼에서는</div>
-          <div class="compare-divider"></div>
-          <div class="compare-items">
-            <div class="compare-item">
-              <i class="fas fa-times-circle"></i>
-              <span>방송·라이브 없이 팬에게 후원받을 방법이 없음</span>
-            </div>
-            <div class="compare-item">
-              <i class="fas fa-times-circle"></i>
-              <span>영상 제작 역량 없으면 수익 창출 불가</span>
-            </div>
-            <div class="compare-item">
-              <i class="fas fa-times-circle"></i>
-              <span>전업 크리에이터로 전환하지 않으면 참여 한계</span>
-            </div>
+  <!-- ======================= Slide 6 · Experience ======================= -->
+  <section class="slide" id="slide-6">
+    <header class="slide-header">
+      <div class="slide-eyebrow">The Experience</div>
+      <h2 class="slide-title">기능은 덜어내고, <span class="hl">소통</span>만 남겼습니다</h2>
+    </header>
+    <div class="slide-body">
+      <div class="exp-wrap">
+        <div class="exp-left">
+          <div class="solution-row a-left d1">
+            <div class="sol-cell q"><i class="fa-solid fa-video-slash"></i>영상 제작이 부담된다면</div>
+            <i class="fa-solid fa-arrow-right sol-arrow"></i>
+            <div class="sol-cell a"><i class="fa-brands fa-youtube"></i>유튜브 링크 + 코멘트면 충분</div>
           </div>
-        </div>
-
-        <!-- 오른쪽: 해결 -->
-        <div class="compare-col positive">
-          <div class="compare-col-title">TubeLulu에서는</div>
-          <div class="compare-divider"></div>
-          <div class="compare-items">
-            <div class="compare-item">
-              <i class="fas fa-check-circle"></i>
-              <span>팔로워만 있으면 즉시 참여 가능</span>
-            </div>
-            <div class="compare-item">
-              <i class="fas fa-check-circle"></i>
-              <span>팬과의 소통을 통해 수익 창출</span>
-            </div>
-            <div class="compare-item">
-              <i class="fas fa-check-circle"></i>
-              <span>본업을 유지하며 내 리듬에 맞게 운영</span>
-            </div>
+          <div class="solution-row a-left d2">
+            <div class="sol-cell q"><i class="fa-solid fa-envelope-open-text"></i>쏟아지는 DM에 지쳤다면</div>
+            <i class="fa-solid fa-arrow-right sol-arrow"></i>
+            <div class="sol-cell a"><i class="fa-solid fa-comments"></i>댓글 기반, 선택적 소통</div>
           </div>
-        </div>
-
-      </div>
-
-      <!-- 하단 요약 배지 -->
-      <div class="async-badge">
-        <p>TubeLulu = 팬과의 소통을 통해 바로 참여 가능한 <span>비동기 후원 플랫폼</span></p>
-        <p class="async-badge-note">팬이 언제든 질문을 남기고, 인플루언서가 자신의 리듬에 맞춰 응답하는 방식</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== SLIDE 6 — 서비스 화면 (The Experience) ===== -->
-  <div class="slide" id="slide-6">
-    <div class="slide-header">
-      <div class="slide-title">복잡한 기능 없이, 팬들과 <span class="highlight">소통</span>하세요</div>
-    </div>
-    <div class="slide-content">
-      <div class="solution-container">
-        <div class="solution-left-col">
-          <div class="solution-list">
-            <div class="solution-row">
-              <div class="solution-problem">
-                <div class="icon-box"><i class="fas fa-video-slash"></i></div>
-                <span>영상 제작 부담</span>
-              </div>
-              <span class="solution-arrow"><i class="fas fa-arrow-right"></i></span>
-              <div class="solution-answer">
-                <div class="icon-box"><i class="fab fa-youtube"></i></div>
-                <span>유튜브 링크와 코멘트</span>
-              </div>
-            </div>
-            <div class="solution-row">
-              <div class="solution-problem">
-                <div class="icon-box"><i class="fas fa-envelope-open-text"></i></div>
-                <span>DM 지옥</span>
-              </div>
-              <span class="solution-arrow"><i class="fas fa-arrow-right"></i></span>
-              <div class="solution-answer">
-                <div class="icon-box"><i class="fas fa-comments"></i></div>
-                <span>댓글 기반, 선택적 소통</span>
-              </div>
-            </div>
-            <div class="solution-row">
-              <div class="solution-problem">
-                <div class="icon-box"><i class="fas fa-question-circle"></i></div>
-                <span>막막한 수익화</span>
-              </div>
-              <span class="solution-arrow"><i class="fas fa-arrow-right"></i></span>
-              <div class="solution-answer">
-                <div class="icon-box"><i class="fas fa-coins"></i></div>
-                <span>유료 댓글 → 수익화</span>
-              </div>
-            </div>
-            <div class="solution-row">
-              <div class="solution-problem">
-                <div class="icon-box"><i class="fas fa-user-times"></i></div>
-                <span>브랜드 관리</span>
-              </div>
-              <span class="solution-arrow"><i class="fas fa-arrow-right"></i></span>
-              <div class="solution-answer">
-                <div class="icon-box"><i class="fas fa-crown"></i></div>
-                <span>지적 이미지 구축</span>
-              </div>
-            </div>
+          <div class="solution-row a-left d3">
+            <div class="sol-cell q"><i class="fa-solid fa-circle-question"></i>수익화가 막막하다면</div>
+            <i class="fa-solid fa-arrow-right sol-arrow"></i>
+            <div class="sol-cell a"><i class="fa-solid fa-coins"></i>유료 질문이 곧 수익</div>
+          </div>
+          <div class="solution-row a-left d4">
+            <div class="sol-cell q"><i class="fa-solid fa-user-slash"></i>브랜드 이미지가 걱정된다면</div>
+            <i class="fa-solid fa-arrow-right sol-arrow"></i>
+            <div class="sol-cell a"><i class="fa-solid fa-crown"></i>품격 있는 큐레이터 포지션</div>
           </div>
           <div class="diff-cards">
-            <div class="diff-card card-1">
-              <div class="diff-card-icon"><i class="fas fa-mobile-alt"></i></div>
-              <div class="diff-card-title">비방송형<br>SNS 특화</div>
-              <div class="diff-card-keyword">No Camera · No Live</div>
-              <div class="diff-card-divider"></div>
-              <div class="diff-card-desc">영상·라이브 없이<br>SNS 활동만으로<br>수익 구조에 연결됩니다</div>
+            <div class="card diff-card a-up d5">
+              <div class="dc-head"><i class="fa-solid fa-mobile-screen-button"></i><h4>비방송형 SNS 특화</h4></div>
+              <span class="dc-tag">No Camera · No Live</span>
+              <p>영상·라이브 없이 SNS 활동만으로 수익 구조가 만들어집니다</p>
             </div>
-            <div class="diff-card card-2">
-              <div class="diff-card-icon"><i class="fas fa-filter"></i></div>
-              <div class="diff-card-title">유료 질문<br>메커니즘</div>
-              <div class="diff-card-keyword">매몰비용 × 희소성 원리</div>
-              <div class="diff-card-divider"></div>
-              <div class="diff-card-desc">비용을 지불한 질문은<br>더 진지합니다. 응답받을 가치가<br>있는 대화만 남습니다</div>
+            <div class="card diff-card a-up d6">
+              <div class="dc-head"><i class="fa-solid fa-wand-magic-sparkles"></i><h4>AI 큐레이션 어시스트</h4></div>
+              <span class="dc-tag">Link → Post 자동 완성</span>
+              <p>링크만 붙여넣으면 영상 정보와 자막 기반 AI 요약이 자동으로 채워집니다</p>
             </div>
           </div>
         </div>
-        <div class="phone-mockup">
+        <div class="phone a-scale d3">
           <div class="phone-screen">
+            <div class="pm-status" aria-hidden="true"><span>9:41</span><span class="pm-status-icons"><i class="fa-solid fa-signal"></i><i class="fa-solid fa-wifi"></i><i class="fa-solid fa-battery-full"></i></span></div>
             <div class="pm-hdr">
-              <span class="pm-hdr-icon"><i class="fas fa-chevron-left"></i></span>
-              <span class="pm-hdr-title">TubeLulu</span>
-              <span class="pm-hdr-icon"><i class="fas fa-ellipsis-h"></i></span>
+              <i class="fa-solid fa-chevron-left"></i>
+              <span class="pm-logo"><span class="t">Tube</span><span class="l">LuLu</span></span>
+              <i class="fa-solid fa-ellipsis"></i>
             </div>
-            <div class="pm-profile">
-              <div class="pm-avatar">여</div>
-              <div class="pm-profile-info">
-                <div class="pm-name">여행박사</div>
-                <div class="pm-handle">@minji_wanders</div>
-                <div class="pm-quote">'여러분은 여행 계획할 때 즉흥형인가요, 계획형인가요?'</div>
-              </div>
-            </div>
-            <div class="pm-video">
-              <div class="pm-thumb">
-                <div class="pm-play-btn"><i class="fas fa-play"></i></div>
-                <div class="pm-thumb-info">
-                  <div class="pm-duration">08:24</div>
-                  <div class="pm-vid-title">국내에서 가장 아름다운 에메랄드빛 바다 TOP 3</div>
+            <div class="pm-scroll">
+              <div class="pm-profile">
+                <div class="pm-avatar">서</div>
+                <div>
+                  <div class="pm-name">여행 큐레이터 서린</div>
+                  <div class="pm-handle">@seorin</div>
                 </div>
+                <span class="pm-badge">큐레이터</span>
               </div>
-            </div>
-            <div class="pm-disc">
-              <div class="pm-disc-hdr">
+              <div class="pm-comment">"여러분은 여행 계획할 때 즉흥형인가요, 계획형인가요?"</div>
+              <div class="pm-video">
+                <svg class="sea-thumb" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="sea-sky-a" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#E9F7FC"/>
+                      <stop offset="1" stop-color="#C6EBF5"/>
+                    </linearGradient>
+                    <linearGradient id="sea-water-a" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#6FDACD"/>
+                      <stop offset="0.42" stop-color="#24B3A3"/>
+                      <stop offset="1" stop-color="#0B7B81"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="320" height="70" fill="url(#sea-sky-a)"/>
+                  <circle cx="256" cy="30" r="20" fill="#FFF9EA" opacity="0.45"/>
+                  <circle cx="256" cy="30" r="12" fill="#FFFDF4"/>
+                  <path d="M14 70 C34 54 58 54 76 70 Z" fill="#6FA9BE" opacity="0.75"/>
+                  <path d="M82 70 C92 62 104 62 112 70 Z" fill="#8CBECF" opacity="0.6"/>
+                  <rect y="70" width="320" height="110" fill="url(#sea-water-a)"/>
+                  <ellipse cx="256" cy="86" rx="44" ry="6" fill="#FFFFFF" opacity="0.28"/>
+                  <ellipse cx="256" cy="100" rx="28" ry="4" fill="#FFFFFF" opacity="0.2"/>
+                  <ellipse cx="256" cy="112" rx="16" ry="3" fill="#FFFFFF" opacity="0.14"/>
+                  <path d="M0 90 Q40 86 80 90 T160 90 T240 90 T320 90" stroke="#9BEDE1" stroke-width="1.6" fill="none" opacity="0.45"/>
+                  <path d="M0 110 Q50 105 100 110 T200 110 T320 109" stroke="#AFF2E8" stroke-width="2" fill="none" opacity="0.4"/>
+                  <path d="M0 132 Q60 127 120 132 T240 131 T320 130" stroke="#BDF5EC" stroke-width="2.2" fill="none" opacity="0.35"/>
+                  <path d="M0 180 V152 Q80 144 160 152 T320 150 V180 Z" fill="#4BD8C6" opacity="0.5"/>
+                  <path d="M0 164 Q60 158 120 164 T240 163 T320 162" stroke="#FFFFFF" stroke-width="3" fill="none" opacity="0.55" stroke-linecap="round"/>
+                  <path d="M34 174 Q84 170 134 174 T234 173" stroke="#FFFFFF" stroke-width="2" fill="none" opacity="0.45" stroke-linecap="round"/>
+                </svg>
+                <div class="pm-play"><i class="fa-solid fa-play"></i></div>
+                <div class="pm-video-meta">
+                  <span class="pm-duration">08:24</span>
+                  <div class="pm-video-title">국내에서 가장 아름다운 에메랄드빛 바다 TOP 3</div>
+                </div>
               </div>
               <div class="pm-q-card">
-                <div class="pm-q-hdr">
-                  <div class="pm-q-fan">
-                    <div class="pm-fan-ava">미</div>
-                    <span class="pm-fan-name">미야오-안나</span>
-                    <span class="pm-fan-tag">팬</span>
-                  </div>
-                  <span class="pm-price"><i class="fas fa-won-sign"></i> 30,000</span>
+                <div class="pm-q-head">
+                  <div class="pm-q-avatar">안</div>
+                  <span class="pm-q-name">안나</span>
+                  <span class="pm-fan-tag">팬</span>
+                  <span class="pm-price"><i class="fa-solid fa-heart"></i>300하트</span>
                 </div>
-                <div class="pm-q-text">언니~ 저는 완전 즉흥형이에요!<br>언니는 어디로 여행가고 싶으세요?</div>
-                <div class="pm-reply">
-                  <div class="pm-reply-lbl"><i class="fas fa-check-circle"></i> 여행박사님의 답변</div>
-                  <div class="pm-reply-text">"소중한 가족들과 부산 산복도로 모노레일 타고 싶어요! 안나님도 꼭 소중한 분과 함께 다녀오세요."</div>
+                <div class="pm-q-text">언니~ 저는 완전 즉흥형이에요! 언니는 어디로 여행 가고 싶으세요?</div>
+                <div class="pm-answer">
+                  <div class="pm-answer-label"><i class="fa-solid fa-circle-check"></i>서린님의 답변</div>
+                  <div class="pm-answer-text">소중한 가족들과 부산 산복도로 모노레일 타보고 싶어요! 안나님도 꼭 다녀오세요.</div>
                 </div>
               </div>
+              <div class="pm-earn"><i class="fa-solid fa-chart-line"></i><span>답변하면 질문에 담긴 하트가 <strong>수익으로 적립</strong>됩니다</span></div>
             </div>
-            <div class="pm-earn">
-              <div class="pm-earn-icon"><i class="fas fa-chart-line"></i></div>
-              <div class="pm-earn-text">팬이 설정한 금액의 <strong>60~80%</strong>가 즉시 정산됩니다</div>
-            </div>
-            <div class="pm-input-bar">
-              <div class="pm-input-fake">질문을 남기거나 의견을 공유하세요...</div>
-              <span class="pm-send-icon"><i class="fas fa-paper-plane"></i></span>
+            <div class="pm-input">
+              <span>질문을 남기거나 의견을 공유하세요...</span>
+              <i class="fa-solid fa-paper-plane"></i>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- ===== SLIDE 7 — 팬의 결제 명분 (The Fan Psychology) ===== -->
-  <div class="slide" id="slide-7">
-    <div class="slide-header">
-      <div class="slide-title">팬이 구매하는 것은 당신과 <span class="highlight">연결될 수 있는 티켓</span>입니다</div>
-      <div class="slide-subtitle">읽히지 않는 수천 건의 DM보다, 단 한 번의 확실한 답장 — 팬들의 갈증을 해결하세요.</div>
-    </div>
-    <div class="slide-content">
-      <!-- AS-IS vs TO-BE 대비 -->
-      <div class="two-col-compare">
-        <div class="card compare-col negative">
-          <div class="compare-col-title"><i class="fas fa-times-circle" style="margin-right:8px; opacity:0.5"></i>무료 DM</div>
-          <div class="compare-divider"></div>
-          <div class="compare-items">
-            <div class="compare-item"><i class="fas fa-heart-broken"></i><span>내가 보낸 메시지, 읽기는 했을까?</span></div>
-            <div class="compare-item"><i class="fas fa-comment"></i><span>가볍고 정제되지 않은 인사와 질문</span></div>
-            <div class="compare-item"><i class="fas fa-hourglass-half"></i><span>기약 없는 기다림</span></div>
-          </div>
-        </div>
-        <div class="card compare-col positive">
-          <div class="compare-col-title"><i class="fas fa-check-circle" style="margin-right:8px"></i>TubeLulu 유료 질문</div>
-          <div class="compare-divider"></div>
-          <div class="compare-items">
-            <div class="compare-item"><i class="fas fa-smile-beam"></i><span>나만을 위한 특별한 답장 — 존중받는 경험</span></div>
-            <div class="compare-item"><i class="fas fa-pen-fancy"></i><span>비용을 지불한 만큼 신중하고 정중한 질문</span></div>
-            <div class="compare-item"><i class="fas fa-check-double"></i><span>보장된 답변, 특별한 연결 경험</span></div>
-          </div>
-        </div>
-      </div>
-      <!-- 하단 인사이트 -->
-      <div class="slide-insight">
-        결제는 팬에게 장벽이 아닙니다. <strong>'답변의 확신'</strong>이라는 리워드이자, 당신에게 확실히 닿을 수 있는 가장 합리적인 방법입니다.
-      </div>
-    </div>
-  </div>
+  </section>
 
-  <!-- ===== SLIDE 8 — 경쟁 구조 (The Auction Logic) ===== -->
-  <div class="slide" id="slide-8">
-    <div class="slide-header">
-      <div class="slide-title">당신은 <span class="highlight">응답</span>만 하세요, 가치는 팬들이 결정합니다</div>
-      <div class="slide-subtitle">팬들이 스스로 가치를 입찰(Bidding)하는 구조 — 자연스럽게 경쟁의 선순환이 발생합니다.</div>
-    </div>
-    <div class="slide-content">
-      <div class="queue-layout">
-        <div class="card queue-board-card">
-        <div class="queue-board">
-          <div class="queue-item queue-item--gold">
-            <div class="queue-rank">1</div>
-            <div class="queue-price">₩30,000</div>
-            <div class="queue-text">유럽 한달살기 루트 조언 부탁드려요</div>
-            <div class="queue-tag queue-tag--gold">우선 답변 · 정성 답변</div>
-          </div>
-          <div class="queue-item queue-item--gold">
-            <div class="queue-rank">2</div>
-            <div class="queue-price">₩15,000</div>
-            <div class="queue-text">혼자여행 시 안전 팁 알려주세요</div>
-            <div class="queue-tag queue-tag--gold">우선 답변 · 정성 답변</div>
-          </div>
-          <div class="queue-item queue-item--silver">
-            <div class="queue-rank">3</div>
-            <div class="queue-price">₩10,000</div>
-            <div class="queue-text">현지인처럼 여행하는 법?</div>
-            <div class="queue-tag queue-tag--silver">우선 답변</div>
-          </div>
-          <div class="queue-item queue-item--silver">
-            <div class="queue-rank">4</div>
-            <div class="queue-price">₩7,000</div>
-            <div class="queue-text">짐 싸는 노하우 궁금해요</div>
-            <div class="queue-tag queue-tag--silver">우선 답변</div>
-          </div>
-          <div class="queue-item queue-item--normal">
-            <div class="queue-rank">5</div>
-            <div class="queue-price">₩5,000</div>
-            <div class="queue-text">그 카페 위치 알려주세요</div>
-          </div>
-          <div class="queue-item queue-item--normal">
-            <div class="queue-rank">6</div>
-            <div class="queue-price">₩3,000</div>
-            <div class="queue-text">다음 여행지 추천해주세요</div>
-          </div>
+  <!-- ======================= Slide 7 · Fan psychology ======================= -->
+  <section class="slide" id="slide-7">
+    <header class="slide-header center">
+      <div class="slide-eyebrow">Fan Psychology</div>
+      <h2 class="slide-title">팬이 구매하는 것은 당신과 <span class="hl">연결되는 티켓</span>입니다</h2>
+      <p class="slide-subtitle">읽히지 않는 수천 건의 DM보다, 단 한 번의 확실한 답장이 팬에게 더 깊이 닿습니다</p>
+    </header>
+    <div class="slide-body">
+      <div class="compare-wrap">
+        <div class="card compare-col neg a-left d1">
+          <div class="compare-head"><i class="fa-solid fa-circle-xmark"></i>무료 DM</div>
+          <div class="compare-item"><i class="fa-solid fa-heart-crack"></i>내가 보낸 메시지, 읽기는 했을까?</div>
+          <div class="compare-item"><i class="fa-solid fa-comment"></i>가볍고 정제되지 않은 인사와 질문</div>
+          <div class="compare-item"><i class="fa-solid fa-hourglass-half"></i>기약 없는 기다림</div>
         </div>
-        </div>
-        <div class="card queue-explain-card">
-        <div class="queue-explain">
-          <div class="queue-explain-title"><i class="fas fa-cogs"></i>시스템이 제공하는 것</div>
-          <div class="queue-explain-item">
-            <div class="queue-explain-num">1</div>
-            <div class="queue-explain-text"><strong>자동 정렬</strong><br>후원 금액이 높을수록 상단에 자동 배치</div>
-          </div>
-          <div class="queue-explain-item">
-            <div class="queue-explain-num">2</div>
-            <div class="queue-explain-text"><strong>우선순위</strong><br>높은 금액의 질문에 우선 답변하며,<br>자연스럽게 더 정성을 담게 됩니다</div>
-          </div>
-          <div class="queue-explain-item">
-            <div class="queue-explain-num">3</div>
-            <div class="queue-explain-text"><strong>경쟁의 선순환</strong><br>정성 어린 답변을 본 팬들은 더 높은 가치를 지불합니다</div>
-          </div>
-          <div class="queue-explain-item">
-            <div class="queue-explain-num">4</div>
-            <div class="queue-explain-text"><strong>미응답 질문 자동 환불</strong><br>24시간 내 답하지 못한 질문은 팬에게 자동 환불 —<br>부담 없이 내 리듬대로 응답할 수 있습니다</div>
-          </div>
-          <div class="slide-insight" style="max-width:100%; padding:14px 18px;">
-            <strong>시스템이 정렬하고, 당신은 응답하고, 팬이 가치를 결정</strong>합니다.
-          </div>
-        </div>
+        <div class="card compare-col pos a-right d2">
+          <div class="compare-head"><i class="fa-solid fa-circle-check"></i>TubeLuLu 유료 질문</div>
+          <div class="compare-item"><i class="fa-solid fa-face-smile-beam"></i><span>나만을 위한 특별한 답장 — <strong>존중받는 경험</strong></span></div>
+          <div class="compare-item"><i class="fa-solid fa-pen-fancy"></i><span>비용을 지불한 만큼 신중하고 정중한 질문</span></div>
+          <div class="compare-item"><i class="fa-solid fa-check-double"></i><span><strong>답변 보장</strong> — 72시간 내 미응답 시 전액 자동 환불</span></div>
         </div>
       </div>
+      <div class="slide-insight a-up d4">결제는 팬에게 장벽이 아니라, <strong>'답변의 확신'</strong>을 얻고 당신에게 닿는 가장 합리적인 방법입니다.</div>
     </div>
-  </div>
+  </section>
 
-  <!-- ===== SLIDE 9 — 수익 시나리오 (The Proof) ===== -->
-  <div class="slide" id="slide-9">
-    <div class="slide-header">
-      <div class="slide-title">하루 <span class="highlight">답변 3건</span>이 만드는 월 수익</div>
-    </div>
-    <div class="slide-content">
-      <div class="proof-layout">
-
-        <!-- 왼쪽: 인플루언서 포스트 + 이미지 -->
-        <div class="proof-left">
-          <div class="curator-post">
-            <div class="curator-post-header">
-              <div class="curator-post-avatar"><i class="fas fa-user"></i></div>
-              <div class="curator-post-meta">
-                <div class="curator-post-name">여행박사 @minji_wanders</div>
-                <div class="curator-post-label">TubeLulu 포스트</div>
-              </div>
-              <div class="curator-post-badge">인플루언서 코멘트</div>
-            </div>
-            <div class="curator-post-text">
-              '같은 코스를 봐도 어디를 갔는지보다 왜 그 길을 택했는지가 더 궁금해지더라고요.<br>
-              <strong>여러분은 여행 계획할 때 즉흥형인가요, 계획형인가요?</strong>'
-            </div>
+  <!-- ======================= Slide 8 · System ======================= -->
+  <section class="slide" id="slide-8">
+    <header class="slide-header">
+      <div class="slide-eyebrow">The System</div>
+      <h2 class="slide-title">당신은 <span class="hl">답변만</span> 하세요, 나머지는 시스템이 정리합니다</h2>
+    </header>
+    <div class="slide-body">
+      <div class="sys-wrap">
+        <div class="card inbox-card a-left d1">
+          <div class="inbox-head"><i class="fa-solid fa-inbox"></i>스튜디오 · 질문 인박스</div>
+          <div class="inbox-filters">
+            <span class="chip on">전체</span>
+            <span class="chip">~50하트</span>
+            <span class="chip">50~300</span>
+            <span class="chip">300+</span>
           </div>
-          <div class="slide-post-img">
-            <img src="./photo_2026-02-28 19.53.13.jpeg" alt="포스트 예시" />
+          <div class="inbox-item urgent a-up d2">
+            <span class="due-tag">마감 3시간 전</span>
+            <span class="inbox-q">유럽 한 달 살기 루트 조언 부탁드려요</span>
+            <span class="heart-pill"><i class="fa-solid fa-heart"></i>300</span>
           </div>
+          <div class="inbox-item urgent a-up d3">
+            <span class="due-tag">마감 9시간 전</span>
+            <span class="inbox-q">혼자 여행할 때 안전 팁이 궁금해요</span>
+            <span class="heart-pill"><i class="fa-solid fa-heart"></i>100</span>
+          </div>
+          <div class="inbox-item a-up d4">
+            <span class="due-tag">마감 2일 전</span>
+            <span class="inbox-q">다음 달 부산 코스, 1:1로 봐주실 수 있나요?</span>
+            <span class="type-tag private"><i class="fa-solid fa-lock"></i>프라이빗</span>
+            <span class="heart-pill"><i class="fa-solid fa-heart"></i>500</span>
+          </div>
+          <div class="inbox-item a-up d5">
+            <span class="due-tag">마감 3일 전</span>
+            <span class="inbox-q">영상에 나온 그 카페 위치 알려주세요!</span>
+            <span class="heart-pill"><i class="fa-solid fa-heart"></i>50</span>
+          </div>
+          <div class="inbox-foot"><i class="fa-solid fa-rotate-left"></i>72시간 내 미응답 시 자동 전액 환불</div>
         </div>
-
-        <!-- 오른쪽: 팬 질문(세로) + 수익 요약 -->
-        <div class="proof-right">
-          <div class="paid-q-list paid-q-list--col">
-            <div class="paid-q-item">
-              <div class="paid-q-fan-header">
-                <div class="paid-q-avatar">팬 1</div>
-                <div class="paid-q-price-tag"><i class="fas fa-won-sign"></i> 10,000원</div>
-              </div>
-              <div class="paid-q-text">언니~ 저는 완전 즉흥형이에요! 어제도 갑자기 버스 타고 경주 갔다왔어요 ㅋㅋ 언니는 여행 중에 예상치 못한 일이 생기면 어떻게 대처하는 편이에요?</div>
-            </div>
-            <div class="paid-q-item">
-              <div class="paid-q-fan-header">
-                <div class="paid-q-avatar">팬 2</div>
-                <div class="paid-q-price-tag"><i class="fas fa-won-sign"></i> 15,000원</div>
-              </div>
-              <div class="paid-q-text">'왜 그 길을 택했는지'가 너무 공감됐어요 😭 저는 엄청 계획형인데 사실 이유 없는 루트가 더 많더라구요. 언니처럼 의미 있는 선택 어떻게 하는 건지 궁금해요!</div>
-            </div>
-            <div class="paid-q-item">
-              <div class="paid-q-fan-header">
-                <div class="paid-q-avatar">팬 3</div>
-                <div class="paid-q-price-tag"><i class="fas fa-won-sign"></i> 25,000원</div>
-              </div>
-              <div class="paid-q-text">저는 처음엔 계획형이었는데 혼자 여행 다니면서 즉흥형으로 변했어요. 언니 여행 스타일이 너무 궁금해요 – 가장 기억에 남는 즉흥 순간 있으세요? :)</div>
-            </div>
-          </div>
-          <div class="earn-summary-box">
-            <div class="earn-summary-icon"><i class="fas fa-comment-dollar"></i></div>
-            <div class="earn-summary-body">
-              <div class="earn-summary-main">하루 질문 <strong>3건</strong>에 답하면 — 정산 후 월 수익 약 <strong>100만원</strong></div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== SLIDE 10 — 팬 유입 경로 (The Fan Journey) ===== -->
-  <div class="slide" id="slide-10">
-    <div class="slide-header">
-      <div class="slide-title">당신의 팔로워를 TubeLulu로 <span class="highlight">초대하세요</span></div>
-      <div class="slide-subtitle">팔로워에서 후원 팬으로</div>
-    </div>
-    <div class="slide-content">
-      <div class="fan-flow">
-        <div class="fan-step">
-          <div class="fan-step-num">1</div>
-          <div class="fan-step-icon"><i class="fas fa-user-plus"></i></div>
-          <div class="fan-step-title">TubeLulu 온보딩</div>
-          <div class="fan-step-desc">계정 생성,<br>프로필 설정</div>
-        </div>
-        <div class="fan-arrow"><i class="fas fa-arrow-right"></i></div>
-        <div class="fan-step">
-          <div class="fan-step-num">2</div>
-          <div class="fan-step-icon"><i class="fab fa-instagram"></i></div>
-          <div class="fan-step-title">Instagram 공유</div>
-          <div class="fan-step-desc">"TubeLulu에서 더 깊은<br>소통을 시작합니다" + 링크</div>
-        </div>
-        <div class="fan-arrow"><i class="fas fa-arrow-right"></i></div>
-        <div class="fan-step">
-          <div class="fan-step-num">3</div>
-          <div class="fan-step-icon"><i class="fas fa-users"></i></div>
-          <div class="fan-step-title">팔로워 → 팬 전환</div>
-          <div class="fan-step-desc">기존 Instagram 팔로워가<br>TubeLulu 팬으로 유입</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== SLIDE 11 — 역할 분담 (The Peace of Mind) ===== -->
-  <div class="slide" id="slide-11">
-    <div class="slide-header">
-      <div class="slide-title">그리고, '<span class="highlight">관계</span>'에 집중하세요</div>
-      <div class="slide-subtitle">나머지는 TubeLulu가 담당합니다</div>
-    </div>
-    <div class="slide-content">
-      <div class="role-container">
-        <div class="card border-top-purple role-card platform">
-          <div class="role-card-header">
-            <i class="fas fa-cogs"></i>
-            <div class="role-card-title">플랫폼(TubeLulu) 역할</div>
-          </div>
-          <div class="role-divider"></div>
-          <div class="role-items">
-            <div class="role-item">
-              <div class="icon-box purple"><i class="fas fa-trophy"></i></div>
-              <p>팬 경쟁 구도 설계 + 인플루언서 이미지 보호</p>
-            </div>
-            <div class="role-item">
-              <div class="icon-box purple"><i class="fas fa-credit-card"></i></div>
-              <p>결제/정산 시스템 운영</p>
-            </div>
-            <div class="role-item">
-              <div class="icon-box purple"><i class="fas fa-filter"></i></div>
-              <p>질문 필터링 및 알림 관리</p>
-            </div>
-          </div>
-        </div>
-        <div class="card border-top-teal role-card influencer">
-          <div class="role-card-header">
-            <i class="fas fa-user-circle"></i>
-            <div class="role-card-title">인플루언서 역할</div>
-          </div>
-          <div class="role-divider"></div>
-          <div class="role-items">
-            <div class="role-item">
-              <div class="icon-box teal"><i class="fas fa-comments"></i></div>
-              <p>유료 질문에 성의 있는 답변 제공</p>
-            </div>
-            <div class="role-item">
-              <div class="icon-box teal"><i class="fas fa-users"></i></div>
-              <p>후원 팬 기억 + 반복 소통</p>
-            </div>
-            <div class="role-item">
-              <div class="icon-box teal"><i class="fas fa-handshake"></i></div>
-              <p>신뢰 기반 재참여 유도</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== SLIDE 12 — 베타 혜택 (The Exclusive) ===== -->
-  <div class="slide" id="slide-12">
-    <div class="accent-dot dot-1"></div>
-    <div class="accent-dot dot-2"></div>
-    <div class="accent-dot dot-3"></div>
-    <div class="slide-header">
-      <div class="slide-title">베타 참여 혜택: 지금 합류할 <span class="highlight">3가지 이유</span></div>
-      <div class="title-accent"></div>
-      <div class="slide-subtitle">클로즈드 베타에 합류하면 아래 혜택이 제공됩니다</div>
-    </div>
-    <div class="slide-content">
-      <div class="beta-cards">
-        <div class="beta-card card-purple">
-          <div class="icon-box purple"><i class="fas fa-money-bill-wave"></i></div>
-          <div class="beta-card-title">베타 파트너<br>활동 지원금</div>
-          <div class="beta-card-subtitle">클로즈드 베타 기간 한정<br>활동 지원금을 지원합니다</div>
-          <div class="beta-card-desc">
-            <p>수익이 발생하기 전에도<br>안정적으로 활동 가능</p>
-          </div>
-        </div>
-        <div class="beta-card card-navy">
-          <div class="icon-box navy"><i class="fas fa-star"></i></div>
-          <div class="beta-card-title">최고 등급<br>패스트트랙</div>
-          <div class="beta-card-subtitle">베타 참여자 전용<br>최고 정산율 적용</div>
-          <div class="beta-card-desc">
-            <p>초기 파트너에게<br>최고 수익 배분율 우선 적용</p>
-          </div>
-        </div>
-        <div class="beta-card card-teal">
-          <div class="icon-box teal"><i class="fas fa-tools"></i></div>
-          <div class="beta-card-title">제품 설계에<br>직접 참여</div>
-          <div class="beta-card-subtitle">베타 파트너의 피드백이<br>기능 로드맵에 즉시 반영</div>
-          <div class="beta-card-desc">
-            <p>내가 필요한 기능을<br>직접 제안하고 만들어갑니다</p>
-          </div>
-        </div>
-      </div>
-      <div class="cta-action">
-        <button class="cta-button" onclick="window.open('https://tubelulu.com','_blank')">지금 참여하세요</button>
-        <div class="cta-meta">
-          <div class="cta-meta-item">
-            <i class="fas fa-envelope"></i>
-            <span>참여 문의: <a href="mailto:momo@teamlulu.ai?subject=TubeLulu%20%EB%B2%A0%ED%83%80%20%EC%B0%B8%EC%97%AC%20%EB%AC%B8%EC%9D%98" style="color:inherit">momo@teamlulu.ai</a></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== SLIDE 13 — 마무리 (The Closing) ===== -->
-  <div class="slide" id="slide-13">
-    <div class="slide-header">
-      <div class="slide-title"><span class="highlight">TubeLulu</span>와 함께, 지금 시작하세요</div>
-    </div>
-    <div class="slide-content">
-      <div class="value-box value-box--closing">
-        <div class="value-box-quote"><i class="fas fa-quote-left"></i></div>
-        <p>비공식적이고 불투명한 소통을,<br>안전하고 투명한 온라인 수익으로 전환합니다</p>
-        <div class="value-box-underline"></div>
-      </div>
-      <div class="principle-section">
-        <div class="principle-cards">
-          <div class="principle-card">
-            <i class="fas fa-shield-alt"></i>
+        <div class="sys-explains">
+          <div class="sys-item a-right d2">
+            <div class="sys-num">1</div>
             <div>
-              <h5>Safety</h5>
-              <p>안전한 거래 구조</p>
+              <h4><strong>두 가지</strong> 유료 질문</h4>
+              <p>포스트에 노출되는 <b>공개 하이라이트</b>와 1:1 <b>프라이빗 문의</b> — 팬이 원하는 방식으로 다가옵니다</p>
             </div>
           </div>
-          <div class="principle-card">
-            <i class="fas fa-gem"></i>
+          <div class="sys-item a-right d3">
+            <div class="sys-num">2</div>
             <div>
-              <h5>Dignity</h5>
-              <p>품격 있는 소통</p>
+              <h4>우선순위 인박스</h4>
+              <p>마감이 임박한 질문부터 자동 정렬하고, 금액대 필터로 원하는 질문만 골라볼 수 있습니다</p>
             </div>
           </div>
-          <div class="principle-card">
-            <i class="fas fa-leaf"></i>
+          <div class="sys-item a-right d4">
+            <div class="sys-num">3</div>
             <div>
-              <h5>Sustainability</h5>
-              <p>지속 가능한 수익</p>
+              <h4><strong>72시간</strong> 안심 장치</h4>
+              <p>답하지 못한 질문은 팬에게 자동 전액 환불 — 부담 없이 내 리듬대로 응답할 수 있습니다</p>
+            </div>
+          </div>
+          <div class="sys-item a-right d5">
+            <div class="sys-num">4</div>
+            <div>
+              <h4>정성의 선순환</h4>
+              <p>정성 어린 답변을 경험한 팬은 더 높은 가치로 화답합니다</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="conclusion-brand-line">
-        <strong>TubeLulu</strong> — 인플루언서의 지적 취향이 빛나는 프리미엄 미디어 플랫폼
+      <div class="slide-insight a-up d6"><strong>시스템이 정리하고, 당신은 응답하고, 팬이 가치를 결정합니다.</strong></div>
+    </div>
+  </section>
+
+  <!-- ======================= Slide 9 · Proof ======================= -->
+  <section class="slide" id="slide-9">
+    <header class="slide-header">
+      <div class="slide-eyebrow">The Scenario</div>
+      <h2 class="slide-title">하루 <span class="hl">답변 3건</span>이 만드는 월 수익</h2>
+    </header>
+    <div class="slide-body">
+      <div class="proof-wrap">
+        <div>
+          <div class="card curator-post a-left d1">
+            <div class="cp-head">
+              <div class="cp-avatar">서</div>
+              <div>
+                <div class="cp-name">여행 큐레이터 서린</div>
+                <div class="cp-sub">@seorin · TubeLuLu 큐레이터 포스트</div>
+              </div>
+              <span class="cp-tag">큐레이터 코멘트</span>
+            </div>
+            <p class="cp-body">"같은 코스를 봐도 어디를 갔는지보다 <b>왜 그 길을 택했는지</b>가 더 궁금해지더라고요. 여러분은 여행 계획할 때 즉흥형인가요, 계획형인가요?"</p>
+          </div>
+          <div class="mini-video a-left d2">
+            <div class="mini-thumb">
+              <svg class="sea-thumb" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="sea-sky-b" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#E9F7FC"/>
+                    <stop offset="1" stop-color="#C6EBF5"/>
+                  </linearGradient>
+                  <linearGradient id="sea-water-b" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#6FDACD"/>
+                    <stop offset="0.42" stop-color="#24B3A3"/>
+                    <stop offset="1" stop-color="#0B7B81"/>
+                  </linearGradient>
+                </defs>
+                <rect width="320" height="70" fill="url(#sea-sky-b)"/>
+                <circle cx="256" cy="30" r="20" fill="#FFF9EA" opacity="0.45"/>
+                <circle cx="256" cy="30" r="12" fill="#FFFDF4"/>
+                <path d="M14 70 C34 54 58 54 76 70 Z" fill="#6FA9BE" opacity="0.75"/>
+                <path d="M82 70 C92 62 104 62 112 70 Z" fill="#8CBECF" opacity="0.6"/>
+                <rect y="70" width="320" height="110" fill="url(#sea-water-b)"/>
+                <ellipse cx="256" cy="86" rx="44" ry="6" fill="#FFFFFF" opacity="0.28"/>
+                <ellipse cx="256" cy="100" rx="28" ry="4" fill="#FFFFFF" opacity="0.2"/>
+                <path d="M0 96 Q40 92 80 96 T160 96 T240 96 T320 96" stroke="#9BEDE1" stroke-width="2.4" fill="none" opacity="0.45"/>
+                <path d="M0 126 Q50 121 100 126 T200 126 T320 125" stroke="#AFF2E8" stroke-width="2.8" fill="none" opacity="0.4"/>
+                <path d="M0 180 V152 Q80 144 160 152 T320 150 V180 Z" fill="#4BD8C6" opacity="0.5"/>
+                <path d="M0 164 Q60 158 120 164 T240 163 T320 162" stroke="#FFFFFF" stroke-width="3.4" fill="none" opacity="0.55" stroke-linecap="round"/>
+              </svg>
+              <span class="mini-play"><i class="fa-solid fa-play"></i></span>
+            </div>
+            <div class="mini-video-info">
+              <div class="mv-src"><i class="fa-brands fa-youtube"></i>YouTube</div>
+              <div class="mv-title">국내에서 가장 아름다운 에메랄드빛 바다 TOP 3</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="qa-list">
+            <div class="card qa-item a-right d1">
+              <div class="qa-avatar" style="background: linear-gradient(135deg, #F1632A, #F59E0B);">안</div>
+              <p>언니 저 완전 즉흥파예요! 어제도 갑자기 버스 타고 경주 다녀왔어요 ㅋㅋ 예상치 못한 일이 생기면 어떻게 대처해요?</p>
+              <span class="heart-pill"><i class="fa-solid fa-heart"></i>100하트</span>
+            </div>
+            <div class="card qa-item a-right d2">
+              <div class="qa-avatar" style="background: linear-gradient(135deg, #09347A, #3399CC);">지</div>
+              <p>'왜 그 길을 택했는지'가 너무 공감됐어요 😭 저는 계획형인데 사실 이유 없는 루트가 더 많더라구요. 의미 있는 선택, 어떻게 하는 거예요?</p>
+              <span class="heart-pill"><i class="fa-solid fa-heart"></i>150하트</span>
+            </div>
+            <div class="card qa-item a-right d3">
+              <div class="qa-avatar" style="background: linear-gradient(135deg, #2284B8, #35A3D6);">유</div>
+              <p>저는 혼자 여행 다니면서 즉흥형으로 변했어요. 가장 기억에 남는 즉흥 순간 있으세요? :)</p>
+              <span class="heart-pill"><i class="fa-solid fa-heart"></i>250하트</span>
+            </div>
+          </div>
+          <div class="earn-box a-up d4">
+            <div class="icon-box"><i class="fa-solid fa-hand-holding-heart"></i></div>
+            <div>
+              <div class="earn-line1">하루 질문 3건에 답하면</div>
+              <div class="earn-line2">정산 후 월 수익 <strong>약 100만 원</strong></div>
+            </div>
+          </div>
+          <div class="proof-note a-up d5">1하트 ≈ 100원 · 하루 3건 답변, 하루 30분 활동 기준의 예시 시나리오이며, 정산율은 큐레이터 등급에 따라 적용됩니다</div>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- ======================= Slide 10 · Journey ======================= -->
+  <section class="slide" id="slide-10">
+    <header class="slide-header center">
+      <div class="slide-eyebrow">The Journey</div>
+      <h2 class="slide-title">당신의 팔로워를 TubeLuLu로 <span class="hl">초대하세요</span></h2>
+      <p class="slide-subtitle">팔로워에서 구독자로, 구독자에서 후원 팬으로</p>
+    </header>
+    <div class="slide-body">
+      <div class="flow-wrap">
+        <div class="card flow-step a-up d1">
+          <div class="flow-num">1</div>
+          <div class="icon-box"><i class="fa-solid fa-user-check"></i></div>
+          <h4>큐레이터 온보딩</h4>
+          <p>가입 후 큐레이터로 지원하세요.<br><strong>승인제</strong>로 운영되어 품격 있는<br>큐레이터 커뮤니티가 유지됩니다</p>
+        </div>
+        <i class="fa-solid fa-arrow-right flow-arrow a-up d2"></i>
+        <div class="card flow-step a-up d3">
+          <div class="flow-num">2</div>
+          <div class="icon-box"><i class="fa-brands fa-instagram"></i></div>
+          <h4>개인 링크 공유</h4>
+          <p>나만의 핸들로 만들어지는 프로필 링크를<br>인스타그램 바이오·스토리에 공유하세요</p>
+          <span class="link-chip">tubelulu.com/curators/내핸들</span>
+        </div>
+        <i class="fa-solid fa-arrow-right flow-arrow a-up d4"></i>
+        <div class="card flow-step a-up d5">
+          <div class="flow-num">3</div>
+          <div class="icon-box"><i class="fa-solid fa-users"></i></div>
+          <h4>팔로워 → 팬 전환</h4>
+          <p><strong>무료 구독</strong>으로 부담 없이 유입되고,<br>유료 질문으로 관계가 깊어집니다.<br>새로운 팬을 찾을 필요가 없습니다</p>
+        </div>
+      </div>
+      <div class="slide-insight a-up d6">이미 당신을 좋아하는 사람들이 있습니다. <strong>그들을 초대하기만 하면 됩니다.</strong></div>
+    </div>
+  </section>
+
+  <!-- ======================= Slide 11 · Roles ======================= -->
+  <section class="slide" id="slide-11">
+    <header class="slide-header center">
+      <div class="slide-eyebrow">Peace of Mind</div>
+      <h2 class="slide-title">운영은 맡기고, <span class="hl">'관계'</span>에만 집중하세요</h2>
+      <p class="slide-subtitle">그 밖의 모든 일은 TubeLuLu가 맡습니다</p>
+    </header>
+    <div class="slide-body">
+      <div class="roles-wrap">
+        <div class="card role-card a-left d1">
+          <div class="role-head"><i class="fa-solid fa-gears"></i><span><span class="wm-inline"><span class="t">Tube</span><span class="l">LuLu</span></span>가 하는 일</span></div>
+          <div class="role-item">
+            <div class="icon-box"><i class="fa-solid fa-credit-card"></i></div>
+            <div>
+              <h5>결제·정산 시스템 운영</h5>
+              <p>하트 충전부터 현금 정산까지 안전하게 처리합니다</p>
+            </div>
+          </div>
+          <div class="role-item">
+            <div class="icon-box"><i class="fa-solid fa-rotate-left"></i></div>
+            <div>
+              <h5>만료·환불 자동 처리와 알림 관리</h5>
+              <p>미응답 질문 환불과 새 질문 알림을 시스템이 챙깁니다</p>
+            </div>
+          </div>
+          <div class="role-item">
+            <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+              <h5>AI 큐레이션 지원과 이미지 보호</h5>
+              <p>영상 정보·요약 자동화, 신고·차단 시스템으로 품격을 지킵니다</p>
+            </div>
+          </div>
+        </div>
+        <div class="card role-card mine a-right d2">
+          <div class="role-head"><i class="fa-solid fa-circle-user"></i>당신이 하는 일</div>
+          <div class="role-item">
+            <div class="icon-box"><i class="fa-solid fa-comments"></i></div>
+            <div>
+              <h5>유료 질문에 정성 어린 답변</h5>
+              <p>내 리듬에 맞춰, 진심을 담아 응답하세요</p>
+            </div>
+          </div>
+          <div class="role-item">
+            <div class="icon-box"><i class="fa-solid fa-ranking-star"></i></div>
+            <div>
+              <h5>후원 팬을 기억하는 꾸준한 소통</h5>
+              <p>팬랭킹으로 나를 아끼는 팬을 한눈에 확인하세요</p>
+            </div>
+          </div>
+          <div class="role-item">
+            <div class="icon-box"><i class="fa-solid fa-handshake"></i></div>
+            <div>
+              <h5>신뢰가 쌓이는 관계</h5>
+              <p>좋은 답변이 다음 질문으로 이어집니다</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= Slide 12 · Why now ======================= -->
+  <section class="slide" id="slide-12">
+    <header class="slide-header center">
+      <div class="slide-eyebrow">Why Now</div>
+      <h2 class="slide-title">지금 시작할 <span class="hl">세 가지 이유</span></h2>
+    </header>
+    <div class="slide-body">
+      <div class="now-cards">
+        <div class="card now-card a-up d1">
+          <div class="icon-box"><i class="fa-solid fa-rocket"></i></div>
+          <h4>웹·앱 전면 제공</h4>
+          <div class="nc-tag">tubelulu.com</div>
+          <div class="nc-desc">App Store와 Google Play, 웹 어디서든 만날 수 있습니다. 가입부터 정산까지 전 과정을 지원합니다</div>
+        </div>
+        <div class="card now-card a-up d2">
+          <div class="icon-box"><i class="fa-solid fa-ranking-star"></i></div>
+          <h4>팬랭킹 &amp; 시즌 DM</h4>
+          <div class="nc-tag">월간 TOP 3 팬</div>
+          <div class="nc-desc">매월 팬랭킹 상위 3명에게 7일간의 프라이빗 DM이 열립니다 — 가장 가까운 팬을 향한 예우입니다</div>
+        </div>
+        <div class="card now-card a-up d3">
+          <div class="icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h4>한층 정교해진 큐레이션</h4>
+          <div class="nc-tag">AI 요약 · 멀티 영상</div>
+          <div class="nc-desc">자막 기반 AI 요약, 여러 영상을 묶는 포스트, 저장 라이브러리까지 — 큐레이션이 더 쉬워졌습니다</div>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="cta-button a-scale d5" href="https://tubelulu.com" target="_blank" rel="noopener">tubelulu.com에서 시작하기<i class="fa-solid fa-arrow-right"></i></a>
+        <div class="cta-meta a-up d6"><i class="fa-solid fa-envelope"></i>문의: <a class="mail-link" href="mailto:momo@teamlulu.ai?subject=TubeLuLu%20%ED%81%90%EB%A0%88%EC%9D%B4%ED%84%B0%20%EC%A7%80%EC%9B%90%20%EB%AC%B8%EC%9D%98">momo@teamlulu.ai</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= Slide 13 · Closing ======================= -->
+  <section class="slide slide-dark" id="slide-13">
+    <header class="slide-header center">
+      <div class="slide-eyebrow">Closing</div>
+      <h2 class="slide-title">TubeLuLu와 함께, <span class="hl">지금 시작하세요</span></h2>
+    </header>
+    <div class="slide-body">
+      <div class="mission-box a-up d1">
+        <i class="fa-solid fa-quote-left"></i>
+        <p class="mission-text">비공식적이고 불투명한 소통을,<br><strong>안전하고 투명한 온라인 수익</strong>으로 전환합니다</p>
+        <div class="mission-underline"></div>
+      </div>
+      <div class="principle-cards">
+        <div class="card principle-card a-up d2">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>Safety</h4>
+          <p>안전한 거래 구조</p>
+        </div>
+        <div class="card principle-card a-up d3">
+          <i class="fa-solid fa-gem"></i>
+          <h4>Dignity</h4>
+          <p>품격 있는 소통</p>
+        </div>
+        <div class="card principle-card a-up d4">
+          <i class="fa-solid fa-leaf"></i>
+          <h4>Sustainability</h4>
+          <p>지속 가능한 수익</p>
+        </div>
+      </div>
+      <div class="closing-cta a-up d5">
+        <a class="cta-button light" href="https://tubelulu.com" target="_blank" rel="noopener">tubelulu.com에서 시작하기<i class="fa-solid fa-arrow-right"></i></a>
+        <div class="closing-urls">문의: <a href="mailto:momo@teamlulu.ai?subject=TubeLuLu%20%ED%81%90%EB%A0%88%EC%9D%B4%ED%84%B0%20%EC%A7%80%EC%9B%90%20%EB%AC%B8%EC%9D%98">momo@teamlulu.ai</a></div>
+      </div>
+      <p class="closing-line a-up d6"><span class="wm-inline"><span class="t">Tube</span><span class="l">LuLu</span></span> — 당신의 해석이 빛나는 프리미엄 큐레이션 플랫폼</p>
+    </div>
+    <div class="wave-watermark" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  </section>
+
+  <!-- ======================= Navigation chrome ======================= -->
+  <div class="progress-bar" id="progressBar"></div>
+  <div class="nav-dots" id="navDots"></div>
+  <div class="nav-arrows">
+    <button class="nav-arrow" id="prevBtn" aria-label="이전 슬라이드"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="nav-arrow" id="nextBtn" aria-label="다음 슬라이드"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
-
-</div><!-- /presentation -->
-
-<!-- Navigation -->
-<div class="nav-dots" id="nav-dots"></div>
-
-<div class="nav-arrows">
-  <button class="nav-arrow" id="prev-btn"><i class="fas fa-chevron-left"></i></button>
-  <button class="nav-arrow" id="next-btn"><i class="fas fa-chevron-right"></i></button>
-</div>
-
-<div class="keyboard-hint" id="keyboard-hint">
-  <span><kbd>←</kbd> <kbd>→</kbd> 이동</span>
-  <span><kbd>Space</kbd> 다음</span>
-</div>
-
-<div class="page-number">
-  <span class="current" id="current-page">1</span> / <span id="total-pages">10</span>
+  <div class="page-number" id="pageNumber"><strong>1</strong> / 13</div>
+  <div class="keyboard-hint" id="keyboardHint"><i class="fa-solid fa-keyboard"></i> ← → 또는 스와이프로 이동</div>
 </div>
 
 <script>
-const slideTitles = [
-  '표지', '고통', '선언', '시장', '진입 장벽',
-  '서비스 화면', '팬 심리', '경쟁 구조', '수익 시나리오', '팬 유입 경로', '역할 분담', '베타 혜택', '마무리'
-];
+(function () {
+  var totalSlides = 13;
+  var current = 1;
+  var isAnimating = false;
 
-const totalSlides = 13;
-let currentSlide = 1;
-let isAnimating = false;
+  var slideTitles = ['표지', '고민', '선언', '시장', '기회', '서비스', '팬 심리', '시스템', '수익', '팬 유입', '역할', '왜 지금', '마무리'];
 
-const slides = document.querySelectorAll('.slide');
-const navDots = document.getElementById('nav-dots');
-const progressBar = document.getElementById('progress-bar');
-const currentPageEl = document.getElementById('current-page');
-const totalPagesEl = document.getElementById('total-pages');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-const keyboardHint = document.getElementById('keyboard-hint');
+  var presentation = document.getElementById('presentation');
+  var progressBar = document.getElementById('progressBar');
+  var pageNumber = document.getElementById('pageNumber');
+  var navDots = document.getElementById('navDots');
+  var keyboardHint = document.getElementById('keyboardHint');
 
-totalPagesEl.textContent = totalSlides;
-
-for (let i = 1; i <= totalSlides; i++) {
-  const dot = document.createElement('button');
-  dot.className = 'nav-dot' + (i === 1 ? ' active' : '');
-  dot.setAttribute('title', slideTitles[i - 1]);
-  dot.addEventListener('click', () => goToSlide(i));
-  navDots.appendChild(dot);
-}
-
-function updateNav(slideNum) {
-  progressBar.style.width = ((slideNum / totalSlides) * 100) + '%';
-  currentPageEl.textContent = slideNum;
-  document.querySelectorAll('.nav-dot').forEach((dot, idx) => {
-    dot.classList.toggle('active', idx + 1 === slideNum);
-  });
-}
-
-function goToSlide(targetNum, direction) {
-  if (isAnimating || targetNum === currentSlide || targetNum < 1 || targetNum > totalSlides) return;
-  isAnimating = true;
-
-  const fromSlide = document.getElementById('slide-' + currentSlide);
-  const toSlide = document.getElementById('slide-' + targetNum);
-
-  if (!direction) direction = targetNum > currentSlide ? 'next' : 'prev';
-
-  toSlide.style.display = 'flex';
-  toSlide.style.opacity = '0';
-  toSlide.style.transform = direction === 'next' ? 'translateX(100%)' : 'translateX(-100%)';
-
-  toSlide.offsetHeight;
-
-  fromSlide.classList.add('transitioning');
-  toSlide.classList.add('transitioning');
-
-  fromSlide.style.transform = direction === 'next' ? 'translateX(-100%)' : 'translateX(100%)';
-  fromSlide.style.opacity = '0';
-
-  toSlide.style.transform = 'translateX(0)';
-  toSlide.style.opacity = '1';
-
-  setTimeout(() => {
-    fromSlide.classList.remove('active', 'transitioning');
-    fromSlide.style.display = 'none';
-    fromSlide.style.transform = '';
-    fromSlide.style.opacity = '';
-
-    toSlide.classList.remove('transitioning');
-    toSlide.classList.add('active');
-    toSlide.style.transform = '';
-    toSlide.style.opacity = '';
-
-    currentSlide = targetNum;
-    updateNav(currentSlide);
-    isAnimating = false;
-  }, 520);
-}
-
-function nextSlide() { goToSlide(currentSlide + 1, 'next'); }
-function prevSlide() { goToSlide(currentSlide - 1, 'prev'); }
-
-prevBtn.addEventListener('click', prevSlide);
-nextBtn.addEventListener('click', nextSlide);
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
-  if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
-});
-
-let touchStartX = 0;
-let touchStartY = 0;
-document.addEventListener('touchstart', (e) => {
-  touchStartX = e.touches[0].clientX;
-  touchStartY = e.touches[0].clientY;
-}, { passive: true });
-document.addEventListener('touchend', (e) => {
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  const dy = e.changedTouches[0].clientY - touchStartY;
-  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-    if (dx < 0) nextSlide(); else prevSlide();
+  // Build dots
+  for (var i = 1; i <= totalSlides; i++) {
+    var dot = document.createElement('button');
+    dot.className = 'nav-dot' + (i === 1 ? ' active' : '');
+    dot.title = slideTitles[i - 1];
+    dot.setAttribute('aria-label', (i) + '. ' + slideTitles[i - 1]);
+    (function (n) {
+      dot.addEventListener('click', function () { goToSlide(n); });
+    })(i);
+    navDots.appendChild(dot);
   }
-}, { passive: true });
 
-setTimeout(() => { if (keyboardHint) keyboardHint.style.opacity = '0'; }, 4000);
+  function updateChrome() {
+    progressBar.style.width = (current / totalSlides * 100) + '%';
+    pageNumber.innerHTML = '<strong>' + current + '</strong> / ' + totalSlides;
+    var dots = navDots.children;
+    for (var i = 0; i < dots.length; i++) {
+      dots[i].classList.toggle('active', i + 1 === current);
+    }
+    var activeSlide = document.getElementById('slide-' + current);
+    presentation.classList.toggle('dark-chrome', activeSlide.classList.contains('slide-dark'));
+  }
 
-updateNav(1);
+  function goToSlide(n) {
+    if (isAnimating || n === current || n < 1 || n > totalSlides) return;
+    isAnimating = true;
 
-// 뷰포트 스케일링 함수
-function scalePresentation() {
-  const presentation = document.getElementById('presentation');
-  const baseWidth = 1280;
-  const baseHeight = 720;
+    var from = document.getElementById('slide-' + current);
+    var to = document.getElementById('slide-' + n);
+    var dir = n > current ? 1 : -1;
 
-  const scaleX = window.innerWidth / baseWidth;
-  const scaleY = window.innerHeight / baseHeight;
-  const scale = Math.min(scaleX, scaleY);
+    to.classList.add('anim-stage');
+    to.style.transition = 'none';
+    to.style.transform = 'translateX(' + (dir * 100) + '%)';
+    to.style.opacity = '0';
 
-  presentation.style.transform = `scale(${scale})`;
+    // force reflow, then animate
+    void to.offsetWidth;
+    to.style.transition = '';
+    to.classList.add('active');
+    to.style.transform = 'translateX(0)';
+    to.style.opacity = '1';
 
-  // 중앙 정렬
-  const offsetX = (window.innerWidth - baseWidth * scale) / 2;
-  const offsetY = (window.innerHeight - baseHeight * scale) / 2;
-  presentation.style.left = offsetX + 'px';
-  presentation.style.top = offsetY + 'px';
-}
+    from.style.transform = 'translateX(' + (-dir * 100) + '%)';
+    from.style.opacity = '0';
 
-// 초기화 및 이벤트 바인딩
-window.addEventListener('load', scalePresentation);
-window.addEventListener('resize', scalePresentation);
+    current = n;
+    updateChrome();
+
+    setTimeout(function () {
+      from.classList.remove('active');
+      from.style.transform = '';
+      from.style.opacity = '';
+      to.classList.remove('anim-stage');
+      to.style.transform = '';
+      to.style.opacity = '';
+      isAnimating = false;
+    }, 520);
+  }
+
+  function next() { goToSlide(current + 1); }
+  function prev() { goToSlide(current - 1); }
+
+  document.getElementById('nextBtn').addEventListener('click', next);
+  document.getElementById('prevBtn').addEventListener('click', prev);
+
+  document.addEventListener('keydown', function (e) {
+    // let Space activate a focused button/link natively instead of hijacking it
+    if (e.key === ' ' && e.target && e.target.closest && e.target.closest('button, a')) return;
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') { e.preventDefault(); goToSlide(1); }
+    else if (e.key === 'End') { e.preventDefault(); goToSlide(totalSlides); }
+  });
+
+  // Touch swipe (single-finger only; pinch/multi-touch is ignored)
+  var touchX = null, touchY = null, touchId = null;
+  document.addEventListener('touchstart', function (e) {
+    if (e.touches.length > 1) { touchX = touchY = touchId = null; return; }
+    touchX = e.changedTouches[0].clientX;
+    touchY = e.changedTouches[0].clientY;
+    touchId = e.changedTouches[0].identifier;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (touchX === null) return;
+    if (e.touches.length > 0) { touchX = touchY = touchId = null; return; }
+    var t = e.changedTouches[0];
+    if (touchId !== null && t.identifier !== touchId) { touchX = touchY = touchId = null; return; }
+    var dx = t.clientX - touchX;
+    var dy = t.clientY - touchY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      if (dx < 0) next(); else prev();
+    }
+    touchX = touchY = touchId = null;
+  }, { passive: true });
+
+  // Scale stage to viewport, keep 16:9 centered
+  function scalePresentation() {
+    var scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    presentation.style.transform = 'scale(' + scale + ')';
+    presentation.style.left = ((window.innerWidth - 1280 * scale) / 2) + 'px';
+    presentation.style.top = ((window.innerHeight - 720 * scale) / 2) + 'px';
+  }
+  window.addEventListener('resize', scalePresentation);
+  window.addEventListener('load', scalePresentation);
+  scalePresentation();
+
+  setTimeout(function () { keyboardHint.style.opacity = '0'; }, 4500);
+
+  // decorative Font Awesome glyphs should be silent for screen readers
+  document.querySelectorAll('i[class*="fa-"]').forEach(function (el) {
+    el.setAttribute('aria-hidden', 'true');
+  });
+
+  updateChrome();
+})();
 </script>
 </body>
 </html>
