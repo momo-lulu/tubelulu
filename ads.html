@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>TubeLuLu 광고 상품 소개서</title>
+<meta name="description" content="TubeLuLu 광고 상품 소개서 — 광고주 큐레이터 페이지 패키지와 광고 구좌 안내.">
+<meta property="og:title" content="TubeLuLu 광고 상품 소개서">
+<meta property="og:description" content="팬이 먼저 묻고, 광고주가 답합니다. TubeLuLu 광고 상품 안내.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://momo-lulu.github.io/tubelulu/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ============================================================
+   TubeLuLu Ad Product Introduction — Media-kit layout
+   Brand: navy #09347A · sky #3399CC · warm point #F1632A
+   Structure modeled on standard ad media kits:
+   cover → contents → media → section dividers → product pages
+   (desc · screenshots · spec table) → placements → price table →
+   cases → process → policy → inquiry → thanks
+   ============================================================ */
+:root {
+  --navy: #09347A; --navy-deep: #062654; --navy-hover: #13478F;
+  --blue: #007DC3; --blue-d: #0169A4;
+  --sky: #3399CC; --sky-mid: #2284B8; --sky-wash: #E6F4FB; --sky-soft: #F3FAFE;
+  --orange: #F1632A; --orange-soft: #FDE6DC;
+  --bg: #FFFFFF; --bg-subtle: #F6F7F9; --canvas: #FAFAFA;
+  --text: #111827; --text-strong: #0F172A; --text-muted: #6B7280; --text-faint: #9CA3AF;
+  --border: #E5E7EB; --border-soft: #F0F1F3;
+  --shadow: rgba(9, 52, 122, 0.08);
+  --radius: 16px; --radius-sm: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #0A0F1A; }
+body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif; color: var(--text); letter-spacing: -0.01em; word-break: keep-all; font-feature-settings: "tnum"; -webkit-font-smoothing: antialiased; }
+.wm { font-family: "Poppins", sans-serif; font-weight: 600; }
+.wm .t { color: var(--navy); } .wm .l { color: var(--sky); }
+
+/* ---------- Stage ---------- */
+.presentation { width: 1280px; height: 720px; position: absolute; transform-origin: top left; background: var(--bg); overflow: hidden; }
+.slide { position: absolute; inset: 0; padding: 44px 72px 80px; display: none; flex-direction: column; background: var(--bg); transition: transform 0.5s ease-out, opacity 0.5s ease-out; }
+.slide.active, .slide.anim-stage { display: flex; }
+
+/* ---------- Section label (top-left) & brand mark (bottom-left) ---------- */
+.sec-label { font-size: 15px; font-weight: 600; color: var(--text-faint); letter-spacing: 0.01em; margin-bottom: 26px; }
+.sec-label b { color: var(--text-muted); font-weight: 700; margin-right: 6px; }
+.brand-mark { position: absolute; left: 72px; bottom: 30px; display: flex; align-items: center; gap: 0; font-family: "Poppins", sans-serif; font-weight: 600; font-size: 17px; opacity: 0.55; z-index: 5; }
+.brand-mark svg { width: 22px; height: 22px; }
+.brand-mark .t { color: var(--navy); } .brand-mark .l { color: var(--sky); }
+.slide-dark .brand-mark { opacity: 0.8; }
+.slide-dark .brand-mark .t { color: #fff; } .slide-dark .brand-mark .l { color: #8ECAE6; }
+
+/* ---------- Page title block (left title · right description) ---------- */
+.page-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; padding-bottom: 18px; border-bottom: 1px solid var(--border); margin-bottom: 22px; }
+.page-title { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; color: var(--text-strong); flex-shrink: 0; max-width: 520px; }
+.page-title .hl { color: var(--navy); }
+.page-desc { font-size: 16px; line-height: 1.7; color: var(--text-muted); max-width: 600px; padding-top: 6px; }
+.page-desc strong { color: var(--text-strong); font-weight: 700; }
+.page-head.center { display: block; text-align: center; }
+.page-head.center .page-title { max-width: none; }
+.page-head.center .page-desc { max-width: none; margin-top: 8px; }
+.slide-body { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+
+/* ---------- Image placeholder slots ---------- */
+.img-slot { position: relative; border: 2px dashed rgba(51,153,204,0.55); background: repeating-linear-gradient(135deg, #F3FAFE, #F3FAFE 10px, #EAF5FB 10px, #EAF5FB 20px); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--sky-mid); overflow: hidden; }
+.img-slot i { font-size: 22px; margin-bottom: 8px; opacity: 0.8; position: relative; z-index: 2; }
+.img-slot .is-title { font-size: 12.5px; font-weight: 800; color: var(--navy); line-height: 1.4; padding: 2px 10px; position: relative; z-index: 2; background: rgba(255,255,255,0.85); border-radius: 6px; }
+.img-slot .is-note { font-size: 10.5px; color: var(--sky-mid); margin-top: 4px; line-height: 1.4; padding: 2px 10px; position: relative; z-index: 2; background: rgba(255,255,255,0.85); border-radius: 6px; }
+.img-slot.dark .is-title, .img-slot.dark .is-note { background: rgba(6,38,84,0.6); }
+.ad-highlight { z-index: 1; }
+.img-slot .is-size { position: absolute; right: 8px; bottom: 6px; font-size: 9.5px; color: var(--text-faint); font-family: "Poppins", sans-serif; font-weight: 600; }
+.img-slot.phone { width: 176px; height: 356px; border-radius: 26px; }
+.img-slot.phone-sm { width: 150px; height: 304px; border-radius: 22px; }
+.img-slot.wide { width: 100%; }
+.img-slot.dark { border-color: rgba(142,202,230,0.55); background: repeating-linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.09) 10px, rgba(255,255,255,0.09) 20px); color: #8ECAE6; }
+.img-slot.dark .is-title { color: #fff; } .img-slot.dark .is-note { color: #8ECAE6; } .img-slot.dark .is-size { color: rgba(255,255,255,0.4); }
+.ad-highlight { position: absolute; border: 3px solid var(--orange); border-radius: 8px; background: rgba(241,99,42,0.08); }
+.ad-highlight::after { content: "광고 구좌"; position: absolute; left: -3px; top: -20px; background: var(--orange); color: #fff; font-size: 9.5px; font-weight: 800; padding: 2px 7px; border-radius: 5px 5px 0 0; letter-spacing: 0.02em; }
+.slot-label { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; background: var(--navy); color: #fff; font-size: 12px; font-weight: 700; border-radius: 14px; padding: 6px 14px; line-height: 1.35; text-align: center; }
+.slot-label.sky { background: var(--sky-mid); }
+.slot-label small { display: block; font-weight: 500; font-size: 10.5px; color: #BFDCEF; }
+.slot-caption { font-size: 12px; color: var(--text-muted); text-align: center; line-height: 1.45; margin-top: 8px; }
+.slot-caption b { color: var(--navy); }
+
+/* ---------- Spec table (right side of product pages) ---------- */
+.spec { border-collapse: separate; border-spacing: 0; width: 100%; border: 1.5px solid var(--sky); border-radius: 10px; overflow: hidden; font-size: 13px; }
+.spec th { background: var(--sky-wash); color: var(--navy-deep); font-weight: 700; text-align: center; padding: 9px 12px; width: 92px; border-bottom: 1px solid rgba(51,153,204,0.35); border-right: 1px solid rgba(51,153,204,0.35); white-space: nowrap; }
+.spec td { padding: 9px 12px; text-align: center; color: var(--text); border-bottom: 1px solid rgba(51,153,204,0.25); background: var(--bg); line-height: 1.45; }
+.spec tr:last-child th, .spec tr:last-child td { border-bottom: 0; }
+.spec td strong { color: var(--navy); font-weight: 800; }
+.spec-note { font-size: 11px; color: var(--text-faint); line-height: 1.55; margin-top: 10px; }
+
+/* ---------- Generic table ---------- */
+.tbl { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border-radius: 10px; border: 1.5px solid var(--sky); font-size: 13.5px; }
+.tbl th { background: var(--sky-wash); color: var(--navy-deep); font-size: 13.5px; font-weight: 700; text-align: center; padding: 11px 14px; border-bottom: 1.5px solid var(--sky); }
+.tbl td { padding: 11px 14px; text-align: center; border-bottom: 1px solid var(--border-soft); background: var(--bg); line-height: 1.45; }
+.tbl tr:last-child td { border-bottom: 0; }
+.tbl td.l { text-align: left; }
+.tbl td.rowhead { font-weight: 700; color: var(--text-strong); background: var(--bg-subtle); }
+.tbl td.muted { color: var(--text-muted); }
+.tbl td.win { background: var(--sky-soft); color: var(--navy-deep); font-weight: 600; }
+.tbl td.win strong { color: var(--navy); font-weight: 800; }
+.tbl th.win { background: var(--sky-mid); color: #fff; }
+.tbl.compact th { padding: 8px 14px; }
+.tbl.compact td { padding: 6px 14px; }
+.tbl.compact td.grp { padding: 4px 14px; }
+.tbl.compact td .pill { padding: 2px 9px; font-size: 11px; }
+.tbl td.grp { background: var(--sky-wash); color: var(--navy); font-weight: 800; font-size: 12px; letter-spacing: 0.06em; text-align: left; padding: 6px 14px; }
+.tbl .ok { color: var(--navy); font-weight: 800; } .tbl .no { color: var(--text-faint); }
+.foot-note { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-top: 12px; }
+.foot-note.red { color: #C2410C; font-weight: 600; }
+
+/* ---------- Cards / tiles ---------- */
+.card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 2px 14px var(--shadow); }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.stat-tile { background: var(--bg-subtle); border-radius: 14px; padding: 18px 22px 16px; min-height: 148px; display: flex; flex-direction: column; justify-content: space-between; }
+.stat-tag { display: inline-block; background: var(--navy); color: #fff; font-size: 12.5px; font-weight: 700; border-radius: 6px; padding: 4px 10px; width: fit-content; }
+.stat-num { font-size: 46px; font-weight: 800; letter-spacing: -0.03em; color: var(--text-strong); line-height: 1; }
+.stat-num small { font-size: 16px; font-weight: 600; color: var(--text-faint); margin-left: 4px; letter-spacing: 0; }
+.stat-num.tbd { font-size: 20px; color: var(--sky-mid); font-weight: 700; }
+.pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.pill.sky { background: var(--sky-wash); color: var(--navy); border: 1px solid rgba(51,153,204,0.4); }
+.pill.warm { background: #FFF4EF; border: 1px solid #F8C4AC; color: #C74A17; }
+.pill.dark { background: var(--text-strong); color: #fff; }
+.circle-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; max-width: 1000px; margin: 0 auto; width: 100%; }
+.circle-item { text-align: center; }
+.circle-img { width: 230px; height: 230px; border-radius: 50%; margin: 0 auto 16px; }
+.circle-item h4 { font-size: 17px; font-weight: 800; color: var(--text-strong); }
+.circle-item p { font-size: 13.5px; color: var(--text-muted); margin-top: 4px; }
+
+/* ---------- Contents slide ---------- */
+.contents-wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: center; flex: 1; }
+.contents-title { font-family: "Poppins", "Pretendard Variable", sans-serif; font-size: 62px; font-weight: 700; letter-spacing: -0.03em; color: var(--text-strong); }
+.contents-box { background: var(--bg-subtle); border-radius: 22px; padding: 34px 44px; }
+.toc-item { display: flex; align-items: center; gap: 16px; padding: 12px 0; }
+.toc-item + .toc-item { border-top: 1px dotted var(--border); }
+.toc-num { width: 34px; height: 34px; border-radius: 50%; background: var(--sky-wash); color: var(--navy); font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.toc-item span { font-size: 17px; font-weight: 700; color: var(--text-strong); }
+.toc-item small { font-size: 12.5px; color: var(--text-faint); margin-left: auto; }
+
+/* ---------- Divider slides ---------- */
+.slide-dark { background: linear-gradient(148deg, #041B3D 0%, #062654 52%, #0A3A75 125%); }
+.divider-wrap { flex: 1; display: flex; align-items: center; gap: 60px; }
+.divider-num { font-family: "Poppins", sans-serif; font-size: 64px; font-weight: 700; color: #8ECAE6; letter-spacing: -0.02em; }
+.divider-title { font-size: 52px; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+.divider-sub { font-size: 17px; color: rgba(230,244,251,0.7); margin-top: 12px; }
+.doc-tag { position: absolute; right: 72px; top: 40px; display: flex; align-items: center; gap: 10px; color: rgba(230,244,251,0.75); font-size: 12.5px; line-height: 1.4; }
+.doc-tag .wm .t { color: #fff; } .doc-tag .wm .l { color: #8ECAE6; }
+
+/* ---------- Cover ---------- */
+.slide-cover { padding: 0; }
+.cover-wrap { position: relative; width: 100%; height: 100%; background: linear-gradient(148deg, #041B3D 0%, #062654 52%, #0A3A75 125%); overflow: hidden; }
+.cover-circles { position: absolute; inset: 0; pointer-events: none; }
+.cover-circles span { position: absolute; border-radius: 50%; border: 1.5px solid rgba(142,202,230,0.12); background: radial-gradient(circle at 50% 40%, rgba(51,153,204,0.10), transparent 60%); }
+.cover-text { position: absolute; left: 72px; top: 110px; z-index: 2; }
+.cover-title { font-size: 54px; font-weight: 800; color: #8ECAE6; letter-spacing: -0.03em; line-height: 1.25; }
+.cover-title .w { color: #fff; }
+.cover-date { margin-top: 26px; font-size: 20px; font-weight: 600; color: rgba(230,244,251,0.85); }
+.cover-line { margin-top: 44px; font-size: 16px; color: rgba(230,244,251,0.65); line-height: 1.6; }
+.cover-symbol-big { position: absolute; right: 120px; top: 50%; transform: translateY(-50%); width: 330px; height: 330px; z-index: 2; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.45)); }
+.cover-orb { position: absolute; right: 90px; top: 50%; transform: translateY(-50%); width: 390px; height: 390px; border-radius: 50%; background: radial-gradient(circle at 50% 35%, rgba(51,153,204,0.55), rgba(9,52,122,0.2) 55%, transparent 72%); z-index: 1; }
+.cover-wm { position: absolute; left: 72px; bottom: 40px; font-family: "Poppins", sans-serif; font-size: 26px; font-weight: 600; z-index: 2; }
+.cover-wm .t { color: #fff; } .cover-wm .l { color: #8ECAE6; }
+
+/* ---------- Product page layout ---------- */
+.prod-wrap { display: grid; grid-template-columns: 1fr 340px; gap: 34px; align-items: start; }
+.shots { display: flex; gap: 22px; align-items: flex-start; justify-content: center; }
+.shot { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.shot .img-slot.phone { width: 168px; height: 336px; }
+.feature-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.feature-col h5 { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+.feature-col h5 i { color: var(--orange); }
+.feature-col ul { list-style: none; font-size: 12.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 10px; }
+.feature-col li::before { content: "·"; margin-right: 6px; color: var(--sky-mid); font-weight: 800; }
+
+/* ---------- Package page ---------- */
+.pkg-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+.pkg-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pkg-card { border: 1px solid var(--border); border-left: 3px solid var(--sky); border-radius: 12px; padding: 12px 14px; display: flex; gap: 10px; align-items: flex-start; background: var(--bg); }
+.pkg-card.hero { border-left-color: var(--navy); background: linear-gradient(90deg, var(--sky-wash), var(--bg) 60%); }
+.pkg-num { width: 24px; height: 24px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 11.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.pkg-card h4 { font-size: 13.5px; font-weight: 800; color: var(--text-strong); margin-bottom: 2px; }
+.pkg-card p { font-size: 11.8px; color: var(--text-muted); line-height: 1.5; }
+.pkg-card p strong { color: var(--navy); font-weight: 700; }
+
+/* ---------- Placements row ---------- */
+.place-row { display: flex; justify-content: space-between; gap: 14px; }
+.place-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.place-item .img-slot.phone-sm { width: 148px; height: 300px; }
+.place-item .img-slot.web { width: 148px; height: 300px; border-radius: 12px; }
+.place-item .img-slot, .feature-col .img-slot { justify-content: flex-start; padding-top: 22px; }
+
+/* ---------- Process ---------- */
+.proc-row { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; width: 100%; position: relative; }
+.proc-step { width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 18px; font-weight: 800; line-height: 1.4; border: 2px solid var(--sky); color: var(--navy); background: var(--bg); position: relative; }
+.proc-step.fill { background: var(--navy); border-color: var(--navy); color: #fff; }
+.proc-step.soft { background: var(--sky-wash); border-color: var(--sky); color: var(--navy); }
+.proc-note { position: absolute; width: 190px; text-align: center; font-size: 12.5px; color: var(--text-muted); line-height: 1.5; left: 50%; transform: translateX(-50%); }
+.proc-note.top { bottom: 168px; } .proc-note.bottom { top: 168px; }
+.proc-note::before { content: ""; position: absolute; left: 50%; width: 1px; height: 16px; border-left: 1.5px dotted var(--sky); }
+.proc-note.top::before { bottom: -18px; } .proc-note.bottom::before { top: -18px; }
+.proc-note b { color: var(--navy); }
+
+/* ---------- Case page (template) ---------- */
+.case-wrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: 40px; align-items: start; }
+.case-left { padding-right: 40px; border-right: 1px solid var(--border); }
+.case-tag { display: inline-block; background: var(--text-strong); color: #fff; font-size: 13px; font-weight: 700; border-radius: 999px; padding: 6px 16px; margin: 18px 0 8px; }
+.case-left p { font-size: 14.5px; color: var(--text); line-height: 1.6; }
+.case-left ul { list-style: none; font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-top: 4px; }
+.case-left li::before { content: "- "; }
+.case-results { display: flex; justify-content: center; gap: 22px; margin: 10px 0 22px; }
+.result-circle { width: 156px; height: 156px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.3; }
+.result-circle b { font-size: 26px; font-weight: 800; margin-top: 2px; }
+.result-circle.fill { background: var(--navy); color: #fff; }
+.result-circle.line { border: 2px solid var(--sky); color: var(--navy); }
+.result-circle.dark { background: var(--text-strong); color: #fff; }
+.case-summary { background: var(--bg-subtle); border-radius: 14px; padding: 22px 28px; text-align: center; font-size: 15px; line-height: 1.7; color: var(--text); }
+.case-summary strong { color: var(--navy); }
+.case-head-label { text-align: center; font-size: 16px; color: var(--text-muted); font-weight: 600; margin-bottom: 14px; }
+
+/* ---------- Policy / inquiry ---------- */
+.policy-list { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 40px; }
+.policy-list div { font-size: 14.5px; color: var(--text); padding: 9px 0; border-bottom: 1px dotted var(--border); display: flex; gap: 10px; align-items: flex-start; }
+.policy-list div i { color: var(--text-faint); margin-top: 4px; font-size: 12px; }
+.policy-list div.ok i { color: var(--sky-mid); }
+.inq-table { max-width: 900px; margin: 0 auto; }
+.inq-table td.l ul { list-style: none; line-height: 1.9; }
+.inq-table td.l li::before { content: "· "; color: var(--sky-mid); font-weight: 800; }
+.inq-table td.l li span { color: var(--text-faint); }
+.mail { color: var(--navy); font-weight: 700; text-decoration: none; }
+
+/* ---------- Thanks ---------- */
+.thanks-title { font-size: 56px; font-weight: 800; color: #8ECAE6; letter-spacing: -0.03em; }
+.thanks-sub { margin-top: 30px; font-size: 18px; font-weight: 700; color: rgba(230,244,251,0.85); }
+.thanks-mail { margin-top: 8px; font-size: 18px; color: #fff; }
+.thanks-mail a { color: #fff; text-decoration: none; }
+
+/* ---------- Animations ---------- */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInLeft { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeInRight { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: translateX(0); } }
+.a-up, .a-left, .a-right { opacity: 0; }
+.slide.active .a-up { animation: fadeInUp 0.6s ease forwards; }
+.slide.active .a-left { animation: fadeInLeft 0.6s ease forwards; }
+.slide.active .a-right { animation: fadeInRight 0.6s ease forwards; }
+.d1 { animation-delay: .08s !important; } .d2 { animation-delay: .16s !important; } .d3 { animation-delay: .24s !important; } .d4 { animation-delay: .32s !important; } .d5 { animation-delay: .40s !important; } .d6 { animation-delay: .48s !important; }
+
+/* ---------- Nav chrome ---------- */
+.progress-bar { position: absolute; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--sky)); z-index: 60; transition: width .4s; border-radius: 0 2px 2px 0; }
+.nav-dots { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); display: flex; gap: 7px; z-index: 60; }
+.nav-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all .25s; border: none; padding: 0; }
+.nav-dot:hover { background: var(--sky); }
+.nav-dot.active { background: var(--navy); width: 24px; border-radius: 5px; }
+.nav-arrows { position: absolute; bottom: 20px; right: 28px; display: flex; gap: 10px; z-index: 60; }
+.nav-arrow { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg); color: var(--navy); font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s; box-shadow: 0 2px 8px var(--shadow); }
+.nav-arrow:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.page-number { position: absolute; bottom: 30px; right: 130px; font-size: 13px; font-weight: 600; color: var(--text-faint); z-index: 60; font-variant-numeric: tabular-nums; }
+.page-number strong { color: var(--navy); }
+.keyboard-hint { position: absolute; bottom: 68px; right: 28px; font-size: 11.5px; color: var(--text-muted); background: rgba(255,255,255,0.9); border: 1px solid var(--border-soft); border-radius: 8px; padding: 5px 11px; z-index: 60; transition: opacity 1s; }
+.presentation.dark-chrome .nav-dot { background: rgba(255,255,255,0.28); }
+.presentation.dark-chrome .nav-dot:hover, .presentation.dark-chrome .nav-dot.active { background: #8ECAE6; }
+.presentation.dark-chrome .page-number { color: rgba(255,255,255,0.55); }
+.presentation.dark-chrome .page-number strong { color: #8ECAE6; }
+.presentation.dark-chrome .nav-arrow { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.28); color: #E6F4FB; box-shadow: none; }
+.presentation.dark-chrome .nav-arrow:hover { background: #8ECAE6; color: #062654; }
+.presentation.dark-chrome .keyboard-hint { background: rgba(6,38,84,0.8); color: #BFDCEF; border-color: rgba(255,255,255,0.15); }
+
+/* ---------- Print ---------- */
+@media print {
+  html, body { width: auto; height: auto; overflow: visible; background: #fff; }
+  .presentation { position: static; width: 1280px; height: auto; transform: none !important; }
+  .slide { display: flex !important; position: relative; opacity: 1 !important; transform: none !important; width: 1280px; height: 720px; page-break-after: always; break-after: page; }
+  .slide:last-of-type { page-break-after: avoid; }
+  .progress-bar, .nav-dots, .nav-arrows, .page-number, .keyboard-hint { display: none !important; }
+  .a-up, .a-left, .a-right { opacity: 1 !important; }
+  * { animation: none !important; transition: none !important; }
+  .slide-dark, .slide-dark *, .cover-wrap, .cover-wrap * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+@page { size: 1280px 720px; margin: 0; }
+</style>
+</head>
+<body>
+<div class="presentation" id="presentation">
+
+<!-- ===== 1 · Cover ===== -->
+<section class="slide slide-cover active" id="slide-1">
+  <div class="cover-wrap">
+    <div class="cover-circles" aria-hidden="true">
+      <span style="width:520px;height:520px;left:-160px;top:-240px"></span>
+      <span style="width:420px;height:420px;left:380px;top:-300px"></span>
+      <span style="width:460px;height:460px;left:180px;bottom:-320px"></span>
+      <span style="width:380px;height:380px;right:-120px;bottom:-200px"></span>
+      <span style="width:300px;height:300px;right:-80px;top:-140px"></span>
+    </div>
+    <div class="cover-text">
+      <div class="cover-title a-up d1"><span class="w" style="font-family:'Poppins',sans-serif;font-weight:600">TubeLuLu</span> 광고 상품 소개서<br><span class="w" style="font-size:30px;font-weight:700;color:rgba(230,244,251,0.85)">큐레이터의 해석을 읽고, 직접 묻는 곳</span></div>
+      <div class="cover-date a-up d2">2026. 4Q · 포커 집중</div>
+      <div class="cover-line a-up d3">포커 큐레이터의 해석 위에 팬의 질문이 쌓이는 플랫폼.<br>TubeLuLu에서는 팬이 먼저 묻고, 광고주가 답합니다.</div>
+    </div>
+    <div class="cover-orb" aria-hidden="true"></div>
+    <svg class="cover-symbol-big a-up d2" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="TubeLuLu 심볼">
+      <path d="M30 18 H92 A14 14 0 0 1 106 32 V78 A14 14 0 0 1 92 92 H62 L44 108 V92 H30 A14 14 0 0 1 16 78 V32 A14 14 0 0 1 30 18 Z" fill="#3399CC"/>
+      <path d="M22 10 H78 A14 14 0 0 1 92 24 V66 A14 14 0 0 1 78 80 H54 L38 96 V80 H22 A14 14 0 0 1 8 66 V24 A14 14 0 0 1 22 10 Z" fill="#09347A"/>
+      <rect x="22.5" y="36" width="7" height="12" rx="3.5" fill="#FFFFFF"/><rect x="34.5" y="31" width="7" height="22" rx="3.5" fill="#FFFFFF"/><rect x="46.5" y="26" width="7" height="32" rx="3.5" fill="#3399CC"/><rect x="58.5" y="31" width="7" height="22" rx="3.5" fill="#FFFFFF"/><rect x="70.5" y="36" width="7" height="12" rx="3.5" fill="#FFFFFF"/>
+    </svg>
+    <div class="cover-wm"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  </div>
+</section>
+
+<!-- ===== 2 · Contents ===== -->
+<section class="slide" id="slide-2">
+  <div class="contents-wrap">
+    <div class="contents-title a-left d1">Contents</div>
+    <div class="contents-box a-right d2">
+      <div class="toc-item"><span class="toc-num">01</span><span>TubeLuLu 매체 소개</span><small>큐레이션 서비스 · 포커 집중 · 이용자 · 콘텐츠</small></div>
+      <div class="toc-item"><span class="toc-num">02</span><span>광고주 큐레이터 페이지 소개</span><small>대표 상품</small></div>
+      <div class="toc-item"><span class="toc-num">03</span><span>패키지 특장점</span><small>구성 6가지 · 운영 지원</small></div>
+      <div class="toc-item"><span class="toc-num">04</span><span>광고 구좌 · 단가</span><small>웹 4 · 앱 4 · 게재지면</small></div>
+      <div class="toc-item"><span class="toc-num">05</span><span>광고주 대시보드</span><small>성과 확인</small></div>
+      <div class="toc-item"><span class="toc-num">06</span><span>광고 집행 프로세스</span><small>절차 · 정책 · 문의</small></div>
+    </div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 3 · Media intro ===== -->
+<section class="slide" id="slide-3">
+  <div class="sec-label"><b>01</b>TubeLuLu 매체 소개</div>
+  <div class="slide-body">
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:center">
+      <div class="a-left d1">
+        <div class="page-title" style="max-width:none"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><br><span class="hl">매체 소개</span></div>
+        <div style="margin-top:10px"><span class="pill sky">큐레이터의 해석을 읽는 큐레이션 서비스</span> <span class="pill warm" style="margin-left:4px">포커 집중</span></div>
+        <p class="page-desc" style="margin-top:14px">누구나 큐레이터가 되어 영상에 해석을 얹고, 팬은 그 해석을 읽고 직접 묻습니다.<br>지금은 큐레이터와 인사이트가 <strong>포커에 집중</strong>되어 있습니다.<br>유료 질문은 답이 없으면 자동 환불됩니다.<br>포커를 보는 사람이 아니라, <strong>포커를 묻는 사람</strong>이 모이는 곳입니다.</p>
+        <div class="img-slot" style="width:300px;height:150px;margin-top:26px"><i class="fa-solid fa-image"></i><div class="is-title">이미지 자리: 포커 인사이트 피드</div><div class="is-note">핸드 리뷰 영상 + 큐레이터 해석 + 질문 카드가 보이는 앱 화면</div><div class="is-size">300×150</div></div>
+      </div>
+      <div class="stat-grid a-right d2">
+        <div class="stat-tile"><span class="stat-tag">포커 큐레이터</span><div class="stat-num tbd">런칭 후 실측 제공</div></div>
+        <div class="stat-tile"><span class="stat-tag">월 포커 인사이트</span><div class="stat-num tbd">런칭 후 실측 제공</div></div>
+        <div class="stat-tile"><span class="stat-tag">월 질문 수</span><div class="stat-num tbd">런칭 후 실측 제공</div></div>
+        <div class="stat-tile"><span class="stat-tag">유료 질문 비중</span><div class="stat-num tbd">런칭 후 실측 제공</div></div>
+      </div>
+    </div>
+    <div class="foot-note" style="text-align:right">※ 수치는 런칭 후 실측 기준으로 갱신합니다 · 주요 시장: 국내 · 콘텐츠: 포커 중심</div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 4 · Audience ===== -->
+<section class="slide" id="slide-4">
+  <div class="sec-label"><b>01</b>TubeLuLu 매체 소개</div>
+  <div class="slide-body">
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:center">
+      <div class="a-left d1">
+        <div class="page-title" style="max-width:none">TubeLuLu<br><span class="hl">이용자 특성</span></div>
+        <p class="page-desc" style="margin-top:18px">큐레이터의 해석을 구독하고 질문까지 하는 <strong>고관여 이용자</strong>입니다.<br>대회 플레이어, 홀덤펍 단골, 입문자가 모입니다.<br>묻는 사람은 이미 <strong>나갈 대회와 갈 펍을 고르는 사람</strong>입니다.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px;max-width:420px">
+          <div class="pkg-card" style="padding:10px 12px"><div><h4 style="font-size:13px">대회 플레이어</h4><p style="font-size:11.5px">국내·해외 대회 일정과 구조를 묻는 층</p></div></div>
+          <div class="pkg-card" style="padding:10px 12px"><div><h4 style="font-size:13px">홀덤펍 이용자</h4><p style="font-size:11.5px">주변 펍·이벤트·초보 환영 여부를 묻는 층</p></div></div>
+          <div class="pkg-card" style="padding:10px 12px"><div><h4 style="font-size:13px">입문·성장 단계</h4><p style="font-size:11.5px">핸드 리뷰에 "왜 콜이에요?"를 묻는 층</p></div></div>
+          <div class="pkg-card" style="padding:10px 12px"><div><h4 style="font-size:13px">대회 일정 탐색</h4><p style="font-size:11.5px">이번 달 국내 대회 일정과 등록 방법을 묻는 층</p></div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px" class="a-right d2">
+        <div class="img-slot" style="height:190px"><i class="fa-solid fa-chart-pie"></i><div class="is-title">차트 자리: 연령 분포</div><div class="is-note">도넛 차트 · 실측 후 삽입</div></div>
+        <div class="img-slot" style="height:190px"><i class="fa-solid fa-venus-mars"></i><div class="is-title">차트 자리: 성별 비중</div><div class="is-note">막대 차트 · 실측 후 삽입</div></div>
+        <div class="stat-tile" style="grid-column:1/3;min-height:120px;text-align:center;align-items:center;justify-content:center">
+          <div style="font-size:15px;font-weight:700;color:var(--text-strong)">이용자 관심사</div>
+          <div style="display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap"><span class="pill sky">핸드 리뷰</span><span class="pill sky">국내 대회 일정</span><span class="pill sky">대회 구조·등록</span><span class="pill sky">홀덤펍</span><span class="pill sky">입문 전략</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 5 · Poker content structure ===== -->
+<section class="slide" id="slide-5">
+  <div class="sec-label"><b>01</b>TubeLuLu 매체 소개</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">TubeLuLu 콘텐츠 구조<br><span style="font-size:20px;font-weight:600;color:var(--text-muted)">큐레이터의 해석 위에 팬의 질문이 쌓입니다</span></div>
+    <p class="page-desc a-right d1">큐레이터가 영상에 <strong>해석을 얹은 인사이트</strong>를 올리면, 팬이 그 위에 질문을 남깁니다.<br>영상을 보는 데서 끝나지 않고, 묻고 답하는 대화가 이어집니다. 지금 인사이트는 네 갈래입니다.</p>
+  </div>
+  <div class="slide-body">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px" class="a-up d2">
+      <div class="card" style="padding:16px 16px 14px;border-top:3px solid var(--navy)">
+        <div class="img-slot" style="height:150px;margin-bottom:12px"><i class="fa-solid fa-clone"></i><div class="is-title">이미지: 핸드 리뷰 인사이트</div><div class="is-note">핸드 영상 + 큐레이터 해석 화면</div></div>
+        <h4 style="font-size:15px;font-weight:800;color:var(--text-strong)">핸드 리뷰</h4>
+        <p style="font-size:12.5px;color:var(--text-muted);line-height:1.55;margin-top:4px">"여기서 왜 콜이에요?"가 오가는 가장 활발한 콘텐츠</p>
+        <div style="margin-top:8px"><span class="pill sky">전략 · 입문</span></div>
+      </div>
+      <div class="card" style="padding:16px 16px 14px;border-top:3px solid var(--navy)">
+        <div class="img-slot" style="height:150px;margin-bottom:12px"><i class="fa-solid fa-trophy"></i><div class="is-title">이미지: 대회 해설 인사이트</div><div class="is-note">파이널 테이블 영상 + 구조·흐름 해석</div></div>
+        <h4 style="font-size:15px;font-weight:800;color:var(--text-strong)">대회 해설</h4>
+        <p style="font-size:12.5px;color:var(--text-muted);line-height:1.55;margin-top:4px">대회 영상에 구조와 흐름을 해석. 주최사 페이지의 핵심 콘텐츠</p>
+        <div style="margin-top:8px"><span class="pill sky">대회 · 주최사</span></div>
+      </div>
+      <div class="card" style="padding:16px 16px 14px;border-top:3px solid var(--navy)">
+        <div class="img-slot" style="height:150px;margin-bottom:12px"><i class="fa-solid fa-store"></i><div class="is-title">이미지: 홀덤펍·현장 인사이트</div><div class="is-note">펍 이벤트 영상 + 방문 팁</div></div>
+        <h4 style="font-size:15px;font-weight:800;color:var(--text-strong)">홀덤펍 · 현장</h4>
+        <p style="font-size:12.5px;color:var(--text-muted);line-height:1.55;margin-top:4px">"처음인데 가도 되나요?" 같은 방문 질문이 모이는 곳</p>
+        <div style="margin-top:8px"><span class="pill sky">홀덤펍 · 입문</span></div>
+      </div>
+      <div class="card" style="padding:16px 16px 14px;border-top:3px solid var(--navy)">
+        <div class="img-slot" style="height:150px;margin-bottom:12px"><i class="fa-solid fa-calendar-days"></i><div class="is-title">이미지: 국내 대회 일정 인사이트</div><div class="is-note">이번 달 국내 대회 일정 + 큐레이터의 "어디 나갈지" 해석</div></div>
+        <h4 style="font-size:15px;font-weight:800;color:var(--text-strong)">국내 대회 일정</h4>
+        <p style="font-size:12.5px;color:var(--text-muted);line-height:1.55;margin-top:4px">이번 달 어떤 대회에 나갈지를 묻는 곳. 사전 등록 안내와 직결</p>
+        <div style="margin-top:8px"><span class="pill sky">일정 · 주최사</span></div>
+      </div>
+    </div>
+    <div class="foot-note" style="text-align:center;margin-top:14px">모든 유형에서 팬 질문은 무료·유료가 공존하며, 유료 질문은 답변이 보장됩니다</div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 6 · Divider 02 ===== -->
+<section class="slide slide-dark" id="slide-6">
+  <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고주 큐레이터 페이지<br>광고 상품 소개서</span></div>
+  <div class="divider-wrap"><div class="divider-num a-left d1">02</div><div class="a-left d2"><div class="divider-title">광고주 큐레이터 페이지 소개</div><div class="divider-sub">팬이 먼저 말을 거는 광고주 채널</div></div></div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 6 · Product intro (3 circles) ===== -->
+<section class="slide" id="slide-7">
+  <div class="sec-label"><b>02</b>광고주 큐레이터 페이지 소개</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">광고주 큐레이터<br>페이지 소개</div>
+    <p class="page-desc a-right d1">대회 주최사와 홀덤펍이 TubeLuLu 안에 <strong>자기 채널</strong>을 갖는 상품입니다.<br>주최사·펍이 인사이트를 올리고 참가자의 질문에 답하며, 노출과 알림으로 팬을 페이지로 데려옵니다.</p>
+  </div>
+  <div class="slide-body">
+    <div class="circle-3">
+      <div class="circle-item a-up d1"><div class="img-slot circle-img"><i class="fa-solid fa-comments"></i><div class="is-title">일러스트 자리</div><div class="is-note">팬 질문 → 광고주 답변 장면</div></div><h4>팬 질문 · 광고주 답변</h4><p>묻는 사람에게 직접 답하는 채널</p></div>
+      <div class="circle-item a-up d2"><div class="img-slot circle-img"><i class="fa-solid fa-star"></i><div class="is-title">일러스트 자리</div><div class="is-note">인기 큐레이터 영역에 오른 광고주 배지</div></div><h4>인기 큐레이터 등록</h4><p>조건 없이, 계약과 동시에</p></div>
+      <div class="circle-item a-up d3"><div class="img-slot circle-img"><i class="fa-solid fa-chart-line"></i><div class="is-title">일러스트 자리</div><div class="is-note">대시보드 · 그래프 아이콘</div></div><h4>매일 갱신 대시보드</h4><p>방문 · 구독 · 질문 · 답변률 · push</p></div>
+    </div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 7 · Product page: Brand page ===== -->
+<section class="slide" id="slide-8">
+  <div class="sec-label"><b>02</b>광고주 큐레이터 페이지 소개</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">광고주 큐레이터 페이지</div>
+    <p class="page-desc a-right d1"><strong>공식 배지가 붙은 광고주 전용 페이지</strong>입니다.<br>광고주가 인사이트를 올리고 팬의 질문에 답합니다. 답변은 다른 팬에게도 보입니다.</p>
+  </div>
+  <div class="slide-body">
+    <div class="prod-wrap">
+      <div class="shots a-up d2">
+        <div class="shot"><div class="img-slot phone"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면: 광고주 페이지 프로필</div><div class="is-note">공식 배지 · 구독 버튼 · 인사이트 목록</div><div class="is-size">phone</div></div><span class="slot-label">광고주 페이지 홈<small>공식 배지 · 구독</small></span></div>
+        <div class="shot"><div class="img-slot phone"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면: 광고주 인사이트</div><div class="is-note">대회 영상 + 주최사 해석 + 질문 입력창</div><div class="is-size">phone</div></div><span class="slot-label sky">광고주 인사이트<small>영상 + 해석</small></span></div>
+        <div class="shot"><div class="img-slot phone"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면: 질문함 · 답변</div><div class="is-note">팬 질문 카드 · 광고주 답변 · 자동 답변 표시</div><div class="is-size">phone</div></div><span class="slot-label">팬 질문 · 광고주 답변<small>무료 · 유료 공존</small></span></div>
+      </div>
+      <div class="a-right d3">
+        <table class="spec">
+          <tr><th>노출지면</th><td>광고주 페이지 · 홈 · 탐색 (웹/앱)</td></tr>
+          <tr><th>상품유형</th><td>광고주 채널형 (페이지 + 노출 + 알림)</td></tr>
+          <tr><th>판매방식</th><td>월 단위 계약</td></tr>
+          <tr><th>구성</th><td>페이지 · 배너 구좌 전체 · push · 운영 지원</td></tr>
+          <tr><th>광고단가</th><td><strong>월 500만 원</strong> (VAT 별도) · 통합 단일 상품</td></tr>
+          <tr><th>팬 질문</th><td>무료 + 유료 공존<br>(일반 큐레이터와 동일)</td></tr>
+          <tr><th>비고</th><td>유료 질문 미답변 시 자동 환불<br>답변률 대시보드 표시</td></tr>
+        </table>
+        <div class="spec-note">* 페이지 개설·인사이트 발행·답변은 무료. 유료는 공식 배지 · 인기 큐레이터 등록 · push 알림 · 배너 구좌</div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 8 · Divider 03 ===== -->
+<section class="slide slide-dark" id="slide-9">
+  <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고주 큐레이터 페이지<br>광고 상품 소개서</span></div>
+  <div class="divider-wrap"><div class="divider-num a-left d1">03</div><div class="a-left d2"><div class="divider-title">패키지 특장점</div><div class="divider-sub">구성 6가지 · 인기 큐레이터 등록 · push 알림 · 운영 지원</div></div></div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 9 · Package 6 ===== -->
+<section class="slide" id="slide-10">
+  <div class="sec-label"><b>03</b>패키지 특장점</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">패키지 구성 <span class="hl">6가지</span></div>
+    <p class="page-desc a-right d1">월 500만 원에 <strong>6가지가 전부</strong> 들어 있습니다.<br>노출과 알림을 묶어 팬을 페이지로 데려오는 구성입니다.</p>
+  </div>
+  <div class="slide-body">
+    <div class="pkg-wrap">
+      <div class="pkg-list a-left d2">
+        <div class="pkg-card hero"><div class="pkg-num">1</div><div><h4>광고주 큐레이터 페이지 개설</h4><p>인사이트 발행과 팬 질문 답변. <strong>초기 세팅은 TubeLuLu가 함께</strong></p></div></div>
+        <div class="pkg-card"><div class="pkg-num">2</div><div><h4>광고주 공식 배지</h4><p>페이지·인사이트·답변에 공식 광고주 표시</p></div></div>
+        <div class="pkg-card"><div class="pkg-num">3</div><div><h4>구독자 push 알림</h4><p>앱을 열지 않은 구독자에게도 닿습니다</p></div></div>
+        <div class="pkg-card hero"><div class="pkg-num">4</div><div><h4>인기 큐레이터 등록</h4><p>홈·탐색 인기 영역에 <strong>조건 없이 등록</strong></p></div></div>
+        <div class="pkg-card"><div class="pkg-num">5</div><div><h4>복수 운영자 계정 · 대시보드</h4><p>여러 담당자가 나눠 답하고, 성과를 매일 확인</p></div></div>
+        <div class="pkg-card"><div class="pkg-num">6</div><div><h4>배너 구좌 전체 (웹 4 · 앱 4)</h4><p>W1~W4, A1~A4 전 구좌 노출</p></div></div>
+      </div>
+      <div class="a-right d3" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="img-slot" style="height:100%;min-height:150px"><i class="fa-solid fa-certificate"></i><div class="is-title">이미지: 공식 배지가 붙은 프로필</div><div class="is-note">배지 확대 컷</div></div>
+        <div class="img-slot" style="height:100%;min-height:150px"><i class="fa-solid fa-bell"></i><div class="is-title">이미지: push 알림 도착 화면</div><div class="is-note">잠금화면 알림 · "사전 등록 마감 D-3"</div></div>
+        <div class="img-slot" style="height:100%;min-height:150px"><i class="fa-solid fa-star"></i><div class="is-title">이미지: 인기 큐레이터 영역</div><div class="is-note">광고주 페이지가 오른 홈 화면 · 광고 구좌 강조</div></div>
+        <div class="img-slot" style="height:100%;min-height:150px"><i class="fa-solid fa-users-gear"></i><div class="is-title">이미지: 운영자 계정 · 대시보드</div><div class="is-note">복수 운영자 목록 화면</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 10 · Feature: 인기 큐레이터 등록 + push ===== -->
+<section class="slide" id="slide-11">
+  <div class="sec-label"><b>03</b>패키지 특장점</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">인기 큐레이터 등록<br>&amp; push 알림</div>
+    <p class="page-desc a-right d1">광고주 페이지는 <strong>인기 큐레이터 영역에 조건 없이</strong> 오릅니다.<br>구독자에게는 push 알림으로 앱 밖에서도 닿습니다.</p>
+  </div>
+  <div class="slide-body">
+    <div class="prod-wrap">
+      <div class="feature-cols a-up d2">
+        <div class="feature-col">
+          <h5><i class="fa-solid fa-star"></i>인기 큐레이터 영역 노출</h5>
+          <ul><li>홈 · 탐색 최상단 영역</li><li>계약과 동시에 등록</li><li>일반 큐레이터는 조건 충족 시에만</li></ul>
+          <div class="img-slot" style="height:250px;position:relative"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면: 홈 인기 큐레이터 영역</div><div class="is-note">광고주 페이지 카드 강조</div><div class="ad-highlight" style="left:18px;right:18px;top:130px;height:60px"></div></div>
+        </div>
+        <div class="feature-col">
+          <h5><i class="fa-solid fa-bell"></i>구독자 push 알림</h5>
+          <ul><li>수신 동의 구독자에게 발송</li><li>08~21시 · 월 정기 회차</li><li>앱 내 알림은 기본 제공</li></ul>
+          <div class="img-slot" style="height:250px"><i class="fa-solid fa-bell"></i><div class="is-title">앱 화면: 잠금화면 push</div><div class="is-note">"○○ 서울 시리즈 사전 등록 마감 D-3"</div></div>
+        </div>
+        <div class="feature-col">
+          <h5><i class="fa-solid fa-route"></i>광고주 페이지 유입</h5>
+          <ul><li>인기 영역 · push · 배너 → 페이지</li><li>유입 경로별 대시보드 집계</li><li>구독자 → 질문 → 답변으로 순환</li></ul>
+          <div class="img-slot" style="height:250px"><i class="fa-solid fa-diagram-project"></i><div class="is-title">다이어그램 자리: 유입 흐름</div><div class="is-note">인기 영역 / push / 배너 → 광고주 페이지 → 구독·질문</div></div>
+        </div>
+      </div>
+      <div class="a-right d3">
+        <table class="spec">
+          <tr><th>노출지면</th><td>홈 · 탐색 인기 큐레이터 영역 (웹/앱)</td></tr>
+          <tr><th>상품유형</th><td>고정 노출형</td></tr>
+          <tr><th>노출방식</th><td>계약 기간 상시 등록</td></tr>
+          <tr><th>push</th><td>구독자 대상 · 월 정기 회차<br>(횟수 협의)</td></tr>
+          <tr><th>표기</th><td>공식 광고주 배지</td></tr>
+          <tr><th>비고</th><td>패키지 기본 구성 · 개별 판매 불가</td></tr>
+        </table>
+        <div class="spec-note">* push는 마케팅·알림 수신에 동의한 구독자에게만 발송됩니다.</div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 11 · Feature: 운영 지원 ===== -->
+<section class="slide" id="slide-12">
+  <div class="sec-label"><b>03</b>패키지 특장점</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">운영 지원<br><span class="hl">FAQ 자동 답변</span></div>
+    <p class="page-desc a-right d1">답변은 광고주가 합니다. 그게 이 채널의 가치입니다.<br>다만 <strong>반복 질문은 봇이 받고</strong>, 유료 질문은 사람만 답변으로 인정합니다.</p>
+  </div>
+  <div class="slide-body">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start">
+      <div class="a-left d2">
+        <table class="tbl">
+          <thead><tr><th style="width:40%">질문 유형</th><th>누가 답하나</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead">무료 질문 · FAQ 일치</td><td>봇이 자동 답변 <span class="pill sky" style="margin-left:6px">"자동 답변" 표시</span><br><span class="muted" style="font-size:12px">팬이 원하면 담당자 답변 요청</span></td></tr>
+            <tr><td class="rowhead">무료 질문 · FAQ 밖</td><td>사람 · 봇이 초안 제안</td></tr>
+            <tr><td class="rowhead">유료 질문</td><td class="win"><strong>사람만 답변으로 인정</strong> · 봇은 초안만 제안</td></tr>
+          </tbody>
+        </table>
+        <div class="foot-note">초기 세팅(프로필·첫 인사이트·FAQ 목록) · 답변 가이드 · 미답변 알림 · 복수 운영자 계정 · 답변 초안 지원 — 모두 패키지에 포함</div>
+      </div>
+      <div class="a-right d3" style="display:flex;gap:18px;justify-content:center">
+        <div class="shot"><div class="img-slot phone"><i class="fa-solid fa-robot"></i><div class="is-title">앱 화면: 자동 답변 카드</div><div class="is-note">"자동 답변" 배지 · 담당자 답변 요청 버튼</div></div><span class="slot-label">FAQ 자동 답변</span></div>
+        <div class="shot"><div class="img-slot phone"><i class="fa-solid fa-inbox"></i><div class="is-title">운영자 화면: 질문함 · 초안 제안</div><div class="is-note">미답변 알림 · 봇 초안 · 담당자 배정</div></div><span class="slot-label sky">운영자 질문함</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 12 · Compare ===== -->
+<section class="slide" id="slide-13">
+  <div class="sec-label"><b>03</b>패키지 특장점</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">기존 채널과의 차이</div>
+    <p class="page-desc a-right d1">기존 채널을 대체하지 않습니다.<br>그 채널들이 못 하는 한 가지, <strong>팬이 먼저 묻고 광고주가 반드시 답하는 구조</strong>를 채웁니다.</p>
+  </div>
+  <div class="slide-body">
+    <table class="tbl a-up d2">
+      <thead><tr><th style="width:140px"></th><th>포커 커뮤니티 게시판</th><th>카카오톡 채널</th><th>인스타그램</th><th class="win">TubeLuLu 광고주 페이지</th></tr></thead>
+      <tbody>
+        <tr><td class="rowhead">방향</td><td class="muted">광고주 → 회원</td><td class="muted">광고주 → 고객</td><td class="muted">광고주 → 팔로워</td><td class="win"><strong>팬 → 광고주 (질문)</strong></td></tr>
+        <tr><td class="rowhead">고객 문의</td><td class="muted">댓글, 묻힘</td><td class="muted">1:1 채팅, 비공개</td><td class="muted">댓글·DM, 묻힘</td><td class="win">질문함에 쌓이고, 답변은 다른 팬에게도 보임</td></tr>
+        <tr><td class="rowhead">답변 보장 · 답변률</td><td class="no">없음</td><td class="no">없음</td><td class="no">없음</td><td class="win"><strong>미답변 시 자동 환불</strong> · 답변률 대시보드</td></tr>
+        <tr><td class="rowhead">신규 유입</td><td class="muted">게시글, 곧 밀려남</td><td class="muted">직접 모아야 함</td><td class="muted">알고리즘</td><td class="win">인기 큐레이터 영역 + 배너 구좌 포함</td></tr>
+        <tr><td class="rowhead">도달 규모</td><td class="muted">포커 이용자 한정</td><td class="muted">큼</td><td class="muted">큼</td><td class="win">작지만, 묻는 사람만 모임</td></tr>
+        <tr><td class="rowhead">성과 확인</td><td class="muted">조회 수</td><td class="muted">발송·열람</td><td class="muted">도달·참여</td><td class="win">방문·구독·질문·답변률·push, 매일</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 13 · Divider 04 ===== -->
+<section class="slide slide-dark" id="slide-14">
+  <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고주 큐레이터 페이지<br>광고 상품 소개서</span></div>
+  <div class="divider-wrap"><div class="divider-num a-left d1">04</div><div class="a-left d2"><div class="divider-title">광고 구좌 · 단가</div><div class="divider-sub">웹 4개 · 앱 4개 배너 구좌와 주요 게재지면</div></div></div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 14 · Price table ===== -->
+<section class="slide" id="slide-15">
+  <div class="sec-label"><b>04</b>광고 구좌 · 단가</div>
+  <div class="page-head center">
+    <div class="page-title a-up d1">광고 상품 단가 및 특징</div>
+  </div>
+  <div class="slide-body">
+    <table class="tbl a-up d2" style="max-width:1080px;margin:0 auto">
+      <thead><tr><th style="width:230px">구성 상품</th><th>내용</th><th style="width:110px">판매 단위</th><th style="width:150px">단가</th></tr></thead>
+      <tbody>
+        <tr><td class="rowhead">광고주 큐레이터 페이지</td><td class="l">페이지 개설 · 공식 배지 · 인기 큐레이터 등록 · 복수 운영자 계정 · 전용 대시보드</td><td>월</td><td class="win">포함</td></tr>
+        <tr><td class="rowhead">배너 구좌 (웹 4 · 앱 4)</td><td class="l">W1~W4, A1~A4 전 구좌 노출 · 노출·클릭 리포트</td><td>월</td><td class="win">포함</td></tr>
+        <tr><td class="rowhead">구독자 push 알림</td><td class="l">광고주 페이지 구독자 대상 push 발송 (월 정기 회차)</td><td>월</td><td class="win">포함</td></tr>
+        <tr><td class="rowhead">운영 지원</td><td class="l">초기 세팅 · FAQ 자동 답변 · 답변 초안 · 미답변 알림</td><td>월</td><td class="win">포함</td></tr>
+        <tr><td class="rowhead" style="background:var(--sky-wash);color:var(--navy)">통합 패키지 합계</td><td class="l" style="background:var(--sky-wash);color:var(--navy-deep);font-weight:600">위 4개 상품을 하나로 묶은 단일 상품 · 개별 판매 없음</td><td style="background:var(--sky-wash)">월</td><td class="win" style="font-size:16px"><strong>월 500만 원</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="foot-note red" style="max-width:1080px;margin:14px auto 0">* 런칭 광고주 프로모션: 페이지 세팅(프로필·첫 인사이트·FAQ) 무료 제작 · 계약 시점 가격 고정 · 카테고리 독점 (자세한 조건은 별도 안내)</div>
+    <div class="foot-note" style="max-width:1080px;margin:4px auto 0">* VAT 별도, 세금계산서 발행. 광고주 1개 · 월 단위 계약 기준입니다.</div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 15 · Ad slots table ===== -->
+<section class="slide" id="slide-16">
+  <div class="sec-label"><b>04</b>광고 구좌 · 단가</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">광고 구좌 안내</div>
+    <p class="page-desc a-right d1">웹 4개 · 앱 4개 배너 구좌가 <strong>월 500만 원 패키지에 모두 포함</strong>됩니다.<br>모든 구좌에 "광고" 표기. 노출은 화면 50% 이상 1초 기준.</p>
+  </div>
+  <div class="slide-body">
+    <table class="tbl compact a-up d2" style="font-size:13px">
+      <thead><tr><th style="width:200px">구좌</th><th>위치</th><th>형태</th><th>판매 단위</th><th>평균 CTR</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td class="grp" colspan="6">WEB</td></tr>
+        <tr><td class="rowhead">W1. 좌측 하단 배너</td><td>좌측 하단, 푸터 위</td><td class="muted">이미지 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
+        <tr><td class="rowhead">W2. 우측 상단 롤링 배너</td><td>우측 상단, 롤링 노출</td><td class="muted">이미지 배너 (롤링)</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
+        <tr><td class="rowhead">W3. 홈 인사이트 중간 배너</td><td>홈 인사이트 피드 사이</td><td class="muted">카드형 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
+        <tr><td class="rowhead">W4. 인사이트 내 최하단 배너</td><td>인사이트 상세 최하단</td><td class="muted">이미지 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
+        <tr><td class="grp" colspan="6">APP</td></tr>
+        <tr><td class="rowhead">A1. 홈 인사이트 중간 배너</td><td>홈 인사이트 피드 사이</td><td class="muted">카드형 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
+        <tr><td class="rowhead">A2. 인사이트 내 하단 배너</td><td>본문 하단과 댓글 사이</td><td class="muted">이미지 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
+        <tr><td class="rowhead">A3. 구독 탭 배너</td><td>큐레이터 목록과 새 인사이트 사이</td><td class="muted">카드형 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
+        <tr><td class="rowhead">A4. 메시지 탭 최하단 배너</td><td>메시지 탭 최하단</td><td class="muted">이미지 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 16 · Placements: WEB ===== -->
+<section class="slide" id="slide-17">
+  <div class="sec-label"><b>04</b>주요 게재지면 — 웹</div>
+  <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">웹</span></div></div>
+  <div class="slide-body">
+    <div class="place-row a-up d2">
+      <div class="place-item"><span class="slot-label">W1 좌측 하단 배너<small>홈 · 푸터 위</small></span><div class="img-slot web"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면 캡처</div><div class="is-note">좌측 하단 배너 위치</div><div class="ad-highlight" style="left:12px;width:70px;bottom:14px;height:44px"></div></div></div>
+      <div class="place-item"><span class="slot-label">W2 우측 상단 롤링<small>홈 · 롤링 노출</small></span><div class="img-slot web"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면 캡처</div><div class="is-note">우측 상단 롤링 배너</div><div class="ad-highlight" style="right:12px;width:60px;top:130px;height:80px"></div></div></div>
+      <div class="place-item"><span class="slot-label sky">W3 홈 인사이트 중간<small>홈 피드 사이</small></span><div class="img-slot web"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면 캡처</div><div class="is-note">인사이트 피드 중간 카드</div><div class="ad-highlight" style="left:14px;right:14px;top:150px;height:56px"></div></div></div>
+      <div class="place-item"><span class="slot-label">W4 인사이트 최하단<small>인사이트 상세</small></span><div class="img-slot web"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면 캡처</div><div class="is-note">인사이트 상세 최하단</div><div class="ad-highlight" style="left:14px;right:14px;bottom:14px;height:48px"></div></div></div>
+    </div>
+    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 웹 4개 구좌 모두 월 500만 원 패키지에 포함 · 실제 캡처 이미지로 교체 예정</div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 17 · Placements: APP ===== -->
+<section class="slide" id="slide-18">
+  <div class="sec-label"><b>04</b>주요 게재지면 — 앱</div>
+  <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">앱</span></div></div>
+  <div class="slide-body">
+    <div class="place-row a-up d2">
+      <div class="place-item"><span class="slot-label sky">A1 홈 인사이트 중간<small>홈 피드 사이</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면 캡처</div><div class="is-note">홈 피드 중간 카드</div><div class="ad-highlight" style="left:12px;right:12px;top:140px;height:58px"></div></div></div>
+      <div class="place-item"><span class="slot-label">A2 인사이트 내 하단<small>본문 하단 · 댓글 위</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면 캡처</div><div class="is-note">본문과 댓글 사이</div><div class="ad-highlight" style="left:12px;right:12px;top:186px;height:52px"></div></div></div>
+      <div class="place-item"><span class="slot-label">A3 구독 탭 배너<small>큐레이터 목록 · 새 인사이트 사이</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면 캡처</div><div class="is-note">구독 탭 중간</div><div class="ad-highlight" style="left:12px;right:12px;top:150px;height:52px"></div></div></div>
+      <div class="place-item"><span class="slot-label">A4 메시지 탭 최하단<small>메시지 탭</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면 캡처</div><div class="is-note">메시지 탭 최하단</div><div class="ad-highlight" style="left:12px;right:12px;bottom:14px;height:48px"></div></div></div>
+      <div class="place-item"><span class="slot-label dark" style="background:var(--text-strong)">push 알림<small>수신 동의 구독자</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-bell"></i><div class="is-title">잠금화면 캡처</div><div class="is-note">광고주 push 알림</div><div class="ad-highlight" style="left:10px;right:10px;top:150px;height:56px"></div></div></div>
+    </div>
+    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 앱 4개 구좌와 push 모두 월 500만 원 패키지에 포함 · 실제 캡처 이미지로 교체 예정</div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 18 · Divider 05 ===== -->
+<section class="slide slide-dark" id="slide-19">
+  <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고주 큐레이터 페이지<br>광고 상품 소개서</span></div>
+  <div class="divider-wrap"><div class="divider-num a-left d1">05</div><div class="a-left d2"><div class="divider-title">광고주 대시보드</div><div class="divider-sub">"효과 있었어요?"에 매일 답합니다</div></div></div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 20 · Dashboard ===== -->
+<section class="slide" id="slide-20" style="padding-bottom:56px">
+  <div class="sec-label"><b>05</b>광고주 대시보드</div>
+  <div class="page-head" style="margin-bottom:12px;padding-bottom:12px">
+    <div class="page-title a-left d1">광고주 대시보드</div>
+    <p class="page-desc a-right d1" style="font-size:14.5px">노출부터 팬 대화까지 한눈에. 매일 06시 갱신, 주간 리포트와 결과 보고서는 <strong>PDF·엑셀</strong>로 드립니다.</p>
+  </div>
+  <div class="slide-body" style="justify-content:flex-start">
+    <div style="display:grid;grid-template-columns:1fr 230px;gap:20px;align-items:center">
+      <div class="a-left d2" style="display:flex;justify-content:center"><img src="images/ad-dashboard-sample.png" alt="TubeLuLu 광고주 대시보드 예시" style="display:block;max-width:100%;max-height:478px;width:auto;height:auto;border-radius:14px;border:1px solid var(--border);box-shadow:0 14px 34px rgba(9,52,122,0.16)"></div>
+      <div class="a-right d3">
+        <table class="spec">
+          <tr><th>구좌</th><td>노출 · 클릭 · CTR</td></tr>
+          <tr><th>페이지</th><td>방문 수 · 유입 경로</td></tr>
+          <tr><th>구독</th><td>구독자 수 · 신규</td></tr>
+          <tr><th>질문</th><td>질문 수(무료·유료) · 답변 완료율</td></tr>
+          <tr><th>push</th><td>발송 · 도달 · 클릭</td></tr>
+          <tr><th>갱신</th><td>매일 06시</td></tr>
+        </table>
+        <div class="spec-note">* 예시 화면이며 숫자는 가상 데이터입니다.</div>
+      </div>
+    </div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 21 · Divider 06 ===== -->
+<section class="slide slide-dark" id="slide-21">
+  <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고주 큐레이터 페이지<br>광고 상품 소개서</span></div>
+  <div class="divider-wrap"><div class="divider-num a-left d1">06</div><div class="a-left d2"><div class="divider-title">광고 집행 프로세스</div><div class="divider-sub">문의부터 리포트까지 6단계</div></div></div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 22 · Process ===== -->
+<section class="slide" id="slide-22">
+  <div class="sec-label"><b>06</b>광고 집행 프로세스</div>
+  <div class="page-head center"><div class="page-title a-up d1">집행 프로세스</div></div>
+  <div class="slide-body">
+    <div class="proc-row a-up d2" style="margin-top:20px">
+      <div class="proc-step">광고<br>문의</div>
+      <div class="proc-step fill">광고<br>제안<div class="proc-note top">문의 내용을 기반으로<br><b>영업일 3일 내</b> 제안합니다</div></div>
+      <div class="proc-step soft">페이지<br>개설<div class="proc-note bottom">페이지 개설 · 공식 배지<br>인기 큐레이터 등록 · 운영자 계정</div></div>
+      <div class="proc-step">소재<br>검수<div class="proc-note top">배너·알림 소재는<br>게재 기준으로 검수합니다</div></div>
+      <div class="proc-step soft">광고<br>집행<div class="proc-note bottom">합의된 일정에 시작<br>대시보드 계정 발급</div></div>
+      <div class="proc-step fill">리포트<div class="proc-note top">주간 리포트 +<br>종료 후 결과 보고서<br><span style="font-size:11px;color:var(--text-faint)">노출 · 클릭 · 방문 · 구독 · 질문 · 답변률 · push</span></div></div>
+    </div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 23 · Policy ===== -->
+<section class="slide" id="slide-23">
+  <div class="sec-label"><b>06</b>광고 집행 프로세스</div>
+  <div class="page-head center"><div class="page-title a-up d1" style="font-size:32px">TubeLuLu 게재 기준에 따라 일부 광고는 집행에 제약이 있을 수 있습니다.</div></div>
+  <div class="slide-body">
+    <div class="policy-list a-up d2">
+      <div class="ok"><i class="fa-solid fa-circle-check"></i><strong style="color:var(--navy)">주요 고객: 대회 주최사 · 홀덤펍</strong> (일정 · 구조 · 개최 · 방문 정보)</div>
+      <div><i class="fa-solid fa-ban"></i>온라인 포커 · 온라인 카지노 · 스포츠 베팅</div>
+      <div class="ok"><i class="fa-solid fa-circle-check"></i>홀덤펍은 내부 심사 통과 업소만 · 투어 광고주 포함</div>
+      <div><i class="fa-solid fa-ban"></i>환전 · 정산 · 머니 거래 관련 일체</div>
+      <div class="ok"><i class="fa-solid fa-circle-check"></i>포커 용품 · 굿즈, 포커 교육 · 코칭</div>
+      <div><i class="fa-solid fa-ban"></i>원정 모집 · 투어 대행 성격의 알선</div>
+      <div class="ok"><i class="fa-solid fa-circle-check"></i>대회 연계 항공 · 숙박 예약 플랫폼</div>
+      <div><i class="fa-solid fa-ban"></i>주류 · 담배 · 사행성 · 성인 · 대부</div>
+      <div class="ok"><i class="fa-solid fa-circle-check"></i>해외 카지노 · 리조트 — 대회 개최지 정보에 한정</div>
+      <div><i class="fa-solid fa-ban"></i>상금 · 수익 · 참가 권유 표현이 포함된 소재</div>
+    </div>
+    <div class="foot-note" style="text-align:center;margin-top:22px">모든 광고에 "광고" 표기 · push는 수신 동의 구독자에게만 08~21시 발송 · 게재 소재 사전 승인권은 TubeLuLu에 있습니다</div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 24 · Inquiry form ===== -->
+<section class="slide" id="slide-24">
+  <div class="sec-label"><b>06</b>광고 집행 프로세스</div>
+  <div class="page-head center"><div class="page-title a-up d1" style="font-size:30px">아래 [광고 문의 양식]을 작성하셔서 문의 메일로 전달 주시면<br>영업일 3일 내 제안을 드리겠습니다.</div></div>
+  <div class="slide-body">
+    <table class="tbl inq-table a-up d2">
+      <thead><tr><th style="width:170px">분류</th><th>내용</th></tr></thead>
+      <tbody>
+        <tr><td class="rowhead" style="vertical-align:middle">광고 문의 양식<br>(예시)</td><td class="l"><ul>
+          <li>업체명 :</li>
+          <li>광고 목적 : <span>대회 사전 등록 안내 · 홀덤펍 이벤트 안내 · 참가자 Q&amp;A 채널 운영 등</span></li>
+          <li>대행사 / 담당자 :</li>
+          <li>희망 상품 : <span>광고주 큐레이터 페이지 패키지 (월 500만 원 통합)</span></li>
+          <li>광고 기간 : <span>2026.00.00 ~ 2026.00.00 (1개월)</span></li>
+          <li>문의 사항 : <span>런칭 조건 / 게재 기준 / 페이지 세팅 / 정산 등</span></li>
+        </ul></td></tr>
+        <tr><td class="rowhead">문의 메일</td><td class="l"><a class="mail" href="mailto:luluai_official@teamlulu.ai?subject=TubeLuLu%20%EA%B4%91%EA%B3%A0%20%EB%AC%B8%EC%9D%98">luluai_official@teamlulu.ai</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 25 · Thanks ===== -->
+<section class="slide slide-cover" id="slide-25">
+  <div class="cover-wrap">
+    <div class="cover-circles" aria-hidden="true">
+      <span style="width:520px;height:520px;left:-160px;top:-240px"></span>
+      <span style="width:460px;height:460px;left:180px;bottom:-320px"></span>
+      <span style="width:300px;height:300px;right:-80px;top:-140px"></span>
+    </div>
+    <div class="cover-text">
+      <div class="thanks-title a-up d1">감사합니다.</div>
+      <div class="thanks-sub a-up d2">TubeLuLu — 큐레이터의 해석을 읽고, 직접 묻는 곳</div>
+      <div class="thanks-sub a-up d2" style="margin-top:14px;font-size:15px;color:rgba(230,244,251,0.65)">광고 문의 채널</div>
+      <div class="thanks-mail a-up d2"><a href="mailto:luluai_official@teamlulu.ai">luluai_official@teamlulu.ai</a></div>
+      <div class="cover-line a-up d3">tubelulu.com · (주)룰루닷에이아이</div>
+    </div>
+    <div class="cover-orb" aria-hidden="true"></div>
+    <svg class="cover-symbol-big a-up d2" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M30 18 H92 A14 14 0 0 1 106 32 V78 A14 14 0 0 1 92 92 H62 L44 108 V92 H30 A14 14 0 0 1 16 78 V32 A14 14 0 0 1 30 18 Z" fill="#3399CC"/>
+      <path d="M22 10 H78 A14 14 0 0 1 92 24 V66 A14 14 0 0 1 78 80 H54 L38 96 V80 H22 A14 14 0 0 1 8 66 V24 A14 14 0 0 1 22 10 Z" fill="#09347A"/>
+      <rect x="22.5" y="36" width="7" height="12" rx="3.5" fill="#FFFFFF"/><rect x="34.5" y="31" width="7" height="22" rx="3.5" fill="#FFFFFF"/><rect x="46.5" y="26" width="7" height="32" rx="3.5" fill="#3399CC"/><rect x="58.5" y="31" width="7" height="22" rx="3.5" fill="#FFFFFF"/><rect x="70.5" y="36" width="7" height="12" rx="3.5" fill="#FFFFFF"/>
+    </svg>
+    <div class="cover-wm"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  </div>
+</section>
+
+<!-- ===== Navigation chrome ===== -->
+<div class="progress-bar" id="progressBar"></div>
+<div class="nav-dots" id="navDots"></div>
+<div class="nav-arrows">
+  <button class="nav-arrow" id="prevBtn" aria-label="이전 슬라이드"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="nav-arrow" id="nextBtn" aria-label="다음 슬라이드"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+<div class="page-number" id="pageNumber"><strong>1</strong> / 25</div>
+<div class="keyboard-hint" id="keyboardHint"><i class="fa-solid fa-keyboard"></i> ← → 또는 스와이프로 이동</div>
+</div>
+
+<script>
+(function () {
+  var totalSlides = 25, current = 1, isAnimating = false;
+  var slideTitles = ['표지','Contents','매체 소개','이용자 특성','포커 콘텐츠 구조','02 광고주 페이지','상품 소개','광고주 페이지 상세','03 특장점','패키지 6가지','인기 큐레이터·push','운영 지원','채널 비교','04 구좌·단가','단가표','구좌 안내','게재지면 웹','게재지면 앱','05 대시보드','대시보드','06 프로세스','집행 프로세스','게재 기준','문의 양식','감사합니다'];
+  var presentation = document.getElementById('presentation'), progressBar = document.getElementById('progressBar'), pageNumber = document.getElementById('pageNumber'), navDots = document.getElementById('navDots'), keyboardHint = document.getElementById('keyboardHint');
+  for (var i = 1; i <= totalSlides; i++) { var dot = document.createElement('button'); dot.className = 'nav-dot' + (i === 1 ? ' active' : ''); dot.title = slideTitles[i-1]; dot.setAttribute('aria-label', i + '. ' + slideTitles[i-1]); (function (n) { dot.addEventListener('click', function () { goToSlide(n); }); })(i); navDots.appendChild(dot); }
+  function updateChrome() {
+    progressBar.style.width = (current / totalSlides * 100) + '%';
+    pageNumber.innerHTML = '<strong>' + current + '</strong> / ' + totalSlides;
+    var dots = navDots.children; for (var i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i + 1 === current);
+    var s = document.getElementById('slide-' + current);
+    presentation.classList.toggle('dark-chrome', s.classList.contains('slide-dark') || s.classList.contains('slide-cover'));
+  }
+  function goToSlide(n) {
+    if (isAnimating || n === current || n < 1 || n > totalSlides) return;
+    isAnimating = true;
+    var from = document.getElementById('slide-' + current), to = document.getElementById('slide-' + n), dir = n > current ? 1 : -1;
+    to.classList.add('anim-stage'); to.style.transition = 'none'; to.style.transform = 'translateX(' + (dir * 100) + '%)'; to.style.opacity = '0';
+    void to.offsetWidth; to.style.transition = ''; to.classList.add('active'); to.style.transform = 'translateX(0)'; to.style.opacity = '1';
+    from.style.transform = 'translateX(' + (-dir * 100) + '%)'; from.style.opacity = '0';
+    current = n; updateChrome();
+    setTimeout(function () { from.classList.remove('active'); from.style.transform = ''; from.style.opacity = ''; to.classList.remove('anim-stage'); to.style.transform = ''; to.style.opacity = ''; isAnimating = false; }, 520);
+  }
+  window.__goToSlide = goToSlide;
+  function next() { goToSlide(current + 1); } function prev() { goToSlide(current - 1); }
+  document.getElementById('nextBtn').addEventListener('click', next); document.getElementById('prevBtn').addEventListener('click', prev);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === ' ' && e.target && e.target.closest && e.target.closest('button, a')) return;
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') { e.preventDefault(); goToSlide(1); }
+    else if (e.key === 'End') { e.preventDefault(); goToSlide(totalSlides); }
+  });
+  var tx = null, ty = null, tid = null;
+  document.addEventListener('touchstart', function (e) { if (e.touches.length > 1) { tx = ty = tid = null; return; } tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY; tid = e.changedTouches[0].identifier; }, { passive: true });
+  document.addEventListener('touchend', function (e) { if (tx === null) return; if (e.touches.length > 0) { tx = ty = tid = null; return; } var t = e.changedTouches[0]; if (tid !== null && t.identifier !== tid) { tx = ty = tid = null; return; } var dx = t.clientX - tx, dy = t.clientY - ty; if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) { if (dx < 0) next(); else prev(); } tx = ty = tid = null; }, { passive: true });
+  function scalePresentation() { var scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720); presentation.style.transform = 'scale(' + scale + ')'; presentation.style.left = ((window.innerWidth - 1280 * scale) / 2) + 'px'; presentation.style.top = ((window.innerHeight - 720 * scale) / 2) + 'px'; }
+  window.addEventListener('resize', scalePresentation); window.addEventListener('load', scalePresentation); scalePresentation();
+  setTimeout(function () { keyboardHint.style.opacity = '0'; }, 4500);
+  document.querySelectorAll('i[class*="fa-"]').forEach(function (el) { el.setAttribute('aria-hidden', 'true'); });
+  updateChrome();
+})();
+</script>
+</body>
+</html>
