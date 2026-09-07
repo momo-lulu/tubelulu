@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="192x192" href="favicon-192.png">
 <title>TubeLuLu 광고 상품 소개서</title>
-<meta name="description" content="TubeLuLu 광고 상품 소개서 — 광고주 큐레이터 페이지 패키지와 광고 구좌 안내.">
+<meta name="description" content="TubeLuLu 광고 상품 소개서 — 광고주 큐레이터 페이지와 구좌별 광고 단가 안내.">
 <meta property="og:title" content="TubeLuLu 광고 상품 소개서">
 <meta property="og:description" content="팬이 먼저 묻고, 광고주가 답합니다. TubeLuLu 광고 상품 안내.">
 <meta property="og:type" content="website">
@@ -292,8 +292,18 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   .slide-dark, .slide-dark *, .cover-wrap, .cover-wrap * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 @page { size: 1280px 720px; margin: 0; }
+
   .tbl.dense th, .tbl.dense td { padding: 5px 10px; }
   .tbl.dense td.grp { padding: 4px 10px; }
+  .bundle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1120px; margin: 0 auto; }
+  .bundle { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 20px 22px 16px; }
+  .bundle.hero { border-color: var(--navy); box-shadow: 0 14px 34px rgba(0,0,0,0.10); background: var(--sky-wash); }
+  .bundle .bd-name { font-size: 18px; font-weight: 800; color: var(--text-strong); display: flex; align-items: center; gap: 8px; }
+  .bundle .bd-tot { font-size: 26px; font-weight: 800; color: var(--navy); margin: 6px 0 4px; letter-spacing: -0.02em; }
+  .bundle .bd-desc { font-size: 12.5px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; min-height: 38px; }
+  .bundle ul { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+  .bundle li { display: flex; justify-content: space-between; gap: 10px; border-top: 1px dashed var(--border); padding: 6px 0; color: var(--text-muted); }
+  .bundle li b { color: var(--text-strong); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -331,8 +341,8 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     <div class="contents-box a-right d2">
       <div class="toc-item"><span class="toc-num">01</span><span>TubeLuLu 매체 소개</span><small>큐레이션 서비스 · 포커 집중 · 이용자 · 콘텐츠</small></div>
       <div class="toc-item"><span class="toc-num">02</span><span>광고주 큐레이터 페이지 소개</span><small>대표 상품</small></div>
-      <div class="toc-item"><span class="toc-num">03</span><span>패키지 특장점</span><small>구성 6가지 · 운영 지원</small></div>
-      <div class="toc-item"><span class="toc-num">04</span><span>광고 구좌 · 단가</span><small>웹 4 · 앱 4 + 순차 오픈 구좌 · 게재지면</small></div>
+      <div class="toc-item"><span class="toc-num">03</span><span>상품 특장점</span><small>페이지 구성 요소 · 운영 지원</small></div>
+      <div class="toc-item"><span class="toc-num">04</span><span>광고 상품 · 단가</span><small>노출형 · 텍스트 라인 · 메시지형 · 서비스 · 추천 조합</small></div>
       <div class="toc-item"><span class="toc-num">05</span><span>광고 신청</span><small>절차 · 게재 기준 · 문의</small></div>
     </div>
   </div>
@@ -447,7 +457,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     <div class="circle-3">
       <div class="circle-item a-up d1"><div class="img-slot circle-img"><i class="fa-solid fa-comments"></i><div class="is-title">일러스트 자리</div><div class="is-note">팬 질문 → 광고주 답변 장면</div></div><h4>팬 질문 · 광고주 답변</h4><p>묻는 사람에게 직접 답하는 채널</p></div>
       <div class="circle-item a-up d2"><div class="img-slot circle-img"><i class="fa-solid fa-star"></i><div class="is-title">일러스트 자리</div><div class="is-note">인기 큐레이터 영역에 오른 광고주 배지</div></div><h4>인기 큐레이터 등록</h4><p>조건 없이, 계약과 동시에</p></div>
-      <div class="circle-item a-up d3"><div class="img-slot circle-img"><i class="fa-solid fa-rectangle-ad"></i><div class="is-title">일러스트 자리</div><div class="is-note">웹·앱 배너 구좌 위치</div></div><h4>배너 구좌 전체 포함</h4><p>웹 4 · 앱 4 + 순차 오픈 구좌</p></div>
+      <div class="circle-item a-up d3"><div class="img-slot circle-img"><i class="fa-solid fa-rectangle-ad"></i><div class="is-title">일러스트 자리</div><div class="is-note">웹·앱 배너 구좌 위치</div></div><h4>필요한 것만 조합</h4><p>노출 · 텍스트 · 메시지 · 서비스 개별 단가</p></div>
     </div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
@@ -472,10 +482,10 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
           <tr><th>노출지면</th><td>광고주 페이지 · 홈 · 탐색 (웹/앱)</td></tr>
           <tr><th>상품유형</th><td>광고주 채널형 (페이지 + 노출 + 알림)</td></tr>
           <tr><th>판매방식</th><td>월 단위 계약</td></tr>
-          <tr><th>구성</th><td>페이지 · 배너 구좌 전체 · push · 운영 지원</td></tr>
-          <tr><th>광고단가</th><td><strong>월 500만 원</strong> (VAT 별도) · 통합 단일 상품</td></tr>
+          <tr><th>구성</th><td>페이지(무료) + 노출 · 텍스트 · 메시지 · 서비스 상품 조합</td></tr>
+          <tr><th>광고단가</th><td><strong>상품별 개별 단가</strong> (VAT 별도) · 단가표 참조</td></tr>
           <tr><th>팬 질문</th><td>무료 + 유료 공존<br>(일반 큐레이터와 동일)</td></tr>
-          <tr><th>비고</th><td>유료 질문 미답변 시 자동 환불<br>답변률 대시보드 표시</td></tr>
+          <tr><th>비고</th><td>유료 질문 미답변 시 자동 환불</td></tr>
         </table>
         <div class="spec-note">* 페이지 개설·인사이트 발행·답변은 무료. 유료는 공식 배지 · 인기 큐레이터 등록 · push 알림 · 배너 구좌</div>
       </div>
@@ -487,26 +497,26 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 <!-- ===== 8 · Divider 03 ===== -->
 <section class="slide slide-dark" id="slide-9">
   <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고주 큐레이터 페이지<br>광고 상품 소개서</span></div>
-  <div class="divider-wrap"><div class="divider-num a-left d1">03</div><div class="a-left d2"><div class="divider-title">패키지 특장점</div><div class="divider-sub">구성 6가지 · 인기 큐레이터 등록 · push 알림 · 운영 지원</div></div></div>
+  <div class="divider-wrap"><div class="divider-num a-left d1">03</div><div class="a-left d2"><div class="divider-title">상품 특장점</div><div class="divider-sub">구성 6가지 · 인기 큐레이터 등록 · push 알림 · 운영 지원</div></div></div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
 <!-- ===== 9 · Package 6 ===== -->
 <section class="slide" id="slide-10">
-  <div class="sec-label"><b>03</b>패키지 특장점</div>
+  <div class="sec-label"><b>03</b>상품 특장점</div>
   <div class="page-head">
-    <div class="page-title a-left d1">패키지 구성 <span class="hl">6가지</span></div>
-    <p class="page-desc a-right d1">월 500만 원에 <strong>6가지가 전부</strong> 들어 있습니다.<br>노출과 알림을 묶어 팬을 페이지로 데려오는 구성입니다.</p>
+    <div class="page-title a-left d1">광고주 페이지 <span class="hl">구성 요소</span></div>
+    <p class="page-desc a-right d1">개설 · 발행 · 답변은 <strong>무료</strong>, 나머지는 <strong>개별 단가</strong>로 필요한 것만 고릅니다.<br>노출과 알림을 조합해 팬을 페이지로 데려오는 구성입니다.</p>
   </div>
   <div class="slide-body">
     <div class="pkg-wrap">
       <div class="pkg-list a-left d2">
-        <div class="pkg-card hero"><div class="pkg-num">1</div><div><h4>광고주 큐레이터 페이지 개설</h4><p>인사이트 발행과 팬 질문 답변. <strong>초기 세팅은 TubeLuLu가 함께</strong></p></div></div>
-        <div class="pkg-card"><div class="pkg-num">2</div><div><h4>광고주 공식 배지</h4><p>페이지·인사이트·답변에 공식 광고주 표시</p></div></div>
-        <div class="pkg-card"><div class="pkg-num">3</div><div><h4>구독자 push 알림</h4><p>앱을 열지 않은 구독자에게도 닿습니다</p></div></div>
-        <div class="pkg-card hero"><div class="pkg-num">4</div><div><h4>인기 큐레이터 등록</h4><p>홈·탐색 인기 영역에 <strong>조건 없이 등록</strong></p></div></div>
-        <div class="pkg-card"><div class="pkg-num">5</div><div><h4>복수 운영자 계정</h4><p>여러 담당자가 나눠 답합니다</p></div></div>
-        <div class="pkg-card"><div class="pkg-num">6</div><div><h4>배너 구좌 전체</h4><p>웹 4 · 앱 4 전 구좌 + 순차 오픈 구좌</p></div></div>
+        <div class="pkg-card hero"><div class="pkg-num">1</div><div><h4>광고주 큐레이터 페이지 개설 <span class="pill sky">무료</span></h4><p>인사이트 발행과 팬 질문 답변. <strong>초기 세팅은 TubeLuLu가 함께</strong></p></div></div>
+        <div class="pkg-card"><div class="pkg-num">2</div><div><h4>광고주 공식 배지</h4><p>페이지·인사이트·답변에 공식 표시 · <strong>월 100만 원</strong></p></div></div>
+        <div class="pkg-card"><div class="pkg-num">3</div><div><h4>구독자 push 알림</h4><p>앱을 열지 않은 구독자에게도 · <strong>회당 200만 원</strong></p></div></div>
+        <div class="pkg-card hero"><div class="pkg-num">4</div><div><h4>인기 큐레이터 등록</h4><p>홈·탐색 인기 영역에 조건 없이 · <strong>월 2,000만 원</strong></p></div></div>
+        <div class="pkg-card"><div class="pkg-num">5</div><div><h4>복수 운영자 계정</h4><p>여러 담당자가 나눠 답변 · <strong>계정당 월 30만 원</strong></p></div></div>
+        <div class="pkg-card"><div class="pkg-num">6</div><div><h4>배너 · 텍스트 · 메시지 구좌</h4><p>구좌별 개별 단가 · <strong>단가표 참조</strong></p></div></div>
       </div>
       <div class="a-right d3" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
         <div class="img-slot" style="height:100%;min-height:150px"><i class="fa-solid fa-certificate"></i><div class="is-title">이미지: 공식 배지가 붙은 프로필</div><div class="is-note">배지 확대 컷</div></div>
@@ -521,7 +531,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 
 <!-- ===== 10 · Feature: 인기 큐레이터 등록 + push ===== -->
 <section class="slide" id="slide-11">
-  <div class="sec-label"><b>03</b>패키지 특장점</div>
+  <div class="sec-label"><b>03</b>상품 특장점</div>
   <div class="page-head">
     <div class="page-title a-left d1">인기 큐레이터 등록<br>&amp; push 알림</div>
     <p class="page-desc a-right d1">광고주 페이지는 <strong>인기 큐레이터 영역에 조건 없이</strong> 오릅니다.<br>구독자에게는 push 알림으로 앱 밖에서도 닿습니다.</p>
@@ -541,7 +551,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
         </div>
         <div class="feature-col">
           <h5><i class="fa-solid fa-route"></i>광고주 페이지 유입</h5>
-          <ul><li>인기 영역 · push · 배너 → 페이지</li><li>인기 영역 · 배너 · push 모두 패키지 포함</li><li>구독자 → 질문 → 답변으로 순환</li></ul>
+          <ul><li>인기 영역 · push · 배너 → 페이지</li><li>인기 영역 · 배너 · push 개별 선택</li><li>구독자 → 질문 → 답변으로 순환</li></ul>
           <div class="img-slot" style="height:250px"><i class="fa-solid fa-diagram-project"></i><div class="is-title">다이어그램 자리: 유입 흐름</div><div class="is-note">인기 영역 / push / 배너 → 광고주 페이지 → 구독·질문</div></div>
         </div>
       </div>
@@ -550,9 +560,9 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
           <tr><th>노출지면</th><td>홈 · 탐색 인기 큐레이터 영역 (웹/앱)</td></tr>
           <tr><th>상품유형</th><td>고정 노출형</td></tr>
           <tr><th>노출방식</th><td>계약 기간 상시 등록</td></tr>
-          <tr><th>push</th><td>구독자 대상 · 월 정기 회차<br>(횟수 협의)</td></tr>
+          <tr><th>push</th><td>구독자 대상 · 회당 200만 원<br>(횟수 협의)</td></tr>
           <tr><th>표기</th><td>공식 광고주 배지</td></tr>
-          <tr><th>비고</th><td>패키지 기본 구성 · 개별 판매 불가</td></tr>
+          <tr><th>단가</th><td>인기 영역 등록 월 2,000만 원<br>(VAT 별도, 구좌 3)</td></tr>
         </table>
         <div class="spec-note">* push는 마케팅·알림 수신에 동의한 구독자에게만 발송됩니다.</div>
       </div>
@@ -563,7 +573,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 
 <!-- ===== 11 · Feature: 운영 지원 ===== -->
 <section class="slide" id="slide-12">
-  <div class="sec-label"><b>03</b>패키지 특장점</div>
+  <div class="sec-label"><b>03</b>상품 특장점</div>
   <div class="page-head">
     <div class="page-title a-left d1">운영 지원<br><span class="hl">FAQ 자동 답변</span></div>
     <p class="page-desc a-right d1">답변은 광고주가 합니다. 그게 이 채널의 가치입니다.<br>다만 <strong>반복 질문은 봇이 받고</strong>, 유료 질문은 사람만 답변으로 인정합니다.</p>
@@ -579,7 +589,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
             <tr><td class="rowhead">유료 질문</td><td class="win"><strong>사람만 답변으로 인정</strong> · 봇은 초안만 제안</td></tr>
           </tbody>
         </table>
-        <div class="foot-note">초기 세팅(프로필·첫 인사이트·FAQ 목록) · 답변 가이드 · 미답변 알림 · 복수 운영자 계정 · 답변 초안 지원 — 모두 패키지에 포함</div>
+        <div class="foot-note">초기 세팅(프로필·첫 인사이트·FAQ 목록) · 답변 가이드 · 미답변 알림은 무료. FAQ 자동 답변 봇 월 100만 원 · AI 답변 초안 월 100만 원 · 복수 운영자 계정 계정당 월 30만 원</div>
       </div>
       <div class="a-right d3" style="display:flex;gap:18px;justify-content:center">
         <div class="shot"><div class="img-slot phone"><i class="fa-solid fa-robot"></i><div class="is-title">앱 화면: 자동 답변 카드</div><div class="is-note">"자동 답변" 배지 · 담당자 답변 요청 버튼</div></div><span class="slot-label">FAQ 자동 답변</span></div>
@@ -594,67 +604,136 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 <!-- ===== 13 · Divider 04 ===== -->
 <section class="slide slide-dark" id="slide-13">
   <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고주 큐레이터 페이지<br>광고 상품 소개서</span></div>
-  <div class="divider-wrap"><div class="divider-num a-left d1">04</div><div class="a-left d2"><div class="divider-title">광고 구좌 · 단가</div><div class="divider-sub">웹 4개 · 앱 4개 배너 구좌와 주요 게재지면</div></div></div>
+  <div class="divider-wrap"><div class="divider-num a-left d1">04</div><div class="a-left d2"><div class="divider-title">광고 상품 · 단가</div><div class="divider-sub">노출형 · 텍스트 라인 · 메시지형 · 서비스, 구좌별 개별 단가</div></div></div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
-<!-- ===== 14 · Price table ===== -->
+<!-- ===== 14 · Pricing ===== -->
 <section class="slide" id="slide-14">
-  <div class="sec-label"><b>04</b>광고 구좌 · 단가</div>
-  <div class="page-head center">
-    <div class="page-title a-up d1">광고 상품 단가 및 특징</div>
-  </div>
-  <div class="slide-body">
-    <table class="tbl a-up d2" style="max-width:1080px;margin:0 auto">
-      <thead><tr><th style="width:230px">구성 상품</th><th>내용</th><th style="width:110px">판매 단위</th><th style="width:150px">단가</th></tr></thead>
-      <tbody>
-        <tr><td class="rowhead">광고주 큐레이터 페이지</td><td class="l">페이지 개설 · 공식 배지 · 인기 큐레이터 등록 · 복수 운영자 계정</td><td>월</td><td class="win">포함</td></tr>
-        <tr><td class="rowhead">배너 구좌 전체</td><td class="l">W1~W4, A1~A4 전 구좌 노출 · 순차 오픈 구좌도 추가 비용 없이 포함</td><td>월</td><td class="win">포함</td></tr>
-        <tr><td class="rowhead">구독자 push 알림</td><td class="l">광고주 페이지 구독자 대상 push 발송 (월 정기 회차)</td><td>월</td><td class="win">포함</td></tr>
-        <tr><td class="rowhead">운영 지원</td><td class="l">초기 세팅 · FAQ 자동 답변 · 답변 초안 · 미답변 알림</td><td>월</td><td class="win">포함</td></tr>
-        <tr><td class="rowhead" style="background:var(--sky-wash);color:var(--navy)">통합 패키지 합계</td><td class="l" style="background:var(--sky-wash);color:var(--navy-deep);font-weight:600">위 4개 상품을 하나로 묶은 단일 상품 · 개별 판매 없음</td><td style="background:var(--sky-wash)">월</td><td class="win" style="font-size:16px"><strong>월 500만 원</strong></td></tr>
-      </tbody>
-    </table>
-    <div class="foot-note red" style="max-width:1080px;margin:14px auto 0">* 런칭 광고주 프로모션: 페이지 세팅(프로필·첫 인사이트·FAQ) 무료 제작 · 계약 시점 가격 고정 · 카테고리 독점 (자세한 조건은 별도 안내)</div>
-    <div class="foot-note" style="max-width:1080px;margin:4px auto 0">* VAT 별도, 세금계산서 발행. 광고주 1개 · 월 단위 계약 기준입니다.</div>
-  </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
-</section>
-
-<!-- ===== 15 · Ad slots table ===== -->
-<section class="slide" id="slide-15">
-  <div class="sec-label"><b>04</b>광고 구좌 · 단가</div>
+  <div class="sec-label"><b>04</b>광고 상품 · 단가</div>
   <div class="page-head">
-    <div class="page-title a-left d1">광고 구좌 안내</div>
-    <p class="page-desc a-right d1">웹 4 · 앱 4 배너 구좌가 <strong>월 500만 원 패키지에 모두 포함</strong>됩니다.<br>이용 경험을 해치지 않는 자리에 구좌를 계속 늘리며, 새 구좌도 패키지에 포함됩니다.</p>
+    <div class="page-title a-left d1">노출형 구좌 단가</div>
+    <p class="page-desc a-right d1">배너 · 고정 노출 · 팝업 구좌입니다. <strong>구좌마다 개별 단가</strong>로 판매합니다.<br>모든 구좌에 "광고" 또는 "스폰서" 표기 · 노출은 화면 50% 이상 1초 기준 · 금액은 월 · VAT 별도.</p>
   </div>
   <div class="slide-body">
     <table class="tbl compact dense a-up d2" style="font-size:12px">
-      <thead><tr><th style="width:200px">구좌</th><th>위치</th><th>형태</th><th>판매 단위</th><th>평균 CTR</th><th>비고</th></tr></thead>
+      <thead><tr><th style="width:250px">구좌</th><th>위치</th><th>형태</th><th style="width:110px">구좌 수</th><th style="width:150px">단가 (월)</th></tr></thead>
       <tbody>
-        <tr><td class="grp" colspan="6">WEB</td></tr>
-        <tr><td class="rowhead">W1. 좌측 하단 배너</td><td>좌측 하단, 푸터 위</td><td class="muted">이미지 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
-        <tr><td class="rowhead">W2. 우측 상단 롤링 배너</td><td>우측 상단, 롤링 노출</td><td class="muted">이미지 배너 (롤링)</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
-        <tr><td class="rowhead">W3. 홈 인사이트 중간 배너</td><td>홈 인사이트 피드 사이</td><td class="muted">카드형 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
-        <tr><td class="rowhead">W4. 인사이트 내 최하단 배너</td><td>인사이트 상세 최하단</td><td class="muted">이미지 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
-        <tr><td class="grp" colspan="6">APP</td></tr>
-        <tr><td class="rowhead">A1. 홈 인사이트 중간 배너</td><td>홈 인사이트 피드 사이</td><td class="muted">카드형 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
-        <tr><td class="rowhead">A2. 인사이트 내 하단 배너</td><td>본문 하단과 댓글 사이</td><td class="muted">이미지 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
-        <tr><td class="rowhead">A3. 구독 탭 배너</td><td>큐레이터 목록과 새 인사이트 사이</td><td class="muted">카드형 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
-        <tr><td class="rowhead">A4. 메시지 탭 최하단 배너</td><td>메시지 탭 최하단</td><td class="muted">이미지 배너</td><td>월</td><td class="muted">실측 후 제공</td><td><span class="pill sky">패키지 포함</span></td></tr>
-        <tr><td class="grp" colspan="6">순차 오픈 구좌 (앱)</td></tr>
-        <tr><td class="rowhead">A5. 알림센터 하단 배너</td><td>알림 목록 최하단</td><td class="muted">이미지 배너</td><td>월</td><td class="muted">오픈 후 제공</td><td><span class="pill warm">순차 오픈 · 포함</span></td></tr>
-        <tr><td class="rowhead">A6. 저장 탭 배너</td><td>검색과 저장 목록 사이</td><td class="muted">카드형 배너</td><td>월</td><td class="muted">오픈 후 제공</td><td><span class="pill warm">순차 오픈 · 포함</span></td></tr>
-        <tr><td class="rowhead">A7. 내 활동 탭 배너</td><td>내 활동 목록 사이 (고정 위치)</td><td class="muted">카드형 배너</td><td>월</td><td class="muted">오픈 후 제공</td><td><span class="pill warm">순차 오픈 · 포함</span></td></tr>
-        <tr><td class="rowhead">P1. 앱 진입 팝업</td><td>앱 시작 시 · 하루 1회 상한</td><td class="muted">전면 이미지</td><td>월</td><td class="muted">오픈 후 제공</td><td><span class="pill warm">순차 오픈 · 포함</span></td></tr>
+        <tr><td class="grp" colspan="5">노출형 구좌</td></tr>
+        <tr><td class="rowhead">인기 큐레이터 영역 등록 <span class="pill sky">대표</span></td><td>홈 · 탐색 최상단 인기 큐레이터 영역, 조건 없이 등록</td><td class="muted">프로필 카드 + 공식 배지</td><td>3</td><td><span class="win"><strong>2,000만 원</strong></span></td></tr>
+        <tr><td class="rowhead">W2. 우측 상단 롤링 배너 <span class="pill sky">대표</span></td><td>웹 우측 상단, 롤링 노출</td><td class="muted">이미지 배너 (롤링)</td><td>3</td><td><span class="win"><strong>2,000만 원</strong></span></td></tr>
+        <tr><td class="rowhead">W3 + A1. 홈 인사이트 중간 배너</td><td>홈 인사이트 피드 사이 (웹 · 앱 동시)</td><td class="muted">카드형 배너</td><td>2</td><td><span class="win"><strong>1,500만 원</strong></span></td></tr>
+        <tr><td class="rowhead">W4 + A2. 인사이트 내 하단 배너</td><td>인사이트 본문 하단 (웹 · 앱 동시)</td><td class="muted">이미지 배너</td><td>2</td><td><span class="win"><strong>1,000만 원</strong></span></td></tr>
+        <tr><td class="rowhead">W1. 좌측 하단 배너</td><td>웹 좌측 하단, 푸터 위</td><td class="muted">이미지 배너</td><td>1</td><td><span class="win"><strong>500만 원</strong></span></td></tr>
+        <tr><td class="rowhead">A3. 구독 탭 배너</td><td>큐레이터 목록과 새 인사이트 사이</td><td class="muted">카드형 배너</td><td>1</td><td><span class="win"><strong>600만 원</strong></span></td></tr>
+        <tr><td class="rowhead">A4. 메시지 탭 최하단 배너</td><td>메시지 탭 최하단</td><td class="muted">이미지 배너</td><td>1</td><td><span class="win"><strong>400만 원</strong></span></td></tr>
+        <tr><td class="rowhead">A5. 알림센터 하단 배너 <span class="pill warm">순차 오픈</span></td><td>알림 목록 최하단</td><td class="muted">이미지 배너</td><td>1</td><td><span class="win"><strong>400만 원</strong></span></td></tr>
+        <tr><td class="rowhead">A6. 저장 탭 배너 <span class="pill warm">순차 오픈</span></td><td>검색과 저장 목록 사이</td><td class="muted">카드형 배너</td><td>1</td><td><span class="win"><strong>400만 원</strong></span></td></tr>
+        <tr><td class="rowhead">A7. 내 활동 탭 배너 <span class="pill warm">순차 오픈</span></td><td>내 활동 목록 사이 (고정 위치)</td><td class="muted">카드형 배너</td><td>1</td><td><span class="win"><strong>300만 원</strong></span></td></tr>
+        <tr><td class="rowhead">P1. 앱 진입 팝업 <span class="pill warm">순차 오픈</span></td><td>앱 시작 시 · 하루 1회 상한</td><td class="muted">전면 이미지</td><td>1</td><td><span class="win"><strong>1,500만 원</strong></span></td></tr>
+        <tr><td class="rowhead">P2. 앱 스플래시 스폰서 로고 <span class="pill warm">순차 오픈</span></td><td>앱 로딩 화면 하단 "Sponsored by"</td><td class="muted">로고 + 한 줄</td><td>1</td><td><span class="win"><strong>1,000만 원</strong></span></td></tr>
       </tbody>
     </table>
+    <div class="foot-note" style="margin-top:10px">이용 경험을 해치지 않는 자리에 구좌를 계속 늘립니다. "순차 오픈" 구좌는 오픈 시점에 안내드립니다.</div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<section class="slide" id="slide-15">
+  <div class="sec-label"><b>04</b>광고 상품 · 단가</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">텍스트 라인 · 메시지형 단가</div>
+    <p class="page-desc a-right d1"><strong>워딩만 들어가는 얇은 광고</strong>와 이용자에게 직접 닿는 메시지 상품입니다.<br>텍스트 라인은 월 단가, 메시지형은 회당 단가입니다. 메시지는 수신 동의자에게만 08~21시 발송.</p>
+  </div>
+  <div class="slide-body">
+    <table class="tbl compact dense a-up d2" style="font-size:12px">
+      <thead><tr><th style="width:250px">상품</th><th>위치 · 설명</th><th>형태</th><th style="width:110px">구좌 수 · 단위</th><th style="width:150px">단가</th></tr></thead>
+      <tbody>
+        <tr><td class="grp" colspan="5">텍스트 라인 (워딩만)</td></tr>
+        <tr><td class="rowhead">T1. 인사이트 피드 텍스트 라인</td><td>홈 피드 10건마다 1줄 (워딩만, 링크 1개)</td><td class="muted">텍스트 1줄</td><td>10</td><td><span class="win"><strong>100만 원</strong></span></td></tr>
+        <tr><td class="rowhead">T2. 인사이트 상단 스폰서 한 줄</td><td>인사이트 상세 본문 위, 카테고리별</td><td class="muted">텍스트 1줄</td><td>5</td><td><span class="win"><strong>100만 원</strong></span></td></tr>
+        <tr><td class="rowhead">T3. AI 요약 하단 스폰서 라인</td><td>"이 요약은 ○○이 함께합니다" 한 줄</td><td class="muted">텍스트 1줄</td><td>3</td><td><span class="win"><strong>150만 원</strong></span></td></tr>
+        <tr><td class="rowhead">T4. 검색 자동완성 스폰서 키워드</td><td>검색창 자동완성 최상단, 키워드 지정</td><td class="muted">키워드 + 링크</td><td>키워드당</td><td><span class="win"><strong>100만 원</strong></span></td></tr>
+        <tr><td class="rowhead">T5. 댓글 상단 고정 스폰서 댓글</td><td>댓글 영역 첫 줄 고정, "스폰서" 표기</td><td class="muted">텍스트 2줄</td><td>카테고리별</td><td><span class="win"><strong>200만 원</strong></span></td></tr>
+        <tr><td class="rowhead">T6. 탐색 탭 큐레이터 목록 스폰서 라인</td><td>큐레이터 목록 사이 한 줄</td><td class="muted">텍스트 1줄</td><td>3</td><td><span class="win"><strong>150만 원</strong></span></td></tr>
+        <tr><td class="grp" colspan="5">메시지형</td></tr>
+        <tr><td class="rowhead">M1. 구독자 push 알림</td><td>광고주 페이지 구독자 대상, 앱 밖으로 도달</td><td class="muted">push (수신 동의자)</td><td>회당</td><td><span class="win"><strong>200만 원</strong></span></td></tr>
+        <tr><td class="rowhead">M2. 쪽지 광고</td><td>메시지 탭 쪽지함, 수신 동의 이용자 전체</td><td class="muted">쪽지 (텍스트 + 링크)</td><td>회당</td><td><span class="win"><strong>300만 원</strong></span></td></tr>
+        <tr><td class="rowhead">M3. 알림센터 광고 알림</td><td>앱 알림센터 1건, "광고" 표기</td><td class="muted">알림 카드</td><td>회당</td><td><span class="win"><strong>100만 원</strong></span></td></tr>
+        <tr><td class="rowhead">M4. 주간 다이제스트 스폰서 라인 <span class="pill warm">순차 오픈</span></td><td>주 1회 인사이트 요약 알림 하단 한 줄</td><td class="muted">텍스트 1줄</td><td>회당</td><td><span class="win"><strong>150만 원</strong></span></td></tr>
+      </tbody>
+    </table>
+    <div class="foot-note" style="margin-top:10px">텍스트 라인은 링크 1개 · 40자 이내 · "광고" 표기. 메시지형은 "(광고)" 표기와 수신거부 안내를 포함합니다.</div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<section class="slide" id="slide-16">
+  <div class="sec-label"><b>04</b>광고 상품 · 단가</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">페이지 서비스 · 자동화 단가</div>
+    <p class="page-desc a-right d1">노출이 아닌 <strong>운영과 제작을 자동화</strong>해 드리는 상품입니다.<br>소재 준비와 게재 관리에 드는 손을 줄이는 항목으로, 필요한 것만 선택합니다.</p>
+  </div>
+  <div class="slide-body">
+    <table class="tbl compact dense a-up d2" style="font-size:12px">
+      <thead><tr><th style="width:250px">상품</th><th>내용</th><th>단위</th><th style="width:110px">수량</th><th style="width:150px">단가</th></tr></thead>
+      <tbody>
+        <tr><td class="grp" colspan="5">광고주 페이지 서비스</td></tr>
+        <tr><td class="rowhead">광고주 큐레이터 페이지 개설</td><td>인사이트 발행 · 팬 질문 답변 · 초기 세팅 지원</td><td class="muted">기본 제공</td><td>—</td><td><span class="win">무료</span></td></tr>
+        <tr><td class="rowhead">공식 광고주 배지</td><td>페이지 · 인사이트 · 답변에 공식 표시</td><td class="muted">월</td><td>1</td><td><span class="win"><strong>100만 원</strong></span></td></tr>
+        <tr><td class="rowhead">복수 운영자 계정</td><td>담당자 여러 명이 나눠 답변</td><td class="muted">월</td><td>계정당</td><td><span class="win"><strong>30만 원</strong></span></td></tr>
+        <tr><td class="rowhead">FAQ 자동 답변 봇</td><td>무료 질문 중 FAQ 일치분 자동 답변, "자동 답변" 표시</td><td class="muted">월</td><td>1</td><td><span class="win"><strong>100만 원</strong></span></td></tr>
+        <tr><td class="rowhead">AI 답변 초안</td><td>질문마다 초안 제안, 담당자가 확인 후 게시</td><td class="muted">월</td><td>1</td><td><span class="win"><strong>100만 원</strong></span></td></tr>
+        <tr><td class="rowhead">인사이트 자동 생성</td><td>영상 링크 → 요약 · 해석 초안 자동 작성</td><td class="muted">편당</td><td>—</td><td><span class="win"><strong>50만 원</strong></span></td></tr>
+        <tr><td class="rowhead">공지 예약 발행</td><td>대회 일정 기준 사전 등록 · 마감 공지 자동 발행</td><td class="muted">월</td><td>1</td><td><span class="win"><strong>50만 원</strong></span></td></tr>
+        <tr><td class="grp" colspan="5">제작 · 자동화</td></tr>
+        <tr><td class="rowhead">광고 이미지 제작</td><td>구좌별 규격 세트, 템플릿 기반 자동 생성</td><td class="muted">세트당</td><td>—</td><td><span class="win"><strong>100만 원</strong></span></td></tr>
+        <tr><td class="rowhead">소재 자동 리사이즈</td><td>이미지 1장 → 웹 · 앱 전 구좌 규격</td><td class="muted">세트당</td><td>—</td><td><span class="win"><strong>50만 원</strong></span></td></tr>
+        <tr><td class="rowhead">소재 A/B 자동 로테이션</td><td>소재 2종 이상 자동 교차 노출</td><td class="muted">월</td><td>1</td><td><span class="win"><strong>100만 원</strong></span></td></tr>
+        <tr><td class="rowhead">게재 스케줄 자동 관리</td><td>기간 분할 · 시간대 · 요일 지정 노출</td><td class="muted">월</td><td>1</td><td><span class="win"><strong>100만 원</strong></span></td></tr>
+        <tr><td class="rowhead">랜딩 QR · 단축링크 생성</td><td>구좌별 링크 자동 발급</td><td class="muted">건당</td><td>—</td><td><span class="win"><strong>30만 원</strong></span></td></tr>
+        <tr><td class="rowhead">공유 카드 스폰서 워터마크</td><td>인사이트 공유 이미지(OG)에 로고 삽입</td><td class="muted">월</td><td>1</td><td><span class="win"><strong>300만 원</strong></span></td></tr>
+      </tbody>
+    </table>
+    <div class="foot-note" style="margin-top:10px">제작물의 최종 확인과 게재 승인은 광고주가 합니다. 자동 생성 결과는 게재 전 검수를 거칩니다.</div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<section class="slide" id="slide-17">
+  <div class="sec-label"><b>04</b>광고 상품 · 단가</div>
+  <div class="page-head">
+    <div class="page-title a-left d1">추천 조합 <span class="hl">예시</span></div>
+    <p class="page-desc a-right d1">모든 상품은 <strong>개별 단가로 판매</strong>하며 자유롭게 조합합니다.<br>처음 시작하시는 분들을 위해 세 가지 조합을 예시로 드립니다. 금액은 VAT 별도, 월 기준입니다.</p>
+  </div>
+  <div class="slide-body">
+    <div class="bundle-grid">
+      <div class="bundle a-up d2">
+        <div class="bd-name">스타터</div>
+        <div class="bd-tot">월 500만 원</div>
+        <div class="bd-desc">페이지를 열고 팬에게 첫 알림을 보내는 구성</div>
+        <ul><li><b>공식 광고주 배지</b><span>100만</span></li><li><b>피드 텍스트 라인 2구좌</b><span>200만</span></li><li><b>구독자 push 1회</b><span>200만</span></li></ul>
+      </div>
+      <div class="bundle hero a-up d2">
+        <div class="bd-name">스탠다드 <span class="pill sky">추천</span></div>
+        <div class="bd-tot">월 3,000만 원</div>
+        <div class="bd-desc">홈 최상단 노출 + 본문 배너로 페이지 유입을 만드는 구성</div>
+        <ul><li><b>인기 큐레이터 영역 등록</b><span>2,000만</span></li><li><b>인사이트 내 하단 배너 (웹·앱)</b><span>1,000만</span></li></ul>
+      </div>
+      <div class="bundle a-up d2">
+        <div class="bd-name">프리미엄</div>
+        <div class="bd-tot">월 6,000만 원</div>
+        <div class="bd-desc">메인 노출 전부 + 알림까지 묶은 구성</div>
+        <ul><li><b>인기 큐레이터 영역 등록</b><span>2,000만</span></li><li><b>우측 상단 롤링 배너</b><span>2,000만</span></li><li><b>홈 인사이트 중간 배너 (웹·앱)</b><span>1,500만</span></li><li><b>구독자 push 2회</b><span>400만</span></li><li><b>공식 광고주 배지</b><span>100만</span></li></ul>
+      </div>
+    </div>
+    <div class="foot-note" style="text-align:center;margin-top:14px">* 조합은 예시이며 구좌 가용 상황에 따라 대체 구좌를 제안드립니다 · 3개월 이상 계약 시 조건은 별도 안내</div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
 <!-- ===== 16 · Placements: WEB ===== -->
-<section class="slide" id="slide-16">
+<section class="slide" id="slide-18">
   <div class="sec-label"><b>04</b>주요 게재지면 — 웹</div>
   <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">웹</span></div></div>
   <div class="slide-body">
@@ -664,13 +743,13 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       <div class="place-item"><span class="slot-label sky">W3 홈 인사이트 중간<small>홈 피드 사이</small></span><div class="img-slot web"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면 캡처</div><div class="is-note">인사이트 피드 중간 카드</div><div class="ad-highlight" style="left:14px;right:14px;top:150px;height:56px"></div></div></div>
       <div class="place-item"><span class="slot-label">W4 인사이트 최하단<small>인사이트 상세</small></span><div class="img-slot web"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면 캡처</div><div class="is-note">인사이트 상세 최하단</div><div class="ad-highlight" style="left:14px;right:14px;bottom:14px;height:48px"></div></div></div>
     </div>
-    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 웹 4개 구좌 모두 월 500만 원 패키지에 포함 · 실제 캡처 이미지로 교체 예정</div>
+    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 구좌별 단가는 단가표 참조 · 실제 캡처 이미지로 교체 예정</div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
 <!-- ===== 17 · Placements: APP ===== -->
-<section class="slide" id="slide-17">
+<section class="slide" id="slide-19">
   <div class="sec-label"><b>04</b>주요 게재지면 — 앱</div>
   <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">앱</span></div></div>
   <div class="slide-body">
@@ -681,20 +760,20 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       <div class="place-item"><span class="slot-label">A4 메시지 탭 최하단<small>메시지 탭</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면 캡처</div><div class="is-note">메시지 탭 최하단</div><div class="ad-highlight" style="left:12px;right:12px;bottom:14px;height:48px"></div></div></div>
       <div class="place-item"><span class="slot-label dark" style="background:var(--text-strong)">push 알림<small>수신 동의 구독자</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-bell"></i><div class="is-title">잠금화면 캡처</div><div class="is-note">광고주 push 알림</div><div class="ad-highlight" style="left:10px;right:10px;top:150px;height:56px"></div></div></div>
     </div>
-    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 앱 4개 구좌와 push 모두 월 500만 원 패키지에 포함 · 실제 캡처 이미지로 교체 예정</div>
+    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 구좌별 단가는 단가표 참조 · 실제 캡처 이미지로 교체 예정</div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
 <!-- ===== 21 · Divider 06 ===== -->
-<section class="slide slide-dark" id="slide-18">
+<section class="slide slide-dark" id="slide-20">
   <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고주 큐레이터 페이지<br>광고 상품 소개서</span></div>
   <div class="divider-wrap"><div class="divider-num a-left d1">05</div><div class="a-left d2"><div class="divider-title">광고 신청</div><div class="divider-sub">문의부터 집행까지 5단계</div></div></div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
 <!-- ===== 22 · Process ===== -->
-<section class="slide" id="slide-19">
+<section class="slide" id="slide-21">
   <div class="sec-label"><b>05</b>광고 신청</div>
   <div class="page-head center"><div class="page-title a-up d1">집행 프로세스</div></div>
   <div class="slide-body">
@@ -710,7 +789,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 </section>
 
 <!-- ===== 23 · Policy ===== -->
-<section class="slide" id="slide-20">
+<section class="slide" id="slide-22">
   <div class="sec-label"><b>05</b>광고 신청</div>
   <div class="page-head center"><div class="page-title a-up d1" style="font-size:32px">TubeLuLu 게재 기준에 따라 일부 광고는 집행에 제약이 있을 수 있습니다.</div></div>
   <div class="slide-body">
@@ -732,7 +811,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 </section>
 
 <!-- ===== 24 · Inquiry form ===== -->
-<section class="slide" id="slide-21">
+<section class="slide" id="slide-23">
   <div class="sec-label"><b>05</b>광고 신청</div>
   <div class="page-head center"><div class="page-title a-up d1" style="font-size:30px">관심 있으시면 아래 [광고 신청 양식]을 문의 메일로 보내 주십시오.<br>영업일 3일 내 회신드립니다.</div></div>
   <div class="slide-body">
@@ -743,7 +822,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
           <li>업체명 :</li>
           <li>광고 목적 : <span>대회 사전 등록 안내 · 홀덤펍 이벤트 안내 · 참가자 Q&amp;A 채널 운영 등</span></li>
           <li>대행사 / 담당자 :</li>
-          <li>희망 상품 : <span>광고주 큐레이터 페이지 패키지 (월 500만 원 통합)</span></li>
+          <li>희망 상품 : <span>예: 스탠다드 조합 (인기 큐레이터 영역 등록 + 인사이트 하단 배너, 월 3,000만 원)</span></li>
           <li>광고 기간 : <span>2026.00.00 ~ 2026.00.00 (1개월)</span></li>
           <li>문의 사항 : <span>게재 기준 / 페이지 세팅 / 정산 등</span></li>
         </ul></td></tr>
@@ -755,7 +834,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 </section>
 
 <!-- ===== 25 · Thanks ===== -->
-<section class="slide slide-cover" id="slide-22">
+<section class="slide slide-cover" id="slide-24">
   <div class="cover-wrap">
     <div class="cover-circles" aria-hidden="true">
       <span style="width:520px;height:520px;left:-160px;top:-240px"></span>
@@ -786,14 +865,14 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   <button class="nav-arrow" id="prevBtn" aria-label="이전 슬라이드"><i class="fa-solid fa-chevron-left"></i></button>
   <button class="nav-arrow" id="nextBtn" aria-label="다음 슬라이드"><i class="fa-solid fa-chevron-right"></i></button>
 </div>
-<div class="page-number" id="pageNumber"><strong>1</strong> / 22</div>
+<div class="page-number" id="pageNumber"><strong>1</strong> / 24</div>
 <div class="keyboard-hint" id="keyboardHint"><i class="fa-solid fa-keyboard"></i> ← → 또는 스와이프로 이동</div>
 </div>
 
 <script>
 (function () {
-  var totalSlides = 22, current = 1, isAnimating = false;
-  var slideTitles = ['표지','Contents','매체 소개','이용자 특성','포커 콘텐츠 구조','02 광고주 페이지','상품 소개','광고주 페이지 상세','03 특장점','패키지 6가지','인기 큐레이터·push','운영 지원','04 구좌·단가','단가표','구좌 안내','게재지면 웹','게재지면 앱','05 광고 신청','집행 프로세스','게재 기준','신청 양식','감사합니다'];
+  var totalSlides = 24, current = 1, isAnimating = false;
+  var slideTitles = ['표지','Contents','매체 소개','이용자 특성','포커 콘텐츠 구조','02 광고주 페이지','상품 소개','광고주 페이지 상세','03 특장점','페이지 구성 요소','인기 큐레이터·push','운영 지원','04 상품·단가','노출형 단가','텍스트·메시지 단가','서비스·자동화 단가','추천 조합','게재지면 웹','게재지면 앱','05 광고 신청','집행 프로세스','게재 기준','신청 양식','감사합니다'];
   var presentation = document.getElementById('presentation'), progressBar = document.getElementById('progressBar'), pageNumber = document.getElementById('pageNumber'), navDots = document.getElementById('navDots'), keyboardHint = document.getElementById('keyboardHint');
   for (var i = 1; i <= totalSlides; i++) { var dot = document.createElement('button'); dot.className = 'nav-dot' + (i === 1 ? ' active' : ''); dot.title = slideTitles[i-1]; dot.setAttribute('aria-label', i + '. ' + slideTitles[i-1]); (function (n) { dot.addEventListener('click', function () { goToSlide(n); }); })(i); navDots.appendChild(dot); }
   function updateChrome() {
