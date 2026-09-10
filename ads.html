@@ -200,10 +200,21 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 
 /* ---------- Placements row ---------- */
 .place-row { display: flex; justify-content: center; gap: 14px; }
-.cap { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 26px rgba(9,52,122,0.14); flex: none; background: #fff; }
-.cap img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-.cap.phone { border-radius: 22px; }
 .place-item { flex: none; }
+.phone-frame { position: relative; width: 200px; height: 376px; border-radius: 30px; background: #111827; padding: 8px; box-shadow: 0 14px 30px rgba(9,52,122,0.22), inset 0 0 0 1.5px #3b4252; flex: none; }
+.phone-frame .screen { position: relative; width: 100%; height: 100%; border-radius: 22px; overflow: hidden; background: #fff; }
+.phone-frame .sb { position: absolute; left: 0; right: 0; top: 0; height: 22px; background: #fff; display: flex; justify-content: space-between; align-items: center; padding: 0 16px 0 18px; font-size: 9px; font-weight: 700; color: #111; z-index: 3; font-family: "Poppins", sans-serif; }
+.phone-frame .sb i { font-size: 8px; }
+.phone-frame .notch { position: absolute; left: 50%; top: 6px; transform: translateX(-50%); width: 56px; height: 13px; background: #111827; border-radius: 8px; z-index: 4; }
+.phone-frame img { position: absolute; left: 0; top: 22px; width: 100%; height: calc(100% - 22px); object-fit: cover; object-position: center top; }
+.phone-frame img.full { top: 0; height: 100%; }
+.phone-frame .ad-highlight { z-index: 5; }
+.browser { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 26px rgba(9,52,122,0.14); background: #fff; flex: none; }
+.browser .bar { height: 20px; background: #EEF2F7; display: flex; align-items: center; gap: 5px; padding: 0 10px; border-bottom: 1px solid #E3E8EF; }
+.browser .bar i { width: 7px; height: 7px; border-radius: 50%; background: #D5DBE5; }
+.browser .bar b { flex: 1; height: 9px; margin-left: 8px; border-radius: 5px; background: #fff; border: 1px solid #E3E8EF; }
+.browser .body { position: relative; width: 100%; }
+.browser .body img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .place-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .place-item .img-slot.phone-sm { width: 148px; height: 300px; }
 .place-item .img-slot.web { width: 148px; height: 300px; border-radius: 12px; }
@@ -479,9 +490,9 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   </div>
   <div class="slide-body">
     <div class="prod-wrap">
-      <div class="shots a-up d2">
-        <div class="shot"><div class="cap phone" style="width:224px;height:336px"><img src="images/slot-a1.png" alt="앱 홈 피드"><div class="ad-highlight" style="left:5px;right:5px;top:140px;height:70px"></div></div><span class="slot-label sky">홈 피드 (앱)<small>A1 · 카드형 배너</small></span></div>
-        <div class="shot"><div class="cap " style="width:448px;height:336px"><img src="images/slot-w3.png" alt="웹 홈 피드"><div class="ad-highlight" style="left:31px;right:11px;top:38px;height:135px"></div></div><span class="slot-label">홈 피드 (웹)<small>W3 · 카드형 배너</small></span></div>
+      <div class="shots a-up d2" style="align-items:flex-end">
+        <div class="shot"><div class="phone-frame"><div class="screen"><div class="sb"><span>20:14</span><span><i class="fa-solid fa-signal"></i> <i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-battery-three-quarters"></i></span></div><div class="notch"></div><img src="images/slot-a1.png" alt="앱 홈 피드"><div class="ad-highlight" style="left:4px;right:4px;top:163px;height:70px"></div></div></div><span class="slot-label sky">홈 피드 (앱)<small>A1 · 카드형 배너</small></span></div>
+        <div class="shot"><div class="browser" style="width:448px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:336px"><img src="images/slot-w3.png" alt="웹 홈 피드"><div class="ad-highlight" style="left:10px;right:12px;top:17px;height:141px"></div></div></div><span class="slot-label">홈 피드 (웹)<small>W3 · 카드형 배너</small></span></div>
       </div>
       <div class="a-right d3">
         <table class="spec">
@@ -619,11 +630,11 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   <div class="sec-label"><b>03</b>주요 게재지면 — 웹</div>
   <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">웹</span></div></div>
   <div class="slide-body">
-    <div class="place-row a-up d2">
-      <div class="place-item"><span class="slot-label">W1 홈 좌측 세로형<small>홈 · 좌측 하단 고정 · 1:2</small></span><div class="cap " style="width:270px;height:203px"><img src="images/slot-w1.png" alt="W1"><div class="ad-highlight" style="left:8px;width:46px;top:73px;height:92px"></div></div></div>
-      <div class="place-item"><span class="slot-label">W2 우측 상단 롤링<small>홈 · 롤링 3 · 6:5</small></span><div class="cap " style="width:270px;height:203px"><img src="images/slot-w2.png" alt="W2"><div class="ad-highlight" style="left:176px;right:2px;top:32px;height:78px"></div></div></div>
-      <div class="place-item"><span class="slot-label sky">W3 홈 인사이트 중간<small>홈 피드 사이 · 3:1</small></span><div class="cap " style="width:270px;height:203px"><img src="images/slot-w3.png" alt="W3"><div class="ad-highlight" style="left:19px;right:7px;top:23px;height:81px"></div></div></div>
-      <div class="place-item"><span class="slot-label">W4 인사이트 내 하단<small>영상 바로 아래 · 1.91:1</small></span><div class="cap " style="width:270px;height:203px"><img src="images/slot-w4.png" alt="W4"><div class="ad-highlight" style="left:47px;width:177px;top:96px;height:93px"></div></div></div>
+    <div class="place-row a-up d2" style="align-items:flex-end">
+      <div class="place-item"><span class="slot-label">W1 홈 좌측 세로형<small>홈 · 좌측 하단 고정 · 1:2</small></span><div class="browser" style="width:270px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:203px"><img src="images/slot-w1.png" alt="W1"><div class="ad-highlight" style="left:11px;width:66px;top:33px;height:131px"></div></div></div></div>
+      <div class="place-item"><span class="slot-label">W2 우측 상단 롤링<small>홈 · 롤링 3 · 6:5</small></span><div class="browser" style="width:270px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:203px"><img src="images/slot-w2.png" alt="W2"><div class="ad-highlight" style="left:98px;right:2px;top:44px;height:143px"></div></div></div></div>
+      <div class="place-item"><span class="slot-label sky">W3 홈 인사이트 중간<small>홈 피드 사이 · 3:1</small></span><div class="browser" style="width:270px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:203px"><img src="images/slot-w3.png" alt="W3"><div class="ad-highlight" style="left:6px;right:7px;top:10px;height:85px"></div></div></div></div>
+      <div class="place-item"><span class="slot-label">W4 인사이트 내 하단<small>영상 바로 아래 · 1.91:1</small></span><div class="browser" style="width:270px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:203px"><img src="images/slot-w4.png" alt="W4"><div class="ad-highlight" style="left:16px;right:15px;top:59px;height:126px"></div></div></div></div>
     </div>
     <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 화면은 실제 서비스 캡처 (광고 자리는 예시 이미지) · 구좌별 단가는 단가표 참조</div>
   </div>
@@ -635,10 +646,10 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   <div class="sec-label"><b>03</b>주요 게재지면 — 앱</div>
   <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">앱</span></div></div>
   <div class="slide-body">
-    <div class="place-row a-up d2">
-      <div class="place-item"><span class="slot-label sky">A1 홈 인사이트 중간<small>홈 피드 사이 · W3과 같은 소재</small></span><div class="cap phone" style="width:200px;height:300px"><img src="images/slot-a1.png" alt="A1"><div class="ad-highlight" style="left:4px;right:4px;top:125px;height:62px"></div></div></div>
-      <div class="place-item"><span class="slot-label">A2 인사이트 내 하단<small>영상 바로 아래 · W4와 같은 소재</small></span><div class="cap phone" style="width:200px;height:300px"><img src="images/slot-a2.png" alt="A2"><div class="ad-highlight" style="left:4px;right:4px;top:64px;height:99px"></div></div></div>
-      <div class="place-item"><span class="slot-label">A3 구독 탭 배너<small>큐레이터 목록 · 새 인사이트 사이</small></span><div class="img-slot phone-sm" style="width:200px;height:300px"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">구독 탭 화면</div><div class="is-note">화면 준비 중</div><div class="ad-highlight" style="left:12px;right:12px;top:150px;height:52px"></div></div></div>
+    <div class="place-row a-up d2" style="align-items:flex-end;gap:40px">
+      <div class="place-item"><span class="slot-label sky">A1 홈 인사이트 중간<small>홈 피드 사이 · W3과 같은 소재</small></span><div class="phone-frame"><div class="screen"><div class="sb"><span>20:14</span><span><i class="fa-solid fa-signal"></i> <i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-battery-three-quarters"></i></span></div><div class="notch"></div><img src="images/slot-a1.png" alt="A1"><div class="ad-highlight" style="left:4px;right:4px;top:163px;height:70px"></div></div></div></div>
+      <div class="place-item"><span class="slot-label">A2 인사이트 내 하단<small>영상 바로 아래 · W4와 같은 소재</small></span><div class="phone-frame"><div class="screen"><div class="sb"><span>20:14</span><span><i class="fa-solid fa-signal"></i> <i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-battery-three-quarters"></i></span></div><div class="notch"></div><img src="images/slot-a2.png" alt="A2"><div class="ad-highlight" style="left:4px;right:4px;top:94px;height:111px"></div></div></div></div>
+      <div class="place-item"><span class="slot-label">A3 구독 탭 배너<small>큐레이터 목록 · 새 인사이트 사이</small></span><div class="phone-frame"><div class="screen"><div class="sb"><span>20:14</span><span><i class="fa-solid fa-signal"></i> <i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-battery-three-quarters"></i></span></div><div class="notch"></div><div class="img-slot" style="position:absolute;inset:22px 0 0 0;border:0;border-radius:0"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">구독 탭 화면</div><div class="is-note">화면 준비 중</div></div><div class="ad-highlight" style="left:12px;right:12px;top:190px;height:60px"></div></div></div></div>
     </div>
     <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 화면은 실제 앱 캡처 (광고 자리는 예시 이미지) · 홈 인사이트 중간 · 인사이트 내 하단은 웹과 세트로 판매합니다</div>
   </div>
@@ -650,13 +661,12 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   <div class="sec-label"><b>03</b>주요 게재지면 — 웹 · 앱 공통</div>
   <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">웹 · 앱 공통 · 메시지</span></div></div>
   <div class="slide-body">
-    <div class="place-row a-up d2" style="align-items:flex-start">
-      <div class="place-item"><span class="slot-label" style="background:var(--orange)">P1 진입 팝업<small>웹 · 앱 진입 시 · 하루 1회 · 4:5</small></span><div class="cap " style="width:300px;height:225px"><img src="images/slot-p1.png" alt="P1"><div class="ad-highlight" style="left:83px;width:135px;top:29px;height:168px"></div></div></div>
-      <div class="place-item"><span class="slot-label">알림센터 광고 알림 (웹)<small>포함 서비스 · 4:1 카드</small></span><div class="cap " style="width:300px;height:225px"><img src="images/slot-nc-web.png" alt="알림센터 웹"><div class="ad-highlight" style="left:94px;width:199px;top:60px;height:50px"></div></div></div>
-      <div class="place-item"><span class="slot-label">알림센터 광고 알림 (앱)<small>포함 서비스 · 4:1 카드</small></span><div class="cap phone" style="width:200px;height:300px"><img src="images/slot-nc-app.png" alt="알림센터 앱"><div class="ad-highlight" style="left:10px;right:9px;top:57px;height:46px"></div></div></div>
-      <div class="place-item"><span class="slot-label" style="background:var(--text-strong)">push 알림 광고<small>수신 동의 이용자 · "(광고)" 표기</small></span><div class="cap phone" style="width:200px;height:300px"><img src="images/push-sample.png" alt="push 알림 예시"><div class="ad-highlight" style="left:6px;right:6px;top:152px;height:58px"></div></div></div>
+    <div class="place-row a-up d2" style="align-items:flex-start;gap:44px">
+      <div class="place-item"><span class="slot-label" style="background:var(--orange)">P1 진입 팝업<small>웹 · 앱 진입 시 · 하루 1회 · 4:5</small></span><div class="browser" style="width:400px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:300px"><img src="images/slot-p1.png" alt="P1"><div class="ad-highlight" style="left:104px;width:192px;top:24px;height:240px"></div></div></div></div>
+      <div class="place-item"><span class="slot-label">알림센터 광고 알림<small>포함 서비스 · 웹 · 앱 알림센터 카드</small></span><div class="phone-frame"><div class="screen"><div class="sb"><span>20:14</span><span><i class="fa-solid fa-signal"></i> <i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-battery-three-quarters"></i></span></div><div class="notch"></div><img src="images/slot-nc-app.png" alt="알림센터"><div class="ad-highlight" style="left:6px;right:6px;top:87px;height:51px"></div></div></div></div>
+      <div class="place-item"><span class="slot-label" style="background:var(--text-strong)">push 알림 광고<small>수신 동의 이용자 · "(광고)" 표기</small></span><div class="phone-frame"><div class="screen"><div class="notch"></div><img src="images/push-sample.png" alt="push 알림 예시" class="full"><div class="ad-highlight" style="left:7px;right:7px;top:141px;height:51px"></div></div></div></div>
     </div>
-    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 진입 팝업은 웹 · 앱 어디로 들어와도 같은 소재로 노출 · push 화면은 예시</div>
+    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 진입 팝업은 웹 · 앱 어디로 들어와도 같은 소재로 노출 · 알림센터 카드는 웹에도 같은 자리에 노출 · push 화면은 예시</div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
