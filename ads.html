@@ -199,7 +199,11 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 .pkg-card p strong { color: var(--navy); font-weight: 700; }
 
 /* ---------- Placements row ---------- */
-.place-row { display: flex; justify-content: space-between; gap: 14px; }
+.place-row { display: flex; justify-content: center; gap: 14px; }
+.cap { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 26px rgba(9,52,122,0.14); flex: none; background: #fff; }
+.cap img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.cap.phone { border-radius: 22px; }
+.place-item { flex: none; }
 .place-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .place-item .img-slot.phone-sm { width: 148px; height: 300px; }
 .place-item .img-slot.web { width: 148px; height: 300px; border-radius: 12px; }
@@ -476,9 +480,8 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   <div class="slide-body">
     <div class="prod-wrap">
       <div class="shots a-up d2">
-        <div class="shot"><div class="img-slot phone"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면: 홈 피드</div><div class="is-note">인사이트 카드 사이 배너</div><div class="is-size">phone</div><div class="ad-highlight" style="left:12px;right:12px;top:150px;height:70px"></div></div><span class="slot-label sky">홈 피드 (앱)<small>A1 · 카드형 배너</small></span></div>
-        <div class="shot"><div class="img-slot phone"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면: 홈 피드</div><div class="is-note">피드 사이 배너 카드</div><div class="is-size">phone</div><div class="ad-highlight" style="left:12px;right:12px;top:150px;height:70px"></div></div><span class="slot-label">홈 피드 (웹)<small>W3 · 카드형 배너</small></span></div>
-        <div class="shot"><div class="img-slot phone"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면: 인사이트 상세</div><div class="is-note">영상 바로 아래 배너</div><div class="is-size">phone</div><div class="ad-highlight" style="left:12px;right:12px;top:230px;height:60px"></div></div><span class="slot-label">인사이트 상세<small>A2 · 하단 배너</small></span></div>
+        <div class="shot"><div class="cap phone" style="width:224px;height:336px"><img src="images/slot-a1.png" alt="앱 홈 피드"><div class="ad-highlight" style="left:5px;right:5px;top:140px;height:70px"></div></div><span class="slot-label sky">홈 피드 (앱)<small>A1 · 카드형 배너</small></span></div>
+        <div class="shot"><div class="cap " style="width:448px;height:336px"><img src="images/slot-w3.png" alt="웹 홈 피드"><div class="ad-highlight" style="left:31px;right:11px;top:38px;height:135px"></div></div><span class="slot-label">홈 피드 (웹)<small>W3 · 카드형 배너</small></span></div>
       </div>
       <div class="a-right d3">
         <table class="spec">
@@ -547,17 +550,17 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       <thead><tr><th style="width:230px">구좌</th><th style="width:88px">플랫폼</th><th style="width:52px">등급</th><th style="width:52px">롤링</th><th>규격</th><th style="width:96px">전일 노출</th><th style="width:96px">피크 집중<br><span style="font-weight:500;opacity:.8">20~02시</span></th><th style="width:96px">데이타임<br><span style="font-weight:500;opacity:.8">08~20시</span></th></tr></thead>
       <tbody>
         <tr><td class="grp" colspan="8">노출형 구좌 · 월 단가 (VAT 별도)</td></tr>
-        <tr><td class="rowhead">W3 + A1. 홈 인사이트 중간 배너 <span class="pill sky">대표</span></td><td>웹 · 앱</td><td>메인</td><td>2</td><td class="muted">카드형 1200×628 (안)</td><td><strong>180만 원</strong></td><td><strong>235만 원</strong></td><td><strong>125만 원</strong></td></tr>
-        <tr><td class="rowhead">W4 + A2. 인사이트 내 하단 배너</td><td>웹 · 앱</td><td>메인</td><td>2</td><td class="muted">웹 728×90 · 앱 640×200 (안)</td><td><strong>120만 원</strong></td><td><strong>155만 원</strong></td><td><strong>85만 원</strong></td></tr>
-        <tr><td class="rowhead">P1. 진입 팝업 <span class="pill warm">순차 오픈</span></td><td>웹 · 앱</td><td>메인</td><td>1</td><td class="muted">전면 1080×1350 (안) · 하루 1회</td><td><strong>290만 원</strong></td><td><strong>375만 원</strong></td><td><strong>205만 원</strong></td></tr>
-        <tr><td class="rowhead">W1. 홈 좌측 하단 세로형 배너</td><td>웹</td><td>서브</td><td>1</td><td class="muted">세로형 160×600 (안)</td><td><strong>110만 원</strong></td><td><strong>145만 원</strong></td><td><strong>75만 원</strong></td></tr>
-        <tr><td class="rowhead">W2. 우측 상단 롤링 배너</td><td>웹</td><td>서브</td><td>3</td><td class="muted">300×250 (안)</td><td><strong>70만 원</strong></td><td><strong>90만 원</strong></td><td><strong>50만 원</strong></td></tr>
+        <tr><td class="rowhead">W3 + A1. 홈 인사이트 중간 배너 <span class="pill sky">대표</span></td><td>웹 · 앱</td><td>메인</td><td>2</td><td class="muted">카드형 3:1 · 1200×400</td><td><strong>180만 원</strong></td><td><strong>235만 원</strong></td><td><strong>125만 원</strong></td></tr>
+        <tr><td class="rowhead">W4 + A2. 인사이트 내 하단 배너</td><td>웹 · 앱</td><td>메인</td><td>2</td><td class="muted">가로형 1.91:1 · 1200×628</td><td><strong>120만 원</strong></td><td><strong>155만 원</strong></td><td><strong>85만 원</strong></td></tr>
+        <tr><td class="rowhead">P1. 진입 팝업 <span class="pill warm">순차 오픈</span></td><td>웹 · 앱</td><td>메인</td><td>1</td><td class="muted">전면 4:5 · 800×1000 · 하루 1회</td><td><strong>290만 원</strong></td><td><strong>375만 원</strong></td><td><strong>205만 원</strong></td></tr>
+        <tr><td class="rowhead">W1. 홈 좌측 하단 세로형 배너</td><td>웹</td><td>서브</td><td>1</td><td class="muted">세로형 1:2 · 384×768</td><td><strong>110만 원</strong></td><td><strong>145만 원</strong></td><td><strong>75만 원</strong></td></tr>
+        <tr><td class="rowhead">W2. 우측 상단 롤링 배너</td><td>웹</td><td>서브</td><td>3</td><td class="muted">6:5 · 696×580</td><td><strong>70만 원</strong></td><td><strong>90만 원</strong></td><td><strong>50만 원</strong></td></tr>
         <tr><td class="rowhead">A3. 구독 탭 배너</td><td>앱</td><td>서브</td><td>1</td><td class="muted">카드형 1080×566 (안)</td><td><strong>35만 원</strong></td><td><strong>45만 원</strong></td><td><strong>25만 원</strong></td></tr>
         <tr><td class="grp" colspan="8">메시지형</td></tr>
         <tr><td class="rowhead">push 알림 광고</td><td>앱</td><td>—</td><td>회당</td><td class="muted">제목 30자 · 본문 60자 (안)</td><td><strong>30만 원</strong> <span class="muted">/ 회</span></td><td colspan="2" class="muted">발송 시간 지정 가능 (08~21시) · 월 4회 <strong>120만 원</strong></td></tr>
       </tbody>
     </table>
-    <div class="foot-note" style="margin-top:10px">메인 = 첫 화면에서 바로 보이는 자리, 서브 = 한 번 이상 눌러 들어가는 자리 · 규격은 개발 확정 후 안내 · 순차 오픈 구좌는 오픈 시점에 안내드립니다.</div>
+    <div class="foot-note" style="margin-top:10px">메인 = 첫 화면에서 바로 보이는 자리, 서브 = 한 번 이상 눌러 들어가는 자리 · 구독 탭 규격은 개발 확정 후 안내 · 순차 오픈 구좌는 오픈 시점에 안내드립니다.</div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
@@ -599,7 +602,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       <thead><tr><th style="width:290px">포함 서비스</th><th>내용</th><th style="width:110px">스타터</th><th style="width:110px">스탠다드</th><th style="width:150px">프리미엄</th></tr></thead>
       <tbody>
         <tr><td class="rowhead">검색 자동완성 스폰서 키워드</td><td>검색창 자동완성 최상단</td><td>1개</td><td>3개</td><td>5개</td></tr>
-        <tr><td class="rowhead">알림센터 광고 알림</td><td>앱 알림센터 1건, "광고" 표기 · 수신 동의자</td><td><span class="muted">—</span></td><td>월 1회</td><td>월 2회</td></tr>
+        <tr><td class="rowhead">알림센터 광고 알림</td><td>웹 · 앱 알림센터 카드 1건 (4:1 · 1200×300), "광고" 표기</td><td><span class="muted">—</span></td><td>월 1회</td><td>월 2회</td></tr>
         <tr><td class="rowhead">광고 이미지 제작</td><td>구좌별 규격 세트 (별도 판매 시 20만~60만 원)</td><td>1구좌 세트</td><td>전 구좌 세트</td><td>전 구좌 세트</td></tr>
         <tr><td class="rowhead">소재 리사이즈 · A/B 로테이션</td><td>자동 리사이즈 · 소재 2종 교차 노출</td><td><i class="fa-solid fa-check" style="color:var(--sky-mid)"></i></td><td><i class="fa-solid fa-check" style="color:var(--sky-mid)"></i></td><td><i class="fa-solid fa-check" style="color:var(--sky-mid)"></i></td></tr>
         <tr><td class="rowhead">게재 스케줄 관리</td><td>기간 분할 · 시간대 · 요일 지정</td><td><i class="fa-solid fa-check" style="color:var(--sky-mid)"></i></td><td><i class="fa-solid fa-check" style="color:var(--sky-mid)"></i></td><td><i class="fa-solid fa-check" style="color:var(--sky-mid)"></i></td></tr>
@@ -617,12 +620,12 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">웹</span></div></div>
   <div class="slide-body">
     <div class="place-row a-up d2">
-      <div class="place-item"><span class="slot-label">W1 홈 좌측 세로형<small>홈 · 좌측 하단 고정</small></span><div class="img-slot web"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면 캡처</div><div class="is-note">좌측 하단 세로형 배너</div><div class="ad-highlight" style="left:12px;width:60px;top:150px;height:110px"></div></div></div>
-      <div class="place-item"><span class="slot-label">W2 우측 상단 롤링<small>홈 · 롤링 노출</small></span><div class="img-slot web"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면 캡처</div><div class="is-note">우측 상단 롤링 배너</div><div class="ad-highlight" style="right:12px;width:60px;top:130px;height:80px"></div></div></div>
-      <div class="place-item"><span class="slot-label sky">W3 홈 인사이트 중간<small>홈 피드 사이</small></span><div class="img-slot web"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면 캡처</div><div class="is-note">인사이트 피드 중간 카드</div><div class="ad-highlight" style="left:14px;right:14px;top:150px;height:56px"></div></div></div>
-      <div class="place-item"><span class="slot-label">W4 인사이트 내 하단<small>영상 바로 아래</small></span><div class="img-slot web"><i class="fa-solid fa-display"></i><div class="is-title">웹 화면 캡처</div><div class="is-note">영상 바로 아래</div><div class="ad-highlight" style="left:14px;right:14px;bottom:14px;height:48px"></div></div></div>
+      <div class="place-item"><span class="slot-label">W1 홈 좌측 세로형<small>홈 · 좌측 하단 고정 · 1:2</small></span><div class="cap " style="width:270px;height:203px"><img src="images/slot-w1.png" alt="W1"><div class="ad-highlight" style="left:8px;width:46px;top:73px;height:92px"></div></div></div>
+      <div class="place-item"><span class="slot-label">W2 우측 상단 롤링<small>홈 · 롤링 3 · 6:5</small></span><div class="cap " style="width:270px;height:203px"><img src="images/slot-w2.png" alt="W2"><div class="ad-highlight" style="left:176px;right:2px;top:32px;height:78px"></div></div></div>
+      <div class="place-item"><span class="slot-label sky">W3 홈 인사이트 중간<small>홈 피드 사이 · 3:1</small></span><div class="cap " style="width:270px;height:203px"><img src="images/slot-w3.png" alt="W3"><div class="ad-highlight" style="left:19px;right:7px;top:23px;height:81px"></div></div></div>
+      <div class="place-item"><span class="slot-label">W4 인사이트 내 하단<small>영상 바로 아래 · 1.91:1</small></span><div class="cap " style="width:270px;height:203px"><img src="images/slot-w4.png" alt="W4"><div class="ad-highlight" style="left:47px;width:177px;top:96px;height:93px"></div></div></div>
     </div>
-    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 구좌별 단가는 단가표 참조 · 실제 캡처 이미지로 교체 예정</div>
+    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 화면은 실제 서비스 캡처 (광고 자리는 예시 이미지) · 구좌별 단가는 단가표 참조</div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
@@ -633,25 +636,40 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">앱</span></div></div>
   <div class="slide-body">
     <div class="place-row a-up d2">
-      <div class="place-item"><span class="slot-label sky">A1 홈 인사이트 중간<small>홈 피드 사이</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면 캡처</div><div class="is-note">홈 피드 중간 카드</div><div class="ad-highlight" style="left:12px;right:12px;top:140px;height:58px"></div></div></div>
-      <div class="place-item"><span class="slot-label">A2 인사이트 내 하단<small>영상 바로 아래</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면 캡처</div><div class="is-note">영상 바로 아래</div><div class="ad-highlight" style="left:12px;right:12px;top:186px;height:52px"></div></div></div>
-      <div class="place-item"><span class="slot-label">A3 구독 탭 배너<small>큐레이터 목록 · 새 인사이트 사이</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">앱 화면 캡처</div><div class="is-note">구독 탭 중간</div><div class="ad-highlight" style="left:12px;right:12px;top:150px;height:52px"></div></div></div>
-      <div class="place-item"><span class="slot-label dark" style="background:var(--text-strong)">push 알림 광고<small>수신 동의 이용자</small></span><div class="img-slot phone-sm"><i class="fa-solid fa-bell"></i><div class="is-title">잠금화면 캡처</div><div class="is-note">광고 push 알림 · "(광고)" 표기</div><div class="ad-highlight" style="left:10px;right:10px;top:150px;height:56px"></div></div></div>
+      <div class="place-item"><span class="slot-label sky">A1 홈 인사이트 중간<small>홈 피드 사이 · W3과 같은 소재</small></span><div class="cap phone" style="width:200px;height:300px"><img src="images/slot-a1.png" alt="A1"><div class="ad-highlight" style="left:4px;right:4px;top:125px;height:62px"></div></div></div>
+      <div class="place-item"><span class="slot-label">A2 인사이트 내 하단<small>영상 바로 아래 · W4와 같은 소재</small></span><div class="cap phone" style="width:200px;height:300px"><img src="images/slot-a2.png" alt="A2"><div class="ad-highlight" style="left:4px;right:4px;top:64px;height:99px"></div></div></div>
+      <div class="place-item"><span class="slot-label">A3 구독 탭 배너<small>큐레이터 목록 · 새 인사이트 사이</small></span><div class="img-slot phone-sm" style="width:200px;height:300px"><i class="fa-solid fa-mobile-screen"></i><div class="is-title">구독 탭 화면</div><div class="is-note">화면 준비 중</div><div class="ad-highlight" style="left:12px;right:12px;top:150px;height:52px"></div></div></div>
     </div>
-    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 구좌별 단가는 단가표 참조 · 실제 캡처 이미지로 교체 예정</div>
+    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 화면은 실제 앱 캡처 (광고 자리는 예시 이미지) · 홈 인사이트 중간 · 인사이트 내 하단은 웹과 세트로 판매합니다</div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<!-- ===== 17b · Placements: COMMON ===== -->
+<section class="slide" id="slide-16">
+  <div class="sec-label"><b>03</b>주요 게재지면 — 웹 · 앱 공통</div>
+  <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">웹 · 앱 공통 · 메시지</span></div></div>
+  <div class="slide-body">
+    <div class="place-row a-up d2" style="align-items:flex-start">
+      <div class="place-item"><span class="slot-label" style="background:var(--orange)">P1 진입 팝업<small>웹 · 앱 진입 시 · 하루 1회 · 4:5</small></span><div class="cap " style="width:300px;height:225px"><img src="images/slot-p1.png" alt="P1"><div class="ad-highlight" style="left:83px;width:135px;top:29px;height:168px"></div></div></div>
+      <div class="place-item"><span class="slot-label">알림센터 광고 알림 (웹)<small>포함 서비스 · 4:1 카드</small></span><div class="cap " style="width:300px;height:225px"><img src="images/slot-nc-web.png" alt="알림센터 웹"><div class="ad-highlight" style="left:94px;width:199px;top:60px;height:50px"></div></div></div>
+      <div class="place-item"><span class="slot-label">알림센터 광고 알림 (앱)<small>포함 서비스 · 4:1 카드</small></span><div class="cap phone" style="width:200px;height:300px"><img src="images/slot-nc-app.png" alt="알림센터 앱"><div class="ad-highlight" style="left:10px;right:9px;top:57px;height:46px"></div></div></div>
+      <div class="place-item"><span class="slot-label" style="background:var(--text-strong)">push 알림 광고<small>수신 동의 이용자 · "(광고)" 표기</small></span><div class="cap phone" style="width:200px;height:300px"><img src="images/push-sample.png" alt="push 알림 예시"><div class="ad-highlight" style="left:6px;right:6px;top:152px;height:58px"></div></div></div>
+    </div>
+    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 진입 팝업은 웹 · 앱 어디로 들어와도 같은 소재로 노출 · push 화면은 예시</div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
 <!-- ===== 21 · Divider 06 ===== -->
-<section class="slide slide-dark" id="slide-16">
+<section class="slide slide-dark" id="slide-17">
   <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고 상품 소개서</span></div>
   <div class="divider-wrap"><div class="divider-num a-left d1">04</div><div class="a-left d2"><div class="divider-title">광고 신청</div><div class="divider-sub">문의부터 집행까지 5단계</div></div></div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
 <!-- ===== 22 · Process ===== -->
-<section class="slide" id="slide-17">
+<section class="slide" id="slide-18">
   <div class="sec-label"><b>04</b>광고 신청</div>
   <div class="page-head center"><div class="page-title a-up d1">집행 프로세스</div></div>
   <div class="slide-body">
@@ -667,7 +685,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 </section>
 
 <!-- ===== 23 · Policy ===== -->
-<section class="slide" id="slide-18">
+<section class="slide" id="slide-19">
   <div class="sec-label"><b>04</b>광고 신청</div>
   <div class="page-head center"><div class="page-title a-up d1" style="font-size:32px">TubeLuLu 게재 기준에 따라 일부 광고는 집행에 제약이 있을 수 있습니다.</div></div>
   <div class="slide-body">
@@ -689,7 +707,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 </section>
 
 <!-- ===== 24 · Inquiry form ===== -->
-<section class="slide" id="slide-19">
+<section class="slide" id="slide-20">
   <div class="sec-label"><b>04</b>광고 신청</div>
   <div class="page-head center"><div class="page-title a-up d1" style="font-size:30px">관심 있으시면 아래 [광고 신청 양식]을 문의 메일로 보내 주십시오.<br>영업일 3일 내 회신드립니다.</div></div>
   <div class="slide-body">
@@ -713,7 +731,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 </section>
 
 <!-- ===== 25 · Thanks ===== -->
-<section class="slide slide-cover" id="slide-20">
+<section class="slide slide-cover" id="slide-21">
   <div class="cover-wrap">
     <div class="cover-circles" aria-hidden="true">
       <span style="width:520px;height:520px;left:-160px;top:-240px"></span>
@@ -750,8 +768,8 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 
 <script>
 (function () {
-  var totalSlides = 20, current = 1, isAnimating = false;
-  var slideTitles = ['표지','Contents','매체 소개','이용자 특성','포커 콘텐츠 구조','02 홈 인사이트 배너','상품 소개','상품 상세','03 상품·단가','패키지 3종','구좌 단가표','시간대·제작비','포함 서비스','게재지면 웹','게재지면 앱','04 광고 신청','집행 프로세스','게재 기준','신청 양식','감사합니다'];
+  var totalSlides = 21, current = 1, isAnimating = false;
+  var slideTitles = ['표지','Contents','매체 소개','이용자 특성','포커 콘텐츠 구조','02 홈 인사이트 배너','상품 소개','상품 상세','03 상품·단가','패키지 3종','구좌 단가표','시간대·제작비','포함 서비스','게재지면 웹','게재지면 앱','게재지면 공통','04 광고 신청','집행 프로세스','게재 기준','신청 양식','감사합니다'];
   var presentation = document.getElementById('presentation'), progressBar = document.getElementById('progressBar'), pageNumber = document.getElementById('pageNumber'), navDots = document.getElementById('navDots'), keyboardHint = document.getElementById('keyboardHint');
   for (var i = 1; i <= totalSlides; i++) { var dot = document.createElement('button'); dot.className = 'nav-dot' + (i === 1 ? ' active' : ''); dot.title = slideTitles[i-1]; dot.setAttribute('aria-label', i + '. ' + slideTitles[i-1]); (function (n) { dot.addEventListener('click', function () { goToSlide(n); }); })(i); navDots.appendChild(dot); }
   function updateChrome() {
