@@ -215,6 +215,10 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 .browser .bar b { flex: 1; height: 9px; margin-left: 8px; border-radius: 5px; background: #fff; border: 1px solid #E3E8EF; }
 .browser .body { position: relative; width: 100%; }
 .browser .body img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.ad-highlight[data-l]::after { content: attr(data-l); }
+.slot-legend { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.slot-legend span { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); }
+.slot-legend b { display: inline-block; min-width: 30px; text-align: center; background: var(--orange); color: #fff; font-size: 10.5px; font-weight: 800; border-radius: 5px; padding: 2px 6px; }
 .place-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .place-item .img-slot.phone-sm { width: 148px; height: 300px; }
 .place-item .img-slot.web { width: 148px; height: 300px; border-radius: 12px; }
@@ -627,22 +631,30 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 
 <!-- ===== 16 · Placements: WEB ===== -->
 <section class="slide" id="slide-14">
-  <div class="sec-label"><b>03</b>주요 게재지면 — 웹</div>
-  <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">웹</span></div></div>
+  <div class="sec-label"><b>03</b>주요 게재지면 — 웹 홈</div>
+  <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">웹 · 홈</span></div></div>
   <div class="slide-body">
-    <div class="place-row a-up d2" style="align-items:flex-end">
-      <div class="place-item"><span class="slot-label">W1 홈 좌측 세로형<small>홈 · 좌측 하단 고정 · 1:2</small></span><div class="browser" style="width:270px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:203px"><img src="images/slot-w1.png" alt="W1"><div class="ad-highlight" style="left:11px;width:66px;top:33px;height:131px"></div></div></div></div>
-      <div class="place-item"><span class="slot-label">W2 우측 상단 롤링<small>홈 · 롤링 3 · 6:5</small></span><div class="browser" style="width:270px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:203px"><img src="images/slot-w2.png" alt="W2"><div class="ad-highlight" style="left:98px;right:2px;top:44px;height:143px"></div></div></div></div>
-      <div class="place-item"><span class="slot-label sky">W3 홈 인사이트 중간<small>홈 피드 사이 · 3:1</small></span><div class="browser" style="width:270px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:203px"><img src="images/slot-w3.png" alt="W3"><div class="ad-highlight" style="left:6px;right:7px;top:10px;height:85px"></div></div></div></div>
-      <div class="place-item"><span class="slot-label">W4 인사이트 내 하단<small>영상 바로 아래 · 1.91:1</small></span><div class="browser" style="width:270px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:203px"><img src="images/slot-w4.png" alt="W4"><div class="ad-highlight" style="left:16px;right:15px;top:59px;height:126px"></div></div></div></div>
+    <div class="a-up d2" style="display:flex;justify-content:center"><div class="browser" style="width:860px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:435px"><img src="images/slot-home-full.png" alt="웹 홈 전체 화면"><div class="ad-highlight" data-l="W1" style="left:11px;width:80px;top:215px;height:158px"></div><div class="ad-highlight" data-l="W2" style="left:702px;width:158px;top:57px;height:133px"></div><div class="ad-highlight" data-l="W3" style="left:146px;width:512px;top:48px;height:170px"></div></div></div></div>
+    <div class="slot-legend a-up d3"><span><b>W1</b>홈 좌측 세로형 · 스크롤과 무관하게 고정</span><span><b>W2</b>우측 상단 롤링 · 롤링 3</span><span><b>W3</b>홈 인사이트 중간 · 피드 카드 사이 (앱 A1과 세트)</span></div>
+  </div>
+  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+</section>
+
+<section class="slide" id="slide-15">
+  <div class="sec-label"><b>03</b>주요 게재지면 — 웹 인사이트 상세 · 진입 팝업</div>
+  <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">웹 · 인사이트 상세 · 진입 팝업</span></div></div>
+  <div class="slide-body">
+    <div class="place-row a-up d2" style="align-items:flex-start;gap:36px">
+      <div class="place-item"><span class="slot-label">W4 인사이트 내 하단<small>영상 바로 아래 · 앱 A2와 세트</small></span><div class="browser" style="width:548px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:279px"><img src="images/slot-detail-full.png" alt="인사이트 상세 전체 화면"><div class="ad-highlight" data-l="W4" style="left:149px;width:194px;top:162px;height:102px"></div></div></div></div>
+      <div class="place-item"><span class="slot-label" style="background:var(--orange)">P1 진입 팝업<small>웹 · 앱 진입 시 · 하루 1회 (웹 화면 예시)</small></span><div class="browser" style="width:548px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:278px"><img src="images/slot-popup-full.png" alt="진입 팝업 전체 화면"><div class="ad-highlight" data-l="P1" style="left:208px;width:132px;top:58px;height:165px"></div></div></div></div>
     </div>
-    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 화면은 실제 서비스 캡처 (광고 자리는 예시 이미지) · 구좌별 단가는 단가표 참조</div>
+    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 화면은 실제 서비스 캡처 (광고 자리는 예시 이미지) · 진입 팝업은 웹 · 앱 어디로 들어와도 같은 소재로 노출</div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
 <!-- ===== 17 · Placements: APP ===== -->
-<section class="slide" id="slide-15">
+<section class="slide" id="slide-16">
   <div class="sec-label"><b>03</b>주요 게재지면 — 앱</div>
   <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">앱</span></div></div>
   <div class="slide-body">
@@ -657,29 +669,28 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 </section>
 
 <!-- ===== 17b · Placements: COMMON ===== -->
-<section class="slide" id="slide-16">
-  <div class="sec-label"><b>03</b>주요 게재지면 — 웹 · 앱 공통</div>
-  <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">웹 · 앱 공통 · 메시지</span></div></div>
+<section class="slide" id="slide-17">
+  <div class="sec-label"><b>03</b>주요 게재지면 — 알림 · 메시지</div>
+  <div class="page-head center"><div class="page-title a-up d1">주요 게재지면 <span class="hl">알림 · 메시지</span></div></div>
   <div class="slide-body">
-    <div class="place-row a-up d2" style="align-items:flex-start;gap:44px">
-      <div class="place-item"><span class="slot-label" style="background:var(--orange)">P1 진입 팝업<small>웹 · 앱 진입 시 · 하루 1회 · 4:5</small></span><div class="browser" style="width:400px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:300px"><img src="images/slot-p1.png" alt="P1"><div class="ad-highlight" style="left:104px;width:192px;top:24px;height:240px"></div></div></div></div>
-      <div class="place-item"><span class="slot-label">알림센터 광고 알림<small>포함 서비스 · 웹 · 앱 알림센터 카드</small></span><div class="phone-frame"><div class="screen"><div class="sb"><span>20:14</span><span><i class="fa-solid fa-signal"></i> <i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-battery-three-quarters"></i></span></div><div class="notch"></div><img src="images/slot-nc-app.png" alt="알림센터"><div class="ad-highlight" style="left:6px;right:6px;top:87px;height:51px"></div></div></div></div>
+    <div class="place-row a-up d2" style="align-items:flex-start;gap:80px">
+            <div class="place-item"><span class="slot-label">알림센터 광고 알림<small>포함 서비스 · 웹 · 앱 알림센터 카드</small></span><div class="phone-frame"><div class="screen"><div class="sb"><span>20:14</span><span><i class="fa-solid fa-signal"></i> <i class="fa-solid fa-wifi"></i> <i class="fa-solid fa-battery-three-quarters"></i></span></div><div class="notch"></div><img src="images/slot-nc-app.png" alt="알림센터"><div class="ad-highlight" style="left:6px;right:6px;top:87px;height:51px"></div></div></div></div>
       <div class="place-item"><span class="slot-label" style="background:var(--text-strong)">push 알림 광고<small>수신 동의 이용자 · "(광고)" 표기</small></span><div class="phone-frame"><div class="screen"><div class="notch"></div><img src="images/push-sample.png" alt="push 알림 예시" class="full"><div class="ad-highlight" style="left:7px;right:7px;top:141px;height:51px"></div></div></div></div>
     </div>
-    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 진입 팝업은 웹 · 앱 어디로 들어와도 같은 소재로 노출 · 알림센터 카드는 웹에도 같은 자리에 노출 · push 화면은 예시</div>
+    <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 알림센터 카드는 웹에도 같은 자리에 노출 · push 화면은 예시</div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
 <!-- ===== 21 · Divider 06 ===== -->
-<section class="slide slide-dark" id="slide-17">
+<section class="slide slide-dark" id="slide-18">
   <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고 상품 소개서</span></div>
   <div class="divider-wrap"><div class="divider-num a-left d1">04</div><div class="a-left d2"><div class="divider-title">광고 신청</div><div class="divider-sub">문의부터 집행까지 5단계</div></div></div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
 </section>
 
 <!-- ===== 22 · Process ===== -->
-<section class="slide" id="slide-18">
+<section class="slide" id="slide-19">
   <div class="sec-label"><b>04</b>광고 신청</div>
   <div class="page-head center"><div class="page-title a-up d1">집행 프로세스</div></div>
   <div class="slide-body">
@@ -695,7 +706,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 </section>
 
 <!-- ===== 23 · Policy ===== -->
-<section class="slide" id="slide-19">
+<section class="slide" id="slide-20">
   <div class="sec-label"><b>04</b>광고 신청</div>
   <div class="page-head center"><div class="page-title a-up d1" style="font-size:32px">TubeLuLu 게재 기준에 따라 일부 광고는 집행에 제약이 있을 수 있습니다.</div></div>
   <div class="slide-body">
@@ -717,7 +728,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 </section>
 
 <!-- ===== 24 · Inquiry form ===== -->
-<section class="slide" id="slide-20">
+<section class="slide" id="slide-21">
   <div class="sec-label"><b>04</b>광고 신청</div>
   <div class="page-head center"><div class="page-title a-up d1" style="font-size:30px">관심 있으시면 아래 [광고 신청 양식]을 문의 메일로 보내 주십시오.<br>영업일 3일 내 회신드립니다.</div></div>
   <div class="slide-body">
@@ -741,7 +752,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 </section>
 
 <!-- ===== 25 · Thanks ===== -->
-<section class="slide slide-cover" id="slide-21">
+<section class="slide slide-cover" id="slide-22">
   <div class="cover-wrap">
     <div class="cover-circles" aria-hidden="true">
       <span style="width:520px;height:520px;left:-160px;top:-240px"></span>
@@ -778,8 +789,8 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 
 <script>
 (function () {
-  var totalSlides = 21, current = 1, isAnimating = false;
-  var slideTitles = ['표지','Contents','매체 소개','이용자 특성','포커 콘텐츠 구조','02 홈 인사이트 배너','상품 소개','상품 상세','03 상품·단가','패키지 3종','구좌 단가표','제작비','포함 서비스','게재지면 웹','게재지면 앱','게재지면 공통','04 광고 신청','집행 프로세스','게재 기준','신청 양식','감사합니다'];
+  var totalSlides = 22, current = 1, isAnimating = false;
+  var slideTitles = ['표지','Contents','매체 소개','이용자 특성','포커 콘텐츠 구조','02 홈 인사이트 배너','상품 소개','상품 상세','03 상품·단가','패키지 3종','구좌 단가표','제작비','포함 서비스','게재지면 웹 홈','게재지면 웹 상세·팝업','게재지면 앱','알림·메시지','04 광고 신청','집행 프로세스','게재 기준','신청 양식','감사합니다'];
   var presentation = document.getElementById('presentation'), progressBar = document.getElementById('progressBar'), pageNumber = document.getElementById('pageNumber'), navDots = document.getElementById('navDots'), keyboardHint = document.getElementById('keyboardHint');
   for (var i = 1; i <= totalSlides; i++) { var dot = document.createElement('button'); dot.className = 'nav-dot' + (i === 1 ? ' active' : ''); dot.title = slideTitles[i-1]; dot.setAttribute('aria-label', i + '. ' + slideTitles[i-1]); (function (n) { dot.addEventListener('click', function () { goToSlide(n); }); })(i); navDots.appendChild(dot); }
   function updateChrome() {
