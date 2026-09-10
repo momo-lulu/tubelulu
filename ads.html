@@ -225,7 +225,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 .scr h4 small { display: block; font-weight: 500; font-size: 10px; color: var(--text-faint); }
 .scr .chip { display: flex; align-items: flex-start; gap: 6px; font-size: 10.5px; color: var(--text-muted); line-height: 1.35; margin-top: 6px; }
 .scr .chip b { flex: none; min-width: 26px; text-align: center; background: var(--navy); color: #fff; font-size: 9.5px; font-weight: 800; border-radius: 4px; padding: 2px 4px; }
-.scr .chip b.sky { background: var(--sky-mid); } .scr .chip b.warm { background: var(--orange); } .scr .chip b.dark { background: var(--text-strong); }
+.scr .chip b.ma, .mat-legend span b.ma { background: #09347A; } .scr .chip b.mb, .mat-legend span b.mb { background: #0E9F8B; } .scr .chip b.mc, .mat-legend span b.mc { background: #3399CC; } .scr .chip b.md, .mat-legend span b.md { background: #7C4DFF; } .scr .chip b.me, .mat-legend span b.me { background: #D98E04; } .scr .chip b.mf, .mat-legend span b.mf { background: #F1632A; } .scr .chip b.mg, .mat-legend span b.mg { background: #1F2937; }
 .scr .chip small { display: block; color: var(--text-faint); font-size: 9.5px; }
 .mat-legend { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 10px; font-size: 11px; color: var(--text-muted); }
 .mat-legend span b { display: inline-block; background: var(--navy); color: #fff; font-size: 9.5px; font-weight: 800; border-radius: 4px; padding: 1px 6px; margin-right: 4px; }
@@ -641,18 +641,18 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 <!-- ===== 13b · Placement structure ===== -->
 <section class="slide" id="slide-14">
   <div class="sec-label"><b>03</b>게재지면 구조</div>
-  <div class="page-head center"><div class="page-title a-up d1">게재지면 구조 <span class="hl">10구좌</span></div><p class="page-desc a-up d1">화면마다 배너가 놓이는 자리입니다. 웹 · 앱은 접속 기기로 자동 판별되며, 같은 소재를 씁니다.</p></div>
+  <div class="page-head center"><div class="page-title a-up d1">게재지면 구조 <span class="hl">10구좌</span></div><p class="page-desc a-up d1">화면마다 배너가 놓이는 자리입니다. 라벨 색은 소재 종류(A~G)이며, 같은 색은 같은 소재를 씁니다.</p></div>
   <div class="slide-body">
     <div class="scr-grid a-up d2">
-      <div class="scr"><h4>홈 · 데스크톱<small>1024px 이상</small></h4><div class="chip"><b>W1</b><span>좌측 사이드바 최하단<small>A 세로형 1:2 · 1024px 이상</small></span></div><div class="chip"><b>W2</b><span>우측 사이드바 최상단<small>B 박스 6:5 · 3장 6초 교체 · 1280px 이상</small></span></div><div class="chip"><b class="sky">W3</b><span>피드 5번째 카드 뒤, 이후 10개마다<small>C 피드 띠 3:1 · 최대 2</small></span></div></div>
-      <div class="scr"><h4>홈 · 모바일 웹 · 앱<small>사이드바 구좌 없음</small></h4><div class="chip"><b class="sky">W3</b><span>피드 5번째 카드 뒤 (모바일 웹)<small>C 피드 띠 3:1</small></span></div><div class="chip"><b class="sky">A1</b><span>피드 5번째 카드 뒤 (앱)<small>C 피드 띠 3:1 · W3과 세트</small></span></div></div>
-      <div class="scr"><h4>인사이트 상세<small>웹 · 앱</small></h4><div class="chip"><b>W4</b><span>액션 버튼 바로 아래 (웹)<small>D 상세 배너 1.91:1 · 2장 6초 교체</small></span></div><div class="chip"><b>A2</b><span>액션 버튼 바로 아래 (앱)<small>D 상세 배너 1.91:1 · W4와 세트</small></span></div></div>
-      <div class="scr"><h4>구독<small>로그인</small></h4><div class="chip"><b>A3</b><span>구독 큐레이터 목록과 새 인사이트 사이<small>E 와이드 띠 4:1</small></span></div></div>
-      <div class="scr"><h4>알림센터<small>로그인</small></h4><div class="chip"><b>NC</b><span>알림 목록 최상단 행<small>E 와이드 띠 4:1 · 포함 서비스</small></span></div></div>
-      <div class="scr"><h4>모든 화면 진입<small>웹 · 앱</small></h4><div class="chip"><b class="warm">P1</b><span>전면 다이얼로그<small>F 전면 4:5 · 기기당 하루 1회</small></span></div></div>
-      <div class="scr"><h4>OS 푸시<small>수신 동의자</small></h4><div class="chip"><b class="dark">PUSH</b><span>푸시 알림 큰 이미지<small>G 2:1 · 지면 없음</small></span></div></div>
+      <div class="scr"><h4>홈 · 데스크톱<small>1024px 이상</small></h4><div class="chip"><b class="ma">W1</b><span>좌측 사이드바 최하단<small>A 세로형 1:2 · 1024px 이상</small></span></div><div class="chip"><b class="mb">W2</b><span>우측 사이드바 최상단<small>B 박스 6:5 · 3장 6초 교체 · 1280px 이상</small></span></div><div class="chip"><b class="mc">W3</b><span>피드 5번째 카드 뒤, 이후 10개마다<small>C 피드 띠 3:1 · 최대 2</small></span></div></div>
+      <div class="scr"><h4>홈 · 모바일 웹 · 앱<small>사이드바 구좌 없음</small></h4><div class="chip"><b class="mc">W3</b><span>피드 5번째 카드 뒤 (모바일 웹)<small>C 피드 띠 3:1</small></span></div><div class="chip"><b class="mc">A1</b><span>피드 5번째 카드 뒤 (앱)<small>C 피드 띠 3:1 · W3과 세트</small></span></div></div>
+      <div class="scr"><h4>인사이트 상세<small>웹 · 앱</small></h4><div class="chip"><b class="md">W4</b><span>액션 버튼 바로 아래 (웹)<small>D 상세 배너 1.91:1 · 2장 6초 교체</small></span></div><div class="chip"><b class="md">A2</b><span>액션 버튼 바로 아래 (앱)<small>D 상세 배너 1.91:1 · W4와 세트</small></span></div></div>
+      <div class="scr"><h4>구독<small>로그인</small></h4><div class="chip"><b class="me">A3</b><span>구독 큐레이터 목록과 새 인사이트 사이<small>E 와이드 띠 4:1</small></span></div></div>
+      <div class="scr"><h4>알림센터<small>로그인</small></h4><div class="chip"><b class="me">NC</b><span>알림 목록 최상단 행<small>E 와이드 띠 4:1 · 포함 서비스</small></span></div></div>
+      <div class="scr"><h4>모든 화면 진입<small>웹 · 앱</small></h4><div class="chip"><b class="mf">P1</b><span>전면 다이얼로그<small>F 전면 4:5 · 기기당 하루 1회</small></span></div></div>
+      <div class="scr"><h4>OS 푸시<small>수신 동의자</small></h4><div class="chip"><b class="mg">PUSH</b><span>푸시 알림 큰 이미지<small>G 2:1 · 지면 없음</small></span></div></div>
     </div>
-    <div class="mat-legend a-up d3"><span><b>A</b>세로형 384×768</span><span><b>B</b>박스 696×580</span><span><b>C</b>피드 띠 1200×400</span><span><b>D</b>상세 배너 1200×628</span><span><b>E</b>와이드 띠 1200×300</span><span><b>F</b>전면 800×1000</span><span><b>G</b>푸시 이미지 1024×512</span></div>
+    <div class="mat-legend a-up d3"><span><b class="ma">A</b>세로형 384×768</span><span><b class="mb">B</b>박스 696×580</span><span><b class="mc">C</b>피드 띠 1200×400</span><span><b class="md">D</b>상세 배너 1200×628</span><span><b class="me">E</b>와이드 띠 1200×300</span><span><b class="mf">F</b>전면 800×1000</span><span><b class="mg">G</b>푸시 이미지 1024×512</span></div>
     <div class="foot-note a-up d3" style="text-align:center;margin-top:8px">소재는 규격 박스 안에 비율 유지로 들어갑니다 · 노출은 화면 50% 이상 1초 기준 · 소재가 없는 자리는 접히거나 기본 콘텐츠로 채워집니다</div>
   </div>
   <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
