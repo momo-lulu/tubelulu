@@ -322,16 +322,16 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
 @media print { .cta-wrap, .cta-btn { display: none !important; } }
 /* ---------- Print ---------- */
 @media print {
-  html, body { width: auto; height: auto; overflow: visible; background: #fff; }
-  .presentation { position: static; width: 1280px; height: auto; transform: none !important; }
-  .slide { display: flex !important; position: relative; opacity: 1 !important; transform: none !important; width: 1280px; height: 720px; page-break-after: always; break-after: page; }
+  html, body { width: auto; height: auto; overflow: visible; background: #fff; margin: 0; }
+  .presentation { position: static; width: auto; height: auto; transform: none !important; }
+  .slide { display: flex !important; position: relative; opacity: 1 !important; transform: none !important; width: 1280px; height: 720px; zoom: 0.8475; margin: 104px auto 0; overflow: hidden; page-break-after: always; break-after: page; }
   .slide:last-of-type { page-break-after: avoid; }
   .progress-bar, .nav-dots, .nav-arrows, .page-number, .keyboard-hint { display: none !important; }
   .a-up, .a-left, .a-right { opacity: 1 !important; }
   * { animation: none !important; transition: none !important; }
   .slide-dark, .slide-dark *, .cover-wrap, .cover-wrap * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
-@page { size: 1280px 720px; margin: 0; }
+@page { size: A4 landscape; margin: 0; }
 
   .tbl.dense th, .tbl.dense td { padding: 5px 10px; }
   .tbl.dense td.grp { padding: 4px 10px; }
