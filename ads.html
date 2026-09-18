@@ -353,8 +353,19 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   .cta-wrap { display:flex; justify-content:center; gap:14px; margin-top:16px; }
   .cta-sub { font-size:12.5px; color:var(--text-muted); align-self:center; }
 </style>
+<style id="logo-css">
+.lg { display: block; height: 1em; width: auto; color: #133570; --lg-b: #8cc3dd; flex-shrink: 0; }
+.slide-dark .lg, .cover-wrap .lg, .doc-tag .lg { color: #fff; --lg-b: #fff; }
+.brand-mark .lg { height: 30px; width: auto; }
+.cover-wm .lg { height: 50px; }
+.doc-tag .lg { height: 24px; }
+.page-title .lg { height: 66px; margin-bottom: 10px; }
+.cover-logo-big { position: absolute; right: 109px; top: calc(50% - 86px); z-index: 2; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.45)); }
+.cover-logo-big .lg { height: 190px; }
+</style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="lg"><polygon fill="currentColor" points="560.46 187.27 696.01 187.17 696.11 175.46 703.95 175.46 710.34 175.46 710.32 200.21 563.74 200.2 503.1 234.38 503.05 200.2 354.45 200.09 354.41 25.62 710.33 25.7 710.37 54.45 696.06 54.45 696.06 43.27 696.06 38.91 368.8 38.93 368.84 187.26 516.74 187.27 516.82 211.89 560.46 187.27"/><g><polygon fill="var(--lg-b,currentColor)" points="650.05 160.48 575.45 160.5 575.45 138.87 635.66 138.86 635.72 133.86 575.06 133.85 575.05 125.1 605.49 125.09 605.44 119.27 570.04 119.29 570.04 109.28 654.73 109.27 654.73 119.28 619.42 119.27 619.43 125.1 649.42 125.11 649.43 146.84 589.13 146.83 589.16 151.8 650.04 151.76 650.05 160.48"/><polygon fill="var(--lg-b,currentColor)" points="650 95.53 650.04 104.21 575.46 104.21 575.46 82.41 635.57 82.38 635.7 77.69 575.12 77.65 575.13 68.62 649.43 68.62 649.42 90.56 589.2 90.58 589.15 95.36 592.16 95.5 650 95.53"/></g><polygon fill="var(--lg-b,currentColor)" points="740.94 107.89 741.05 119.99 665.45 120.02 665.46 88.48 725.62 88.49 725.6 80.59 665.52 80.57 665.42 68.63 739.44 68.61 739.43 99.93 720.36 99.94 679.38 99.86 679.39 107.88 740.94 107.89"/><polygon fill="currentColor" points="465.23 100.17 405.78 100.17 405.79 107.96 467.59 107.96 467.61 120.02 391.82 120.01 391.86 68.82 466.09 68.84 466.12 80.93 405.79 80.93 405.79 88.73 465.22 88.72 465.23 100.17"/><path fill="currentColor" d="M436.43,160.19h-14.32l-.02-18.24h-35.18v-12.72s84.87.01,84.87.01l.02,12.7c-2.09,0-3.86-.03-5.88,0h-29.51l.02,18.24Z"/><polygon fill="var(--lg-b,currentColor)" points="710.49 160.28 696.14 160.32 696.16 142.11 660.89 142.11 660.88 129.24 745.58 129.23 745.59 142.12 710.49 142.08 710.49 160.28"/><rect fill="currentColor" x="548.38" y="68.82" width="13.01" height="91.37"/><path fill="currentColor" d="M534.31,70.7l-7.29-.05-.03,34.28-9.86-.04v-32.35s-12.55,0-12.55,0l-.03,28.14h-11.69s0-28.18,0-28.18l-12.76.05v82.92s37.02,0,37.02,0l.04-37.54h9.84s0,40.43,0,40.43h12.73s0-87.73,0-87.73l-5.43.06ZM504.62,142.43h-11.75v-28.8h11.75v28.8Z"/></g></defs></svg>
 <div class="presentation" id="presentation">
 
 <!-- ===== 1 · Cover ===== -->
@@ -368,17 +379,13 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       <span style="width:300px;height:300px;right:-80px;top:-140px"></span>
     </div>
     <div class="cover-text">
-      <div class="cover-title a-up d1"><span class="w" style="font-family:'Poppins',sans-serif;font-weight:600">TubeLuLu</span> 광고 상품 소개서<br><span class="w" style="font-size:30px;font-weight:700;color:rgba(230,244,251,0.85)">큐레이터의 해석을 읽고, 직접 묻는 곳</span></div>
+      <div class="cover-title a-up d1"><span class="w">TubeLuLu</span> 광고 상품 소개서<br><span class="w" style="font-size:30px;font-weight:700;color:rgba(230,244,251,0.85)">큐레이터의 해석을 읽고, 직접 묻는 곳</span></div>
       <div class="cover-date a-up d2">2026. 4Q · 포커 집중</div>
       <div class="cover-line a-up d3">포커 큐레이터의 해석 위에 팬의 질문이 쌓이는 플랫폼.<br>포커를 고르는 사람들이 매일 보는 화면에 광고를 놓습니다.</div>
     </div>
     <div class="cover-orb" aria-hidden="true"></div>
-    <svg class="cover-symbol-big a-up d2" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="TubeLuLu 심볼">
-      <path d="M30 18 H92 A14 14 0 0 1 106 32 V78 A14 14 0 0 1 92 92 H62 L44 108 V92 H30 A14 14 0 0 1 16 78 V32 A14 14 0 0 1 30 18 Z" fill="#3399CC"/>
-      <path d="M22 10 H78 A14 14 0 0 1 92 24 V66 A14 14 0 0 1 78 80 H54 L38 96 V80 H22 A14 14 0 0 1 8 66 V24 A14 14 0 0 1 22 10 Z" fill="#09347A"/>
-      <rect x="22.5" y="36" width="7" height="12" rx="3.5" fill="#FFFFFF"/><rect x="34.5" y="31" width="7" height="22" rx="3.5" fill="#FFFFFF"/><rect x="46.5" y="26" width="7" height="32" rx="3.5" fill="#3399CC"/><rect x="58.5" y="31" width="7" height="22" rx="3.5" fill="#FFFFFF"/><rect x="70.5" y="36" width="7" height="12" rx="3.5" fill="#FFFFFF"/>
-    </svg>
-    <div class="cover-wm"><span class="t">Tube</span><span class="l">LuLu</span></div>
+    <div class="cover-logo-big a-up d2"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
+    <div class="cover-wm"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
   </div>
 </section>
 
@@ -393,7 +400,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       <div class="toc-item"><span class="toc-num">04</span><span>광고 신청</span><small>절차 · 게재 기준 · 문의</small></div>
     </div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 3 · Media intro ===== -->
@@ -402,7 +409,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
   <div class="slide-body">
     <div style="display:grid;grid-template-columns:1fr auto 1.05fr;gap:36px;align-items:center">
       <div class="a-left d1">
-        <div class="page-title" style="max-width:none"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><br><span class="hl">매체 소개</span></div>
+        <div class="page-title" style="max-width:none"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg><span class="hl">매체 소개</span></div>
         <div style="margin-top:10px"><span class="pill sky">큐레이터의 해석을 읽는 큐레이션 서비스</span> <span class="pill warm" style="margin-left:4px">포커 집중</span></div>
         <p class="page-desc" style="margin-top:14px">누구나 큐레이터가 되어 영상에 해석을 얹고,<br>팬은 그 해석을 읽고 직접 묻습니다.<br>지금은 큐레이터와 인사이트가 <strong>포커에 집중</strong>되어 있습니다.<br>포커를 보는 사람이 아니라, <strong>포커를 묻는 사람</strong>이 모이는 곳입니다.</p>
         
@@ -417,7 +424,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     </div>
     <div class="foot-note" style="text-align:right">※ 월간 이용자 수는 2026년 9월 기준 · 세부 이용자 구성은 요청 시 별도 안내</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 4 · Audience ===== -->
@@ -445,7 +452,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       </div>
     </div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 5 · Poker content structure ===== -->
@@ -480,14 +487,14 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     </div>
     <div class="foot-note" style="text-align:center;margin-top:8px">2026년 9월 tubelulu.com 포커 카테고리 실제 게시물 · 유료 질문은 답이 없으면 자동 환불</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 6 · Divider 02 ===== -->
 <section class="slide slide-dark" id="slide-6">
-  <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고 상품 소개서</span></div>
+  <div class="doc-tag"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg><span>광고 상품 소개서</span></div>
   <div class="divider-wrap"><div class="divider-num a-left d1">02</div><div class="a-left d2"><div class="divider-title">홈 인사이트 배너 소개</div><div class="divider-sub">포커를 고르는 사람이 매일 보는 자리</div></div></div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 6 · Product intro (3 circles) ===== -->
@@ -504,7 +511,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       <div class="circle-item a-up d3"><img class="circle-img" src="images/illus-slots.png" alt="필요한 것만 조합" style="display:block;object-fit:cover"><h4>필요한 것만 조합</h4><p>주 50만 원부터 월 2,000만 원까지 6종</p></div>
     </div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 7 · Product page: Brand page ===== -->
@@ -533,14 +540,14 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       </div>
     </div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 13 · Divider 04 ===== -->
 <section class="slide slide-dark" id="slide-9">
-  <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고 상품 소개서</span></div>
+  <div class="doc-tag"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg><span>광고 상품 소개서</span></div>
   <div class="divider-wrap"><div class="divider-num a-left d1">03</div><div class="a-left d2"><div class="divider-title">광고 상품 · 단가</div><div class="divider-sub">상품 6종 · 구좌 구성 · 제작비</div></div></div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 14 · Pricing ===== -->
@@ -566,7 +573,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     </table>
     <div class="foot-note" style="margin-top:10px">웹 · 앱 세트 상품은 같은 소재가 두 화면에 동시에 나갑니다 · 소재 제작은 회당 50만 원, 직접 제작한 소재는 그대로 게재</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <section class="slide" id="slide-11">
@@ -589,7 +596,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     </table>
     <div class="foot-note" style="margin-top:10px">소재는 규격 박스 안에 비율을 유지해 들어갑니다 · 파일 200KB 이하 권장 · 소재가 없는 자리는 접히거나 기본 콘텐츠로 채워집니다</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 
@@ -614,7 +621,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     </table>
     <div class="foot-note" style="margin-top:10px">제작물의 최종 확인과 게재 승인은 광고주가 합니다.</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <section class="slide" id="slide-13">
@@ -635,7 +642,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     </table>
     <div class="foot-note" style="margin-top:10px">제작물의 최종 확인과 게재 승인은 광고주가 합니다.</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 <!-- ===== 13b · Placement structure ===== -->
 <section class="slide" id="slide-14">
@@ -654,7 +661,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     <div class="mat-legend a-up d3"><span><b class="ma">A</b>세로형 384×768</span><span><b class="mb">B</b>박스 696×580</span><span><b class="mc">C</b>피드 띠 1200×400</span><span><b class="md">D</b>상세 배너 1200×628</span><span><b class="me">E</b>와이드 띠 1200×300</span><span><b class="mf">F</b>전면 800×1000</span><span><b class="mg">G</b>푸시 이미지 1024×512</span></div>
     <div class="foot-note a-up d3" style="text-align:center;margin-top:8px">소재는 규격 박스 안에 비율을 유지해 들어갑니다 · 노출은 화면 50% 이상 1초 기준<br>소재가 없는 자리는 접히거나 기본 콘텐츠로 채워집니다</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 
@@ -666,7 +673,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     <div class="a-up d2" style="display:flex;justify-content:center"><div class="browser" style="width:860px"><div class="bar"><i></i><i></i><i></i><b></b></div><div class="body" style="height:435px"><img src="images/slot-home-full.png" alt="웹 홈 전체 화면"><div class="ad-highlight" data-l="W1" style="left:11px;width:80px;top:215px;height:158px"></div><div class="ad-highlight" data-l="W2" style="left:702px;width:158px;top:57px;height:133px"></div><div class="ad-highlight" data-l="W3" style="left:146px;width:512px;top:48px;height:170px"></div></div></div></div>
     <div class="slot-legend a-up d3"><span><b>W1</b>좌측 사이드바 최하단 · 고정 · 1024px 이상</span><span><b>W2</b>우측 사이드바 최상단 · 3장 6초 교체 · 1280px 이상</span><span><b>W3</b>피드 5번째 카드 뒤, 이후 10개마다 (앱 A1과 세트)</span></div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <section class="slide" id="slide-16">
@@ -679,7 +686,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     </div>
     <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 화면은 실제 서비스 캡처, 광고 자리는 예시 이미지<br>진입 팝업은 웹 · 앱 어디로 들어와도 같은 소재로 노출</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 17 · Placements: APP ===== -->
@@ -694,7 +701,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     </div>
     <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 화면은 실제 앱 캡처, 광고 자리는 예시 이미지<br>홈 인사이트 중간 · 인사이트 내 하단은 웹과 세트로 판매</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 17b · Placements: COMMON ===== -->
@@ -708,14 +715,14 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     </div>
     <div class="foot-note" style="text-align:center;margin-top:16px">주황 박스 = 광고 구좌 위치 · 알림센터 카드는 웹에도 같은 자리에 노출<br>push 화면은 예시</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 21 · Divider 06 ===== -->
 <section class="slide slide-dark" id="slide-19">
-  <div class="doc-tag"><span class="wm"><span class="t">Tube</span><span class="l">LuLu</span></span><span>광고 상품 소개서</span></div>
+  <div class="doc-tag"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg><span>광고 상품 소개서</span></div>
   <div class="divider-wrap"><div class="divider-num a-left d1">04</div><div class="a-left d2"><div class="divider-title">광고 신청</div><div class="divider-sub">문의부터 집행까지 5단계</div></div></div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 22 · Process ===== -->
@@ -731,7 +738,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       <div class="proc-step fill">광고<br>집행<div class="proc-note bottom">합의된 일정에 시작<br>계약한 구좌·상품 게재</div></div>
     </div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 23 · Policy ===== -->
@@ -753,7 +760,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
     </div>
     <div class="foot-note" style="text-align:center;margin-top:22px">모든 광고에 "광고" 표기 · 알림형 광고는 수신 동의자에게만 08~21시 발송 · 게재 소재 사전 승인권은 TubeLuLu에 있습니다</div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 24 · Inquiry form ===== -->
@@ -780,7 +787,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       </div>
     </div>
   </div>
-  <div class="brand-mark"><span class="t">Tube</span><span class="l">LuLu</span></div>
+  <div class="brand-mark"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
 </section>
 
 <!-- ===== 25 · Thanks ===== -->
@@ -804,7 +811,7 @@ body { font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSy
       <path d="M22 10 H78 A14 14 0 0 1 92 24 V66 A14 14 0 0 1 78 80 H54 L38 96 V80 H22 A14 14 0 0 1 8 66 V24 A14 14 0 0 1 22 10 Z" fill="#09347A"/>
       <rect x="22.5" y="36" width="7" height="12" rx="3.5" fill="#FFFFFF"/><rect x="34.5" y="31" width="7" height="22" rx="3.5" fill="#FFFFFF"/><rect x="46.5" y="26" width="7" height="32" rx="3.5" fill="#3399CC"/><rect x="58.5" y="31" width="7" height="22" rx="3.5" fill="#FFFFFF"/><rect x="70.5" y="36" width="7" height="12" rx="3.5" fill="#FFFFFF"/>
     </svg>
-    <div class="cover-wm"><span class="t">Tube</span><span class="l">LuLu</span></div>
+    <div class="cover-wm"><svg class="lg" viewBox="352.4 23.6 395.2 212.8" role="img" aria-label="투베룰루"><use href="#lg"/></svg></div>
   </div>
 </section>
 
